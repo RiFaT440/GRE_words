@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GRE Word Groups :: Vintage Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-color: #d6503b;
+  --paper: #f3edd7;
+  --paper-dark: #e5dbba;
+  --ink: #2b2625;
+  --ink-light: #524845;
+  --accent: #d6503b;
+  --accent-dark: #b23b28;
+  --gold: #d99a38;
+  --teal: #3b8b88;
+  --ok: #347a52;
+  --no: #b5382b;
+  --shadow: 3px 3px 0px rgba(43, 38, 37, 0.85);
+  --shadow-lg: 5px 5px 0px rgba(43, 38, 37, 0.85);
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--ink);
+  font-family: 'Courier Prime', "Noto Sans Bengali", monospace;
+  font-size: 20px;
+  line-height: 1.4;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  /* Vintage Linen / Texture Pattern Simulation */
+  background-image: 
+    radial-gradient(var(--accent-dark) 15%, transparent 16%),
+    radial-gradient(var(--accent-dark) 15%, transparent 16%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+/* Paper Grain Texture Overlay */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px);
+  z-index: 99;
+  pointer-events: none;
+}
+
+.bn { font-family: "Noto Sans Bengali", 'Courier Prime', serif; }
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 18px 64px;
+}
+
+/* Vintage Header Title */
+.header-tag {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  color: var(--paper);
+  text-align: center;
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px var(--ink);
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 4px 4px 0px var(--ink);
+}
+
+.stars {
+  text-align: center;
+  color: var(--paper);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 6px;
+}
+
+.hero {
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  outline: 2px dashed var(--paper);
+  outline-offset: -10px;
+  box-shadow: var(--shadow-lg);
+  padding: 24px 20px;
+  margin: 0 0 28px;
+  text-align: center;
+  position: relative;
+}
+
+.hero b {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.bar {
+  height: 20px;
+  background: var(--paper-dark);
+  border: 3px solid var(--ink);
+  margin: 14px 0 0;
+  padding: 2px;
+  position: relative;
+  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 16px 10px 14px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.tile:not(.off):hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0px var(--ink);
+  background: #fffdf5;
+}
+
+.tile:not(.off):active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink);
+}
+
+.tile b {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.tile span {
+  font-size: 0.85rem;
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  color: var(--ink-light);
+}
+
+.tile .pg {
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 6px;
+  background: var(--teal);
+  display: block;
+}
+
+.tile.off {
+  opacity: 0.6;
+  background: var(--paper-dark);
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+/* Retro Badge / Top Bar Navigation */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.back, button {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 10px 18px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.back:hover, button:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.back:active, button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.tabs button {
+  border-color: var(--ink);
+}
+
+.tabs button[aria-selected="true"] {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.stat {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  color: var(--paper);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-shadow: 2px 2px 0px var(--ink);
+  letter-spacing: 1px;
+}
+
+/* Flashcard Vintage Stamp Design */
+.scene {
+  perspective: 1000px;
+  height: 480px;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card.fl {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 4px solid var(--ink);
+  outline: 2px dashed var(--accent);
+  outline-offset: -12px;
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  background: var(--paper);
+}
+
+.front .term {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.front .hint {
+  font-family: 'Courier Prime', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink-light);
+  margin-top: 16px;
+  letter-spacing: 1px;
+}
+
+.back-f {
+  transform: rotateY(180deg);
+  align-items: flex-start;
+  text-align: left;
+  justify-content: flex-start;
+  background: #fbf7ea;
+}
+
+.pron {
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--teal);
+}
+
+.bnm {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.row {
+  width: 100%;
+  padding-top: 10px;
+  border-top: 2px dashed var(--paper-dark);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.row small {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 3px 12px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0px var(--ink);
+}
+.chip.p { background: #d3ebd8; color: var(--ok); }
+.chip.n { background: #fbdad6; color: var(--no); }
+.chip.z { background: #faecc9; color: var(--ink); }
+
+.act {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.btn {
+  padding: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.btn.no { background: #fbdad6; color: var(--no); border-color: var(--ink); }
+.btn.no:hover { background: var(--no); color: var(--paper); }
+.btn.ok { background: #d3ebd8; color: var(--ok); border-color: var(--ink); }
+.btn.ok:hover { background: var(--ok); color: var(--paper); }
+.btn.pr { background: var(--paper); color: var(--ink); }
+.btn.pr:hover { background: var(--accent); color: var(--paper); }
+
+.box {
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  outline: 2px dashed var(--accent);
+  outline-offset: -10px;
+  box-shadow: var(--shadow-lg);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.box h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin: 0 0 14px;
+}
+
+select {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  background: var(--paper-dark);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  padding: 8px 14px;
+  margin: 12px 0 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--ink);
+}
+
+.q {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 6px;
+  text-shadow: 2px 2px 0px var(--ink);
+}
+
+.qw {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0 0 20px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0px var(--ink);
+}
+
+.opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fbf7ea;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.opt:hover:not(:disabled) {
+  background: var(--paper-dark);
+}
+
+.opt.good {
+  border-color: var(--ink);
+  background: #d3ebd8;
+  color: var(--ok);
+  font-weight: bold;
+}
+
+.opt.bad {
+  border-color: var(--ink);
+  background: #fbdad6;
+  color: var(--no);
+}
+
+.miss {
+  text-align: left;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.miss li {
+  padding: 10px;
+  border-bottom: 2px dashed var(--ink);
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  .header-tag { font-size: 1.2rem; }
+  .scene { height: 440px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+  .tile b { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+(function(){
+var K="gre-38-groups-v1";
+var RAW="abound|uh-BOUND|proliferate, teem, swarm|scarce, lack, dwindle|0|প্রচুর পরিমাণে থাকা\namorphous|ay-MOR-fus|nebulous, vague, indeterminate|definite, shaped, distinct|0|অনির্দিষ্ট আকার\naustere|aw-STEER|ascetic, severe, stern|lavish, indulgent, ornate|-|কঠোর, নির্মম\nbelie|bih-LYE|contradict, negate, disprove|confirm, reflect, support|0|মিথ্যা ধারণা দেওয়া\ncapricious|kuh-PRISH-us|whimsical, fickle, mercurial|steady, constant, predictable|-|খামখেয়ালী\ncerebral|suh-REE-brul|intellectual, rational, analytical|emotional, instinctive, impulsive|+|বুদ্ধিবৃত্তিক\ncongenial|kun-JEEN-yul|pleasant, agreeable, compatible|hostile, disagreeable, unfriendly|+|উপযুক্ত, অনুকূল\nconspicuous|kun-SPIK-yoo-us|prominent, noticeable, obvious|hidden, inconspicuous, subtle|0|সুস্পষ্ট\ncursory|KUR-suh-ree|hasty, superficial, perfunctory|thorough, careful, detailed|-|তাড়াহুড়ো করে করা\ndaunting|DAWN-ting|intimidating, forbidding, dismaying|encouraging, inviting, reassuring|-|ভীতিকর\ndeify|DEE-uh-fy|exalt, glorify, venerate|demean, vilify, debase|+|দেবত্বারোপ করা\ndidactic|dy-DAK-tik|instructive, preachy, pedantic|entertaining, subtle, non-moralizing|-|উপদেশমূলক\ndisseminate|dih-SEM-ih-nayt|distribute, circulate, propagate|withhold, suppress, hoard|0|ছড়িয়ে দেওয়া\nfeasible|FEE-zuh-bul|possible, achievable, practicable|impossible, impractical, unworkable|+|সম্ভাব্য\nflout|FLOWT|defy, disregard, scorn|obey, respect, observe|-|অবজ্ঞা করা\nhomogeneous|hoh-muh-JEE-nee-us|uniform, consistent, unvarying|diverse, varied, mixed|0|সমজাতীয়\nhumdrum|HUM-drum|dull, monotonous, prosaic|exciting, varied, lively|-|একঘেয়ে\ninsipid|in-SIP-id|tasteless, bland, vapid|flavorful, zesty, stimulating|-|স্বাদহীন, নীরস\nloquacious|loh-KWAY-shus|talkative, chatty, garrulous|taciturn, reserved, quiet|0|বাচাল\nmisanthropic|mis-un-THROP-ik|cynical, reclusive, distrustful|sociable, philanthropic, friendly|-|মানুষবিদ্বেষী\nmisnomer|mis-NOH-mur|misnaming, malapropism, inaccuracy|apt name, accurate term, correct label|0|ভুল নাম\nnegligent|NEG-lih-jent|careless, lax, remiss|careful, diligent, attentive|-|অবহেলাকারী\nobsequious|ub-SEE-kwee-us|servile, fawning, sycophantic|assertive, domineering, independent|-|চাটুকার\nplacate|PLAY-kayt|appease, pacify, mollify|provoke, enrage, antagonize|+|প্রশমিত করা, শান্ত করা\nproclivity|proh-KLIV-ih-tee|inclination, tendency, predisposition|aversion, disinclination, reluctance|0|প্রবণতা\npuerile|PYOOR-ul|childish, immature, juvenile|mature, adult, sensible|-|শিশুসুলভ\nquixotic|kwik-SOT-ik|idealistic, impractical, visionary|practical, realistic, pragmatic|0|অবাস্তব\nspendthrift|SPEND-thrift|wasteful, extravagant, profligate|frugal, thrifty, economical|-|অমিতব্যয়ী\ntaciturn|TAS-ih-turn|reserved, silent, uncommunicative|talkative, chatty, outgoing|0|নীরব\nwary|WAIR-ee|cautious, careful, watchful|careless, reckless, trusting|0|সতর্ক";
+function parse(r){return r.split("\n").map(function(l){var p=l.split("|");return{t:p[0],p:p[1],s:p[2],a:p[3],c:p[4],b:p[5],e:p[6]}})}
+var R2=`adulterate|uh-DUL-tuh-rayt|contaminate, debase, pollute|purify, refine, cleanse|-|ভেজাল মেশানো
+advocate|AD-vuh-kut|champion, proponent, supporter|opponent, critic, detractor|+|সমর্থক
+aggrandize|uh-GRAN-dyz|elevate, magnify, enlarge|belittle, diminish, humble|0|মর্যাদা বৃদ্ধি করা
+alacrity|uh-LAK-rih-tee|eagerness, promptness, swiftness|reluctance, apathy, sluggishness|+|উত্সাহ
+ambivalent|am-BIV-uh-lunt|equivocal, mixed, uncertain|decided, certain, resolute|0|দ্বার্থবোধক
+ameliorate|uh-MEEL-yuh-rayt|improve, enhance, upgrade|worsen, aggravate, exacerbate|+|উন্নতি করা
+amenable|uh-MEE-nuh-bul|compliant, flexible, receptive|stubborn, resistant, obstinate|+|সহজে প্রভাবিত
+anachronistic|uh-nak-ruh-NIS-tik|outdated, antiquated, archaic|modern, current, contemporary|0|কালবিরোধী
+audacious|aw-DAY-shus|bold, daring, fearless|timid, cautious, meek|0|দুঃসাহসী
+avaricious|av-uh-RISH-us|greedy, rapacious, covetous|generous, charitable, munificent|-|লোভী
+banal|buh-NAL|trite, hackneyed, commonplace|original, fresh, novel|-|গতানুগতিক
+benign|bih-NYN|harmless, gentle, kind|harmful, malignant, hostile|+|নিরীহ
+brazen|BRAY-zun|bold, shameless, impudent|modest, bashful, sheepish|-|নির্লজ্জ
+calumny|KAL-um-nee|slander, defamation, libel|praise, flattery, tribute|-|অপবাদ
+candid|KAN-did|frank, direct, honest|evasive, deceitful, guarded|+|স্পষ্টবাদী
+castigate|KAS-tih-gayt|reprimand, rebuke, scold|praise, commend, applaud|-|তিরস্কার করা
+caustic|KAW-stik|corrosive, biting, sarcastic|gentle, soothing, kind|-|তিক্ত
+construe|kun-STROO|interpret, understand, deduce|misread, misinterpret, confuse|0|ব্যাখ্যা করা
+contrite|kun-TRYT|remorseful, repentant, apologetic|unrepentant, impenitent, defiant|0|অনুতপ্ত
+convoluted|KON-vuh-loo-tid|complicated, complex, intricate|simple, straightforward, clear|-|জটিল
+covet|KUV-it|desire, crave, yearn for|disdain, renounce, spurn|-|লোভ করা
+craven|KRAY-vun|cowardly, timid, pusillanimous|brave, courageous, bold|-|কাপুরুষ
+decorum|dih-KOR-um|propriety, etiquette, decency|impropriety, rudeness, indecency|+|শালীনতা
+deft|DEFT|skillful, adept, dexterous|clumsy, inept, awkward|+|দক্ষ
+demur|dih-MUR|object, protest, hesitate|agree, consent, accept|0|আপত্তি করা
+derivative|dih-RIV-uh-tiv|unoriginal, imitative, borrowed|original, innovative, unique|-|অনুকরণীয়
+desiccate|DES-ih-kayt|dehydrate, dry out, shrivel|moisten, hydrate, saturate|0|শুকানো
+diatribe|DY-uh-tryb|rant, tirade, harangue|praise, eulogy, compliment|-|তীব্র নিন্দা
+incredulous|in-KREJ-uh-lus|skeptical, disbelieving, doubtful|credulous, trusting, gullible|0|অবিশ্বাসী
+ingenuous|in-JEN-yoo-us|naive, innocent, artless|sophisticated, devious, worldly|+|নিষ্পাপ`;
+var R3=`abate|uh-BAYT|subside, lessen, diminish|intensify, increase, escalate|0|হ্রাস করা, কম করা
+abjure|ab-JOOR|renounce, reject, repudiate|embrace, adopt, accept|0|প্রত্যাখ্যান করা, ত্যাগ করা
+anomalous|uh-NOM-uh-lus|abnormal, irregular, atypical|normal, typical, regular|0|অস্বাভাবিক, অনিয়মিত
+antipathy|an-TIP-uh-thee|aversion, hostility, dislike|affinity, liking, fondness|-|বিদ্বেষ, ঘৃণা
+arcane|ar-KAYN|secret, mysterious, esoteric|common, familiar, obvious|0|গূঢ়, রহস্যময়
+arduous|AR-joo-us|difficult, strenuous, laborious|easy, effortless, simple|-|কষ্টসাধ্য, পরিশ্রমসাধ্য
+artless|ART-lus|natural, guileless, naive|cunning, crafty, calculating|+|সরল, নিষ্পাপ, অকপট
+ascetic|uh-SET-ik|austere, abstinent, self-denying|indulgent, hedonistic, luxurious|0|নিরামিষভোজী, তপস্বী
+assuage|uh-SWAYJ|soothe, alleviate, mitigate|aggravate, intensify, provoke|+|প্রশমিত করা, উপশম করা
+betray|bih-TRAY|reveal, expose, be disloyal|protect, defend, remain loyal|-|বিশ্বাসঘাতকতা করা
+bucolic|byoo-KOL-ik|rustic, pastoral, rural|urban, citified, metropolitan|+|গ্রাম্য, পল্লী
+burgeon|BUR-jun|flourish, thrive, expand|wither, shrink, decline|+|বৃদ্ধি পাওয়া, প্রসারিত হওয়া
+cacophonous|kuh-KOF-uh-nus|discordant, harsh, dissonant|harmonious, melodious, musical|-|কর্কশ, বেসুরো
+canonize|KAN-uh-nyz|glorify, venerate, exalt|vilify, condemn, denounce|+|পুণ্যবান ঘোষণা করা
+censure|SEN-shur|condemn, denounce, criticize|praise, commend, approve|-|নিন্দা করা, ভর্ৎসনা করা
+chicanery|shih-KAY-nuh-ree|deceit, trickery, fraud|honesty, candor, integrity|-|প্রতারণা, ছলনা
+coalesce|koh-uh-LES|fuse, merge, unite|separate, divide, disperse|0|একত্রিত হওয়া, মিলিত হওয়া
+cogent|KOH-junt|convincing, persuasive, compelling|unconvincing, weak, implausible|+|যুক্তিগ্রাহ্য, দৃঢ়প্রত্যয়ী
+compelling|kum-PEL-ing|forceful, persuasive, irresistible|unconvincing, boring, weak|+|সম্মোহনীয়, অনুরোধপূর্ণ
+contend|kun-TEND|argue, assert, struggle|concede, yield, relinquish|0|তর্ক করা, বজায় রাখা
+copious|KOH-pee-us|plentiful, abundant, profuse|scarce, meager, sparse|+|প্রচুর
+cosmopolitan|koz-muh-POL-ih-tun|worldly, sophisticated, diverse|provincial, parochial, narrow|+|আন্তর্জাতিক
+deference|DEF-ur-uns|respect, submission, regard|disrespect, defiance, contempt|+|সম্মান প্রদর্শন
+desultory|DES-ul-tor-ee|random, aimless, haphazard|methodical, purposeful, systematic|-|পরিকল্পনাহীন, উদ্দেশ্যহীন
+diffident|DIF-ih-dunt|timid, shy, insecure|confident, bold, assertive|-|লাজুক, সংকোচী
+dilatory|DIL-uh-tor-ee|slow, tardy, procrastinating|prompt, hasty, diligent|-|ধীর, মন্থর
+equivocate|ih-KWIV-uh-kayt|prevaricate, be vague, hedge|be direct, clarify, commit|-|দ্বার্থবোধক ভাষা ব্যবহার করা
+polarize|POH-luh-ryz|divide, split, oppose|unite, unify, reconcile|-|বিভক্ত করা
+prodigal|PROD-ih-gul|wasteful, extravagant, lavish|thrifty, frugal, economical|-|অপব্যয়ী
+verbose|vur-BOHS|wordy, long-winded, loquacious|concise, terse, laconic|-|বাগাড়ম্বরপূর্ণ`;
+var R4=`abstain|ub-STAYN|refrain, desist, forbear|indulge, partake, persist|0|বিরত থাকা|He decided to abstain from alcohol during the health challenge.
+approbation|ap-ruh-BAY-shun|commendation, sanction, endorsement|disapproval, condemnation, censure|+|অনুমোদন|The new CEO's plan received widespread approbation from the board of directors.
+cherish|CHAIR-ish|treasure, adore, revere|neglect, disdain, despise|+|লালন করা|She cherished the memories of her childhood.
+corroborate|kuh-ROB-uh-rayt|confirm, verify, substantiate|contradict, refute, undermine|+|সমর্থন করা|The witness's testimony corroborated the suspect's alibi.
+disparate|DIS-puh-rit|distinct, divergent, dissimilar|similar, alike, uniform|0|ভিন্ন প্রকৃতির|Their ideas were so disparate that they couldn't find common ground.
+emulate|EM-yuh-layt|imitate, copy, mimic|differ from, ignore, shun|+|অনুসরণ করা|New writers often try to emulate the style of their literary heroes.
+enervate|EN-ur-vayt|weaken, debilitate, sap|invigorate, energize, strengthen|-|দুর্বল করা|The relentless heat enervated the marathon runners.
+ephemeral|ih-FEM-ur-ul|transient, fleeting, transitory|permanent, enduring, lasting|0|ক্ষণস্থায়ী|The mayfly's life is beautifully ephemeral.
+fervid|FUR-vid|ardent, zealous, passionate|apathetic, indifferent, cool|+|উৎসাহী|The fervid protestors rallied for days outside the government building.
+garrulous|GAIR-uh-lus|talkative, chatty, loquacious|taciturn, reserved, quiet|-|বাকপটু|The garrulous old man loved to tell stories about his youth.
+incendiary|in-SEN-dee-air-ee|inflammatory, provocative, seditious|soothing, calming, peaceable|-|উত্তেজক|The politician's incendiary speech sparked outrage.
+inimical|ih-NIM-ih-kul|hostile, adverse, antagonistic|friendly, favorable, helpful|-|শত্রুভাবাপন্ন|The two nations had a long history of inimical relations.
+intimate|IN-tuh-mayt|suggest, hint, imply|state, declare, announce|0|আভাস দেওয়া|She intimated her dissatisfaction with the project, without directly criticizing it.
+invigorate|in-VIG-uh-rayt|energize, animate, revitalize|exhaust, weaken, drain|+|চাঙ্গা করা|The brisk morning walk invigorated her for the day ahead.
+mitigate|MIT-ih-gayt|lessen, alleviate, attenuate|aggravate, worsen, intensify|+|উপশম করা|The new safety measures helped to mitigate the risks of accidents.
+obsolete|ob-suh-LEET|outdated, antiquated, archaic|current, modern, fashionable|-|অচল|The typewriter is now an obsolete piece of technology.
+opaque|oh-PAYK|impenetrable, nontransparent, obscure|transparent, clear, lucid|0|অস্বচ্ছ|The legal document was filled with opaque jargon.
+paradigmatic|pair-uh-dig-MAT-ik|exemplary, prototypical, quintessential|atypical, anomalous, unrepresentative|0|আদর্শ|The scientific experiment is a paradigmatic example of rigorous methodology.
+pedantic|puh-DAN-tik|meticulous, scrupulous, fussy|flexible, relaxed, broad-minded|-|খুঁতখুঁতে|The professor's pedantic lectures bored his students.
+placid|PLAS-id|calm, serene, tranquil|agitated, turbulent, excitable|+|শান্ত|The lake surface was placid in the early morning light.
+polemical|puh-LEM-ih-kul|controversial, contentious, disputatious|conciliatory, agreeable, peaceable|0|তর্কবিতর্কমূলক|His polemical essays sparked fierce discussion.
+precipitate|prih-SIP-ih-tut|hasty, rash, impetuous|deliberate, cautious, careful|-|ত্বরিত|The company's precipitate decision to downsize led to chaos.
+profundity|pruh-FUN-dih-tee|depth, insight, wisdom|shallowness, superficiality, triviality|+|গভীরতা|The philosopher's work was admired for its profundity.
+prophetic|pruh-FET-ik|predictive, visionary, prescient|unforeseeing, shortsighted, myopic|+|ভবিষ্যদ্বাণীমূলক|Her prophetic words about the changing climate proved all too true.
+prudent|PROO-dunt|wise, sensible, judicious|reckless, foolish, imprudent|+|বিচক্ষণ|It was prudent of them to save money for their retirement.
+punctilious|punk-TIL-ee-us|meticulous, scrupulous, exacting|careless, lax, sloppy|+|সতর্ক|She was a punctilious editor, catching every typographical error.
+recondite|REK-un-dyt|obscure, arcane, abstruse|clear, obvious, well-known|0|দুর্বোধ্য|His thesis explored a recondite area of philosophy.
+scrupulous|SKROO-pyuh-lus|ethical, principled, conscientious|unprincipled, careless, unethical|+|সৎ|The scrupulous accountant followed all regulations to the letter.
+tranquil|TRANG-kwil|peaceful, calm, serene|turbulent, agitated, noisy|+|প্রশান্ত|The tranquil lake at sunset was a perfect place for reflection.
+vacillate|VAS-uh-layt|waver, fluctuate, oscillate|decide, commit, resolve|-|দোদুল্যমান হওয়া|He vacillated between two choices, unable to make up his mind.`;
+var R5=`aloof|uh-LOOF|distant, detached, remote|friendly, involved, approachable|-|দূরবর্তী, বিচ্ছিন্ন|The aloof professor rarely interacted with students outside of class.
+clangor|KLANG-ur|clamor, racket, uproar|silence, quiet, hush|-|কোলাহল, গোলমাল|The clangor of construction work made it difficult to concentrate.
+conventional|kun-VEN-shuh-nul|traditional, customary, orthodox|unconventional, innovative, radical|0|প্রচলিত, প্রথাগত|The wedding followed conventional religious practices.
+debunk|dee-BUNK|expose, disprove, discredit|validate, confirm, support|0|ভুল প্রমাণ করা, খণ্ডন করা|The documentary debunked the conspiracy theories surrounding the event.
+diminutive|dih-MIN-yuh-tiv|tiny, petite, miniature|huge, enormous, gigantic|0|ক্ষুদ্র, খর্বাকার|The diminutive kitten fit in the palm of her hand.
+discernible|dih-SUR-nuh-bul|detectable, noticeable, observable|imperceptible, invisible, indistinct|0|দৃশ্যমান, বোধগম্য|A discernible change in her behavior raised concerns.
+enigmatic|en-ig-MAT-ik|mysterious, puzzling, inscrutable|clear, obvious, straightforward|0|রহস্যময়, দুর্বোধ্য|Her enigmatic smile left everyone wondering what she was thinking.
+estranged|ih-STRAYNJD|alienated, isolated, separated|reconciled, close, united|-|বিচ্ছিন্ন, সম্পর্কহীন|The siblings became estranged after a bitter argument.
+extravagant|ik-STRAV-uh-gunt|lavish, excessive, wasteful|frugal, thrifty, modest|-|অমিতব্যয়ী, অপচয়ী|The extravagant party featured exotic food and rare wines.
+fanciful|FAN-sih-ful|imaginative, whimsical, unrealistic|realistic, practical, factual|0|অলীক, কল্পনাপ্রসূত|The child's fanciful stories about fairies entertained everyone.
+frivolous|FRIV-uh-lus|silly, trivial, unimportant|serious, weighty, important|-|তুচ্ছ, নগণ্য|She wasted time on frivolous pursuits instead of studying.
+heterogeneous|het-ur-uh-JEE-nee-us|diverse, varied, mixed|homogeneous, uniform, alike|0|বৈচিত্র্যময়, ভিন্নধর্মী|The heterogeneous population of the city reflected its multicultural history.
+imperious|im-PEER-ee-us|commanding, domineering, arrogant|humble, submissive, meek|-|দাম্ভিক, কর্তৃত্বপরায়ণ|The imperious boss gave orders without considering others' opinions.
+impertinent|im-PUR-tuh-nunt|rude, disrespectful, insolent|respectful, polite, deferential|-|উদ্ধত, অভদ্র|The student's impertinent remark earned him a detention.
+invasive|in-VAY-siv|intrusive, interfering, encroaching|contained, harmless, confined|-|অনধিকারপ্রবেশকারী|The invasive species of plant threatened the native ecosystem.
+irresolute|ih-REZ-uh-loot|indecisive, wavering, hesitant|determined, decisive, resolute|-|দ্বিধাগ্রস্ত, অনিশ্চিত|His irresolute nature made it difficult for him to make choices.
+laudable|LAW-duh-bul|praiseworthy, commendable, admirable|blameworthy, contemptible, shameful|+|প্রশংসনীয়, স্তুতিযোগ্য|The volunteer's laudable efforts were recognized by the community.
+lax|LAKS|careless, negligent, slack|strict, rigorous, careful|-|শিথিল, অমনোযোগী|The lax security measures at the airport were concerning.
+marginalize|MAR-jih-nuh-lyz|exclude, isolate, relegate|include, welcome, embrace|-|প্রান্তিক করা, উপেক্ষা করা|The new policies marginalized certain groups within society.
+panache|puh-NASH|flair, style, flamboyance|dullness, drabness, awkwardness|+|সাহসিকতা, আড়ম্বর|The actor carried himself with great panache.
+plodding|PLOD-ing|slow, laborious, tedious|brisk, quick, lively|-|ধীরগতিসম্পন্ন, শ্রমসাধ্য|The plodding pace of the work made progress frustrating.
+prosaic|proh-ZAY-ik|ordinary, dull, commonplace|imaginative, poetic, exciting|-|গতানুগতিক, নীরস|The prosaic writing style failed to inspire the reader.
+remedial|rih-MEE-dee-ul|corrective, restorative, rectifying|harmful, damaging, aggravating|+|প্রতিকারমূলক|The student needed remedial math classes to catch up.
+restive|RES-tiv|restless, uneasy, agitated|calm, relaxed, patient|-|অস্থির, উদ্বিগ্ন|The restive crowd grew impatient while waiting in line.
+sporadic|spuh-RAD-ik|occasional, infrequent, irregular|constant, continuous, regular|0|অনিয়মিত, ছটিকে|There were sporadic bursts of rain throughout the day.
+stigmatize|STIG-muh-tyz|disgrace, shame, discredit|honor, praise, celebrate|-|কলঙ্কিত করা|People with mental health issues are often stigmatized.
+undermine|un-dur-MYN|weaken, sabotage, subvert|strengthen, support, bolster|-|দুর্বল করা, ক্ষতিসাধন করা|The scandal undermined the politician's reputation.
+utterly|UT-ur-lee|completely, absolutely, totally|partially, somewhat, slightly|0|সম্পূর্ণভাবে|The news utterly devastated her.
+weary|WEER-ee|tired, exhausted, fatigued|energetic, refreshed, lively|-|ক্লান্ত, পরিশ্রান্ত|After the long hike, the travelers were weary.
+zealous|ZEL-us|enthusiastic, passionate, fervent|apathetic, indifferent, lukewarm|+|উৎসাহী, আগ্রহী|The zealous activist worked tirelessly for the cause.`;
+var R6=`admonish|ad-MON-ish|reprove, rebuke, scold|praise, commend, applaud|-|তিরস্কার করা, ভর্ৎসনা করা|The teacher admonished the student for skipping class.
+aesthetic|es-THET-ik|artistic, tasteful, refined|ugly, tasteless, crude|+|নান্দনিক, শৈল্পিক|Her home décor has a very refined aesthetic.
+affectation|af-ek-TAY-shun|pretense, pose, sham|sincerity, naturalness, honesty|-|ভান, কপটতা|His use of obscure vocabulary was seen as mere affectation.
+alleviate|uh-LEE-vee-ayt|ease, reduce, mitigate|aggravate, worsen, intensify|+|উপশম করা, হ্রাস করা|The medication helped alleviate her chronic pain.
+analogous|uh-NAL-uh-gus|similar, comparable, parallel|dissimilar, unrelated, different|0|অনুরূপ, সদৃশ|The situation was analogous to what had happened a year ago.
+bolster|BOHL-stur|support, reinforce, boost|undermine, weaken, impair|+|সমর্থন করা, শক্তিশালী করা|The new research bolstered the existing theory.
+chauvinistic|shoh-vuh-NIS-tik|jingoistic, biased, bigoted|open-minded, tolerant, impartial|-|অতিরিক্ত দেশপ্রেমী|The politician made several chauvinistic remarks in his speech.
+connoisseur|kon-uh-SUR|expert, aficionado, savant|novice, amateur, layman|+|বিশেষজ্ঞ, পারদর্শী|The art dealer was a renowned connoisseur of Renaissance paintings.
+dissemble|dih-SEM-bul|conceal, feign, mask|reveal, disclose, expose|-|ছদ্মবেশ ধারণ করা, ভান করা|She tried to dissemble her disappointment when she didn't get the job.
+dogged|DAW-gid|tenacious, resolute, persistent|halfhearted, irresolute, yielding|+|একগুঁয়ে, অবিচল|His dogged pursuit of the truth finally paid off.
+dupe|DOOP|deceive, trick, fool|enlighten, inform, undeceive|-|প্রতারণা করা, বোকা বানানো|The con artist managed to dupe several investors out of their money.
+empirical|em-PEER-ih-kul|observational, factual, firsthand|theoretical, speculative, hypothetical|0|পর্যবেক্ষণমূলক, অভিজ্ঞতালব্ধ|Scientists rely on empirical evidence to support their theories.
+engender|en-JEN-dur|generate, cause, produce|stifle, prevent, suppress|0|সৃষ্টি করা, উৎপন্ন করা|His careless actions could engender further problems.
+entitled|en-TY-tuld|privileged, arrogant, spoiled|humble, modest, deserving|-|অহংকারী, বিশেষ সুবিধা প্রাপ্য|His entitled attitude made him unpopular with his colleagues.
+pertinacious|pur-tuh-NAY-shus|stubborn, determined, resolute|yielding, wavering, flexible|0|একগুঁয়ে, হঠকারী|The detective was pertinacious in his pursuit of the suspect.
+presumptuous|prih-ZUMP-choo-us|arrogant, audacious, bold|modest, humble, deferential|-|দুঃসাহসী, ধৃষ্ট|It was presumptuous of him to assume he'd get the promotion without applying.
+probity|PROH-bih-tee|integrity, honesty, uprightness|dishonesty, corruption, duplicity|+|সততা, ন্যায়পরায়ণতা|The judge was known for her unquestionable probity.
+proliferate|pruh-LIF-uh-rayt|multiply, spread, increase|dwindle, diminish, decline|0|বিস্তৃত হওয়া, বৃদ্ধি পাওয়া|Rumors about the scandal proliferated throughout the town.
+specious|SPEE-shus|deceptive, misleading, false|genuine, valid, sound|-|ভ্রান্ত, বিভ্রান্তিকর|The lawyer presented a specious argument, but the jury wasn't fooled.
+spurious|SPYOOR-ee-us|false, fake, counterfeit|genuine, authentic, real|-|জাল, মিথ্যা|The market was flooded with spurious designer goods.
+subjective|sub-JEK-tiv|personal, biased, opinionated|objective, impartial, factual|0|ব্যক্তিগত, পক্ষপাতদুষ্ট|His review of the movie was highly subjective.
+subvert|sub-VURT|undermine, sabotage, overthrow|support, uphold, bolster|-|ধ্বংস করা, উৎখাত করা|The rebels sought to subvert the government.
+timorous|TIM-ur-us|fearful, timid, meek|bold, fearless, brave|-|ভীরু, কাপুরুষ|The timorous child hid behind his mother's legs.
+tortuous|TOR-choo-us|winding, twisting, complex|straight, direct, simple|-|প্যাঁচানো, জটিল|The tortuous mountain road was difficult to navigate.
+tractable|TRAK-tuh-bul|manageable, docile, compliant|unruly, stubborn, intractable|+|নমনীয়, বাধ্য|The new software was surprisingly tractable for beginners.
+transient|TRAN-zhunt|temporary, fleeting, short-lived|permanent, lasting, enduring|0|ক্ষণস্থায়ী, অস্থায়ী|The beauty of a rainbow is transient.
+ubiquitous|yoo-BIK-wih-tus|omnipresent, widespread, common|rare, scarce, uncommon|0|সর্বব্যাপী|Smartphones have become ubiquitous in modern society.
+underscore|un-dur-SKOR|emphasize, highlight, stress|downplay, minimize, understate|+|জোর দেওয়া, গুরুত্ব দেওয়া|The speaker underscored the importance of teamwork.
+venal|VEE-nul|corrupt, dishonest, bribable|honest, incorruptible, upright|-|ঘুষখোর, দুর্নীতিগ্রস্ত|The venal politician accepted bribes in exchange for favors.
+venerate|VEN-uh-rayt|respect, revere, honor|despise, disrespect, scorn|+|শ্রদ্ধা করা, সম্মান করা|The saint is venerated by followers of the religion.`;
+var R7=`appease|uh-PEEZ|placate, pacify, mollify|provoke, anger, incite|0|প্রশমিত করা, শান্ত করা|She tried to appease her angry coworker by offering to take on extra work.
+arbitrary|AR-bih-trair-ee|capricious, whimsical, random|reasoned, systematic, logical|-|খেয়ালখুশিমতো, অযৌক্তিক|The judge's decision seemed arbitrary and unfair.
+archaic|ar-KAY-ik|antiquated, obsolete, outdated|modern, current, new|0|প্রাচীন, সেকেলে|The museum displayed archaic tools from a bygone era.
+clamorous|KLAM-ur-us|noisy, vociferous, boisterous|quiet, silent, subdued|-|গোলমালপূর্ণ, হৈ চৈ পূর্ণ|The clamorous crowd demanded the politician's attention.
+dearth|DURTH|scarcity, lack, paucity|abundance, plenty, surplus|-|অভাব, দুর্ভিক্ষ|The dearth of rain led to a poor harvest.
+explicable|ik-SPLIK-uh-bul|understandable, comprehensible, clear|inexplicable, baffling, mysterious|+|ব্যাখ্যাযোগ্য, বোধগম্য|The scientist provided an explicable theory behind the phenomenon.
+hyperbole|hy-PUR-buh-lee|exaggeration, overstatement, embellishment|understatement, restraint, accuracy|-|অতিশয়োক্তি, বাড়াবাড়ি|The politician's speech was filled with hyperbole and empty promises.
+immutable|ih-MYOO-tuh-bul|unchangeable, fixed, permanent|changeable, variable, flexible|0|অপরিবর্তনীয়, স্থায়ী|The laws of physics are considered immutable.
+indefatigable|in-dih-FAT-ih-guh-bul|tireless, inexhaustible, persistent|weary, tired, lethargic|+|অক্লান্ত, অদম্য|The indefatigable athlete trained for hours each day.
+indolent|IN-duh-lunt|lazy, slothful, idle|industrious, diligent, active|-|অলস, কুঁড়ে|The indolent student failed to complete his assignments.
+insular|IN-suh-lur|narrow-minded, provincial, isolated|cosmopolitan, broad-minded, worldly|-|সংকীর্ণমনা, আত্মকেন্দ্রিক|The insular community was resistant to new ideas.
+intransigent|in-TRAN-sih-junt|uncompromising, inflexible, stubborn|flexible, compromising, amenable|-|অনমনীয়, একগুঁয়ে|The intransigent negotiator refused to budge on any point.
+intrepid|in-TREP-id|fearless, bold, courageous|timid, fearful, cowardly|+|নির্ভীক, সাহসী|The intrepid explorer ventured into uncharted territory.
+irreverent|ih-REV-ur-unt|disrespectful, impious, flippant|respectful, reverent, devout|-|অশ্রদ্ধাপূর্ণ, উদ্ধত|His irreverent jokes offended the religious leaders.
+loathe|LOHTH|hate, despise, abhor|love, adore, cherish|-|ঘৃণা করা, তীব্রভাবে অপছন্দ করা|She loathes dishonesty and deceit.
+malign|muh-LYN|slander, defame, vilify|praise, flatter, extol|-|নিন্দা করা, মিথ্যা কুৎসা রটানো|The politician tried to malign his opponent with false accusations.
+malleable|MAL-ee-uh-bul|pliable, adaptable, shapeable|rigid, inflexible, stiff|0|নমনীয়, পরিবর্তনসাধ্য|Children's minds are malleable and easily molded.
+neophyte|NEE-uh-fyt|novice, beginner, newcomer|expert, veteran, master|0|নবাগত, শিক্ষানবিশ|He was a neophyte in the field of computer science.
+plastic|PLAS-tik|moldable, flexible, adaptable|rigid, inflexible, stiff|0|নমনীয়, পরিবর্তনসাধ্য|The artist worked with plastic materials to create her sculptures.
+platitude|PLAT-ih-tood|cliché, truism, banality|insight, original remark, epigram|-|অতিব্যবহৃত মন্তব্য, ক্লিশে|The speaker's presentation was filled with boring platitudes.
+prescient|PRESH-ee-unt|prophetic, visionary, farsighted|shortsighted, unforeseeing, myopic|+|ভবিষ্যদ্বক্তা, দূরদর্শী|The author's prescient novel seemed to predict current technological advancements.
+pristine|PRIS-teen|unspoiled, immaculate, perfect|spoiled, tarnished, polluted|+|সতেজ, বিশুদ্ধ|The hikers discovered a pristine lake hidden in the mountains.
+reproach|rih-PROHCH|criticize, rebuke, scold|praise, commend, applaud|-|ভৎসনা করা, তিরস্কার করা|The teacher reproached the student for his disruptive behavior.
+robust|roh-BUST|strong, healthy, vigorous|weak, frail, feeble|+|মজবুত, শক্তিশালী|The economy showed robust growth despite the challenges.
+salubrious|suh-LOO-bree-us|healthful, wholesome, beneficial|unhealthy, harmful, noxious|+|স্বাস্থ্যকর, উপকারী|The salubrious mountain air helped him recover from his illness.
+sanction|SANGK-shun|approve, endorse, authorize|forbid, prohibit, veto|0|অনুমোদন দেওয়া, সম্মতি দেওয়া|The government sanctioned the construction of the new highway.
+sedulous|SEJ-uh-lus|diligent, assiduous, industrious|lazy, negligent, indolent|+|কর্মঠ, পরিশ্রমী|The sedulous student spent hours diligently studying for the exam.
+soporific|sop-uh-RIF-ik|sleep-inducing, drowsy, monotonous|stimulating, invigorating, arousing|-|নিদ্রাকারক, তন্দ্রাচ্ছন্ন|The professor's soporific lecture put the students to sleep.
+stern|STURN|strict, severe, uncompromising|lenient, gentle, easygoing|-|কঠোর, নির্দয়|The stern teacher demanded absolute obedience from her students.
+tendentious|ten-DEN-shus|biased, slanted, partisan|impartial, neutral, objective|-|পক্ষপাতদুষ্ট, পক্ষপাতপূর্ণ|The tendentious news report favored one political party over the other.`;
+var R8=`accentuate|ak-SEN-choo-ayt|highlight, stress, underscore|downplay, minimize, understate|+|জোর দেওয়া, গুরুত্ব দেওয়া|The red dress accentuated her fiery personality.
+conjectural|kun-JEK-chur-ul|speculative, hypothetical, theoretical|factual, proven, certain|0|অনুমানভিত্তিক, কল্পনাপ্রসূত|The detective's theory about the crime was purely conjectural.
+convivial|kun-VIV-ee-ul|festive, sociable, jovial|unfriendly, gloomy, reserved|+|আনন্দময়, সামাজিক|The party had a convivial atmosphere with lively music and good company.
+decadent|DEK-uh-dunt|corrupt, degenerate, dissolute|virtuous, upright, austere|-|অবক্ষয়শীল, পতনশীল|The decadent lifestyle of the aristocracy led to their downfall.
+egregious|ih-GREE-jus|outrageous, flagrant, glaring|minor, slight, excusable|-|ভয়ঙ্কর, চাঞ্চল্যকর|The egregious error on the financial report caused a scandal.
+evanescent|ev-uh-NES-unt|fleeting, transient, ephemeral|lasting, permanent, enduring|0|ক্ষণস্থায়ী, অল্পস্থায়ী|The beauty of the sunset was evanescent.
+flamboyant|flam-BOY-unt|ostentatious, showy, extravagant|subdued, modest, restrained|0|আড়ম্বরপূর্ণ, জাঁকাল|The singer's flamboyant outfits always made a statement.
+forestall|for-STAWL|prevent, hinder, avert|facilitate, permit, encourage|0|প্রতিরোধ করা, বাধা দেওয়া|The company took measures to forestall any potential lawsuits.
+gainsay|GAYN-say|contradict, deny, oppose|affirm, confirm, support|0|বিরোধ করা, অস্বীকার করা|No one could gainsay the evidence presented in court.
+galvanize|GAL-vuh-nyz|excite, stimulate, rouse|discourage, dull, pacify|+|উত্তেজিত করা, অনুপ্রাণিত করা|The inspirational speech galvanized the crowd into action.
+indiscriminate|in-dih-SKRIM-ih-nit|random, haphazard, unselective|selective, discerning, careful|-|অবিবেচনাপ্রসূত, বাছবিচারহীন|The hurricane caused indiscriminate damage across the region.
+innocuous|ih-NOK-yoo-us|harmless, inoffensive, safe|harmful, dangerous, offensive|+|নিরীহ, নিরাপদ|The innocuous comment sparked a heated debate.
+momentary|MOH-mun-tair-ee|brief, fleeting, transitory|lasting, prolonged, permanent|0|ক্ষণস্থায়ী, অস্থায়ী|The power outage was only momentary.
+mundane|mun-DAYN|ordinary, dull, routine|extraordinary, exciting, unusual|-|একঘেয়ে, সাধারণ|She was tired of her mundane daily routine.
+nettlesome|NET-ul-sum|irritating, annoying, vexing|pleasing, soothing, agreeable|-|বিরক্তিকর, উত্যক্তকারী|The nettlesome buzzing of the mosquito kept him awake.
+nullify|NUL-uh-fy|invalidate, cancel, negate|validate, enforce, uphold|0|বাতিল করা, অকার্যকর করা|The contract was nullified due to a breach of terms.
+obviate|OB-vee-ayt|prevent, preclude, remove|necessitate, require, cause|0|নিবারণ করা, দূর করা|The new safety measures obviate the need for additional security personnel.
+omnipresent|om-nih-PREZ-unt|ubiquitous, pervasive, widespread|absent, rare, scarce|0|সর্বব্যাপী, সার্বজনীন|The feeling of being watched was omnipresent.
+oust|OWST|expel, remove, evict|install, admit, reinstate|-|বহিষ্কার করা, উৎখাত করা|The corrupt politician was ousted from office.
+palpable|PAL-puh-bul|tangible, noticeable, perceptible|imperceptible, intangible, vague|0|স্পর্শকাতর, অনুভবগম্য|The tension in the room was palpable.
+perfidy|PUR-fih-dee|treachery, deceit, betrayal|loyalty, fidelity, honesty|-|বিশ্বাসঘাতকতা, প্রতারণা|The act of perfidy destroyed their friendship.
+profuse|pruh-FYOOS|abundant, plentiful, copious|scant, sparse, meager|0|প্রচুর, অজস্র|The profuse sweating was a sign of heat exhaustion.
+pugnacious|pug-NAY-shus|combative, aggressive, belligerent|peaceable, gentle, conciliatory|-|ঝগড়াটে, আক্রমণাত্মক|The pugnacious boxer was always ready for a challenge.
+sagacious|suh-GAY-shus|wise, intelligent, shrewd|foolish, unwise, naive|+|জ্ঞানী, বুদ্ধিমান|The sagacious leader made a sound decision during the crisis.
+sanguine|SANG-gwin|optimistic, positive, hopeful|pessimistic, gloomy, despondent|+|আশাবাদী, ইতিবাচক|He had a sanguine outlook on life, even in the face of adversity.
+scant|SKANT|limited, scarce, meager|ample, abundant, plentiful|-|অপ্রতুল, স্বল্প|Food supplies were scant after the natural disaster.
+skullduggery|skul-DUG-uh-ree|trickery, dishonesty, underhandedness|honesty, openness, fair play|-|প্রতারণা, চালাকি|The politician was accused of skullduggery.
+trivial|TRIV-ee-ul|unimportant, minor, insignificant|important, significant, crucial|-|তুচ্ছ, নগণ্য|Don't get bogged down by trivial matters.
+utilitarian|yoo-til-ih-TAIR-ee-un|practical, functional, pragmatic|decorative, impractical, ornamental|0|উপযোগী, ব্যবহারিক|The building had a utilitarian design.
+vapid|VAP-id|dull, uninteresting, lifeless|lively, stimulating, engaging|-|নিরস, বিরক্তিকর|The vapid conversation made her wish she was somewhere else.`;
+var R9=`boorish|BOOR-ish|churlish, unrefined, loutish|refined, polite, courteous|-|অসভ্য, গ্রাম্য|The boorish guest insulted the host's cooking.
+brook|BROOK|tolerate, endure, abide|refuse, reject, resist|0|সহ্য করা|I will not brook any disrespect towards my family.
+circumspect|SUR-kum-spekt|prudent, cautious, wary|reckless, rash, careless|+|সতর্ক, বিচক্ষণ|A circumspect investor researches thoroughly before buying stocks.
+comity|KOM-ih-tee|civility, courtesy, harmony|hostility, rudeness, discord|+|সৌজন্য, শিষ্টাচার|Nations should strive for comity to resolve disputes peacefully.
+commensurate|kuh-MEN-sur-it|proportional, equivalent, corresponding|disproportionate, unequal, inadequate|0|সমানুপাতিক|The salary should be commensurate with the candidate's experience.
+cordial|KOR-jul|friendly, warm, affable|hostile, cold, unfriendly|+|মধুর, আন্তরিক|We received a cordial welcome from our new neighbors.
+deleterious|del-ih-TEER-ee-us|injurious, detrimental, noxious|beneficial, helpful, healthful|-|ক্ষতিকর|Smoking has a deleterious effect on health.
+dichotomy|dy-KOT-uh-mee|division, bifurcation, separation|union, unity, merger|0|দ্বিধাবিভাজন|There is a dichotomy between theory and practice.
+edify|ED-ih-fy|enlighten, instruct, educate|mislead, corrupt, confuse|+|শিক্ষিত করা|The documentary was made to edify the public about climate change.
+felicitous|fih-LIS-ih-tus|apt, well-chosen, opportune|inappropriate, unfortunate, ill-timed|+|উপযুক্ত, সময়োপযোগী|She made a felicitous remark that diffused the tension.
+erudite|AIR-yuh-dyt|scholarly, learned, knowledgeable|ignorant, uneducated, unlearned|+|পাণ্ডিত্যপূর্ণ|The professor was known for his erudite lectures.
+fecund|FEK-und|fertile, fruitful, prolific|barren, sterile, unproductive|+|উর্বর|The fecund soil yielded a bountiful harvest.
+feeble|FEE-bul|frail, weak, enervated|strong, robust, vigorous|-|দুর্বল|The patient was still feeble after the surgery.
+forbear|for-BAIR|refrain, abstain, desist|indulge, persist, proceed|0|বিরত থাকা|They agreed to forbear from criticizing each other in public.
+haphazard|hap-HAZ-urd|random, disorganized, unsystematic|orderly, systematic, methodical|-|এলোমেলো|The haphazard arrangement of books made the library difficult to navigate.
+hodgepodge|HOJ-poj|mixture, jumble, medley|uniformity, order, purity|-|গোলমাল|The attic was filled with a hodgepodge of old toys and furniture.
+impede|im-PEED|hinder, obstruct, hamper|facilitate, aid, promote|-|বাধা দেওয়া|The roadblock impeded the flow of traffic.
+impetuous|im-PECH-oo-us|impulsive, rash, hasty|cautious, deliberate, prudent|-|বেপরোয়া|Her impetuous decision led to regrettable consequences.
+irascible|ih-RAS-uh-bul|irritable, short-tempered, volatile|calm, patient, easygoing|-|খিটখিটে|The irascible manager was prone to angry outbursts.
+mercenary|MUR-suh-nair-ee|greedy, materialistic, venal|altruistic, generous, selfless|-|লোভী|The mercenary soldier fought for whoever paid the highest price.
+meticulous|muh-TIK-yuh-lus|precise, thorough, scrupulous|careless, sloppy, negligent|+|সতর্ক|The scientist kept meticulous records of her experiments.
+mordant|MOR-dunt|caustic, biting, sarcastic|gentle, kind, mild|-|তীব্র|The movie critic was known for her mordant reviews.
+outstrip|owt-STRIP|exceed, surpass, outdo|lag behind, trail, fall short|+|অতিক্রম করা|The company's growth outstripped all expectations.
+precarious|prih-KAIR-ee-us|risky, uncertain, unstable|secure, stable, safe|-|অনিশ্চিত|The bridge looked precarious and ready to collapse.
+quirky|KWUR-kee|unusual, eccentric, unconventional|conventional, ordinary, normal|0|অদ্ভুত|Her quirky sense of humor made her stand out.
+repudiate|rih-PYOO-dee-ayt|reject, deny, renounce|accept, acknowledge, embrace|-|প্রত্যাখ্যান করা|They repudiated the allegations made against them.
+tact|TAKT|diplomacy, discretion, sensitivity|tactlessness, clumsiness, bluntness|+|নম্রতা|The diplomat handled the delicate situation with tact.
+trifling|TRY-fling|trivial, insignificant, unimportant|important, significant, crucial|-|তুচ্ছ|Don't waste your time on trifling matters.
+turbulent|TUR-byuh-lunt|chaotic, disorderly, agitated|calm, orderly, peaceful|-|অশান্ত|The turbulent weather delayed our flight.`;
+var R10=`acumen|AK-yuh-men|perspicacity, shrewdness, acuity|obtuseness, dullness, stupidity|+|প্রখরতা, তীক্ষ্ণ বুদ্ধি|The detective's acumen led him to identify the culprit quickly.
+antithesis|an-TITH-uh-sis|opposite, converse, contrary|equivalent, likeness, parallel|0|বিপরীত, প্রতিকূল|His generosity was the antithesis of his brother's selfishness.
+ascribe|uh-SKRYB|attribute, impute, assign|withhold, deny, disclaim|0|আরোপ করা, দায়ী করা|The success of the project was ascribed to the team's hard work.
+befuddled|bih-FUD-uld|confused, muddled, perplexed|clear-headed, lucid, enlightened|-|বিভ্রান্ত, হতবুদ্ধি|The complicated instructions befuddled the new employee.
+eschew|es-CHOO|avoid, shun, abstain|embrace, seek, adopt|0|বর্জন করা, এড়ানো|She tried to eschew foods high in sugar.
+esoteric|es-uh-TER-ik|abstruse, obscure, arcane|common, widely known, familiar|0|গূঢ়, রহস্যময়|The philosopher's writings were filled with esoteric references.
+evasive|ih-VAY-siv|dodging, equivocal, elusive|direct, forthright, candid|-|টালবাহানা করা, অস্পষ্ট|The politician gave an evasive answer when asked about the scandal.
+exculpate|EK-skul-payt|absolve, exonerate, vindicate|blame, accuse, incriminate|+|অভিযোগমুক্ত করা, দোষ খণ্ডন করা|The evidence exculpated the suspect.
+expedite|EK-spih-dyt|accelerate, hasten, quicken|delay, hinder, slow|+|ত্বরান্বিত করা, তাড়াতাড়ি করা|The team worked hard to expedite the project's completion.
+fastidious|fas-TID-ee-us|meticulous, scrupulous, exacting|careless, sloppy, easygoing|0|খুঁতখুঁতে, নিরভুলতা পছন্দকারী|She was a fastidious housekeeper, ensuring that everything was spotless.
+feign|FAYN|simulate, pretend, affect|reveal, disclose, express|-|ভান করা, অভিনয় করা|He feigned illness to get out of work.
+furtive|FUR-tiv|secretive, sly, surreptitious|open, candid, frank|-|গোপন, লুকোচুরি|The thief made a furtive glance around before entering the building.
+hamper|HAM-pur|hinder, obstruct, impede|facilitate, aid, assist|-|বাধা দেওয়া, বিলম্ব করা|The heavy rain hampered the rescue efforts.
+indispensable|in-dih-SPEN-suh-bul|essential, crucial, vital|dispensable, unnecessary, optional|+|অপরিহার্য, অত্যাবশ্যক|A good dictionary is an indispensable tool for a writer.
+lament|luh-MENT|mourn, grieve, bemoan|celebrate, rejoice, praise|-|বিলাপ করা, শোক করা|She lamented the loss of her beloved pet.
+myopic|my-OP-ik|short-sighted, unimaginative, narrow-minded|farsighted, visionary, perceptive|-|সংকীর্ণমনা, স্বল্পদৃষ্টি|The company's myopic focus on short-term profits led to its downfall.
+nonchalant|non-shuh-LONT|casual, unconcerned, indifferent|concerned, anxious, attentive|0|নির্লিপ্ত, উদাসীন|His nonchalant attitude towards the exam worried his parents.
+partial|PAR-shul|biased, prejudiced, incomplete|impartial, unbiased, complete|-|পক্ষপাতদুষ্ট, আংশিক|The judge was accused of being partial towards the defendant.
+pensive|PEN-siv|thoughtful, reflective, meditative|thoughtless, carefree, lighthearted|0|চিন্তামগ্ন, গভীর ভাবনায় নিমগ্ন|She sat in a pensive mood, contemplating her future.
+portend|por-TEND|foreshadow, foretell, signify|belie, conceal, contradict|-|ভবিষ্যদ্বাণী করা, পূর্বাভাস দেওয়া|The dark clouds portended a storm.
+provincial|pruh-VIN-shul|unsophisticated, parochial, narrow-minded|cosmopolitan, worldly, sophisticated|-|প্রাদেশিক, সংকীর্ণমনা|Her provincial views made her resistant to new ideas.
+rudimentary|roo-duh-MEN-tuh-ree|basic, elementary, primitive|advanced, sophisticated, developed|0|প্রাথমিক, মৌলিক|He had only a rudimentary understanding of the subject.
+salutary|SAL-yuh-tair-ee|beneficial, healthful, wholesome|harmful, detrimental, unhealthy|+|উপকারী, স্বাস্থ্যকর|The salutary benefits of exercise are well known.
+sever|SEV-ur|cut off, separate, divide|join, connect, unite|0|বিচ্ছিন্ন করা, খণ্ড করা|The two countries severed diplomatic ties.
+slight|SLYT|small, minor, trivial|significant, substantial, considerable|0|অল্প, তুচ্ছ|He felt a slight pain in his chest.
+somnolent|SOM-nuh-lunt|drowsy, sleepy, lethargic|alert, awake, energetic|0|তন্দ্রাচ্ছন্ন, নিদ্রালু|The warm weather made everyone somnolent.
+stoic|STOH-ik|impassive, unemotional, forbearing|emotional, excitable, demonstrative|+|ধৈর্যশীল, সংযমী|The injured soldier remained stoic throughout the ordeal.
+supersede|soo-pur-SEED|displace, replace, supplant|retain, preserve, maintain|0|প্রতিস্থাপন করা|This new technology will eventually supersede the old methods.
+tout|TOWT|promote, advertise, praise|disparage, criticize, belittle|0|প্রচার করা, খ্যাতি করা|The company was touting its new product as revolutionary.
+wane|WAYN|decrease, diminish, fade|wax, grow, increase|0|ক্ষয় হওয়া, হ্রাস পাওয়া|The moon began to wane as the sun rose.`;
+var R11=`abhor|ab-HOR|detest, loathe, despise|admire, adore, cherish|-|ঘৃণা করা|I abhor the cruelty that some people inflict on animals.
+boisterous|BOY-stur-us|rambunctious, uproarious, clamorous|calm, quiet, subdued|0|হৈচৈপূর্ণ|The crowd at the football game grew boisterous as their team scored a touchdown.
+chivalrous|SHIV-ul-rus|courteous, gallant, valiant|rude, discourteous, cowardly|+|বীরত্বপূর্ণ|The chivalrous knight opened the door for the princess.
+churlish|CHUR-lish|rude, surly, ill-mannered|polite, gracious, courteous|-|অভদ্র|The waiter's churlish behavior made for an unpleasant dining experience.
+clandestine|klan-DES-tin|covert, furtive, surreptitious|open, public, overt|-|গোপনীয়|They held clandestine meetings in the forest to plot the rebellion.
+complacent|kum-PLAY-sunt|self-satisfied, smug, unconcerned|concerned, dissatisfied, vigilant|-|আত্মতুষ্ট|The complacent athlete didn't train hard enough and lost the competition.
+cumbersome|KUM-bur-sum|unwieldy, awkward, bulky|compact, handy, manageable|-|বোঝাই|The cumbersome package was difficult to lift.
+debilitating|dih-BIL-ih-tay-ting|weakening, enfeebling, crippling|strengthening, invigorating, energizing|-|দুর্বল|The debilitating illness left her unable to work.
+deliberate|dih-LIB-ur-it|intentional, calculated, purposeful|accidental, unintentional, careless|0|ইচ্ছাকৃত|The detective took deliberate steps to examine the crime scene.
+droll|DROHL|whimsical, quaint, amusing|serious, solemn, dull|+|রসাত্মক|He told a droll story that had everyone laughing.
+eccentric|ik-SEN-trik|unconventional, quirky, peculiar|conventional, normal, ordinary|0|উদ্ভট|The eccentric artist's work was full of strange and wonderful images.
+fractious|FRAK-shus|irritable, quarrelsome, unruly|docile, agreeable, peaceable|-|ঝগড়াটে|The fractious children argued throughout the entire car trip.
+limpid|LIM-pid|clear, lucid, transparent|cloudy, murky, obscure|+|স্বচ্ছ|The limpid water of the mountain stream sparkled in the sunlight.
+mawkish|MAW-kish|sentimental, maudlin, cloying|restrained, unsentimental, dispassionate|-|ভাবপ্রবণ|The mawkish love story made me cringe.
+obeisance|oh-BAY-suns|deference, homage, respect|disrespect, defiance, contempt|0|আনুগত্য|The servant gave a deep obeisance to the king.
+ostentatious|os-ten-TAY-shus|pretentious, showy, flamboyant|modest, unpretentious, restrained|-|জাঁকালো|The celebrity's ostentatious mansion was filled with gold and marble.
+panacea|pan-uh-SEE-uh|cure-all, elixir, remedy|poison, affliction, bane|0|সর্বরোগহর ঔষধ|There is no panacea for all of life's troubles.
+perfunctory|pur-FUNGK-tuh-ree|cursory, mechanical, superficial|thorough, careful, enthusiastic|-|যান্ত্রিক|The inspector gave the machine a perfunctory glance.
+perilous|PAIR-uh-lus|dangerous, hazardous, risky|safe, secure, harmless|-|বিপজ্জনক|The perilous trek up the mountain was treacherous.
+pervasive|pur-VAY-siv|widespread, prevalent, ubiquitous|limited, rare, localized|0|ব্যাপক|There's a pervasive sense of hopelessness in the town.
+preclude|prih-KLOOD|prevent, hinder, obstruct|permit, allow, enable|0|বাঁধা দেওয়া|Lack of resources precluded them from finishing the project.
+predilection|pred-l-EK-shun|preference, partiality, fondness|aversion, dislike, antipathy|0|পক্ষপাত|She had a predilection for spicy food.
+rapacious|ruh-PAY-shus|greedy, avaricious, predatory|generous, giving, charitable|-|লোভী|The rapacious corporation devoured smaller businesses.
+relish|REL-ish|enjoy, savor, delight in|dislike, loathe, dread|+|উপভোগ করা|I relish a good cup of coffee in the morning.
+satirical|suh-TEER-ih-kul|mocking, ironic, sardonic|earnest, sincere, straightforward|0|ব্যঙ্গাত্মক|The satirical play lampooned the government.
+sham|SHAM|fake, bogus, counterfeit|genuine, authentic, real|-|ভান|The so-called miracle cure turned out to be a sham.
+skirt|SKURT|avoid, evade, circumvent|confront, face, tackle|0|এড়িয়ে যাওয়া|The politician skillfully skirted all the tough questions.
+sluggish|SLUG-ish|slow, lethargic, inert|energetic, brisk, lively|-|মন্থর|The sluggish traffic made me late for work.
+spartan|SPAR-tun|austere, simple, frugal|luxurious, lavish, indulgent|0|সাধারণ|The soldier led a spartan lifestyle in the barracks.
+truculent|TRUK-yuh-lunt|aggressive, defiant, belligerent|gentle, peaceable, docile|-|আক্রমণাত্মক|He had a reputation for being a truculent bully.`;
+var R12=`acrimonious|ak-rih-MOH-nee-us|rancorous, hostile, vitriolic|amicable, cordial, courteous|-|তিক্ততাপূর্ণ, বিদ্বেষপূর্ণ|Their divorce proceedings turned acrimonious, filled with accusations.
+belligerent|buh-LIJ-ur-unt|combative, pugnacious, warlike|peaceful, friendly, conciliatory|-|যুদ্ধংদেহী, আক্রমণাত্মক|The belligerent nation threatened its neighbors with invasion.
+beneficent|buh-NEF-ih-sunt|altruistic, philanthropic, magnanimous|malevolent, selfish, stingy|+|দয়ালু, হিতৈষী|The beneficent foundation funded scholarships for many students.
+canny|KAN-ee|shrewd, astute, judicious|naive, foolish, gullible|+|চালাক, বুদ্ধিমান|The canny investor made a fortune in the stock market.
+cavalier|kav-uh-LEER|dismissive, offhand, haughty|serious, respectful, attentive|-|উদাসীন, অহংকারী|His cavalier attitude towards the project angered his team.
+distressed|dih-STREST|troubled, anguished, upset|calm, content, untroubled|-|কষ্টপ্রাপ্ত, দুঃখিত|The distressed family sought help after the hurricane.
+dwindling|DWIN-dling|diminishing, shrinking, decreasing|growing, increasing, expanding|-|ক্ষীণ, হ্রাসমান|The company faced bankruptcy due to dwindling profits.
+eclipse|ih-KLIPS|overshadow, outshine, surpass|equal, fall short of, reveal|0|ছাপিয়ে যাওয়া, অতিক্রম করা|The new building eclipsed the old one in both size and style.
+encyclopedic|en-sy-kluh-PEE-dik|comprehensive, exhaustive, vast|limited, narrow, superficial|+|বিশ্বকোষীয়, ব্যাপক|The researcher had an encyclopedic knowledge of history.
+exacerbate|ig-ZAS-ur-bayt|worsen, aggravate, intensify|alleviate, soothe, improve|-|আরও খারাপ করা, অবনতি ঘটানো|The new policy exacerbated the existing tensions within the group.
+exasperated|ig-ZAS-puh-ray-tid|frustrated, irritated, infuriated|pleased, calm, patient|-|বিরক্ত, ক্ষুব্ধ|The teacher grew exasperated with the student's constant disruptions.
+fungible|FUN-juh-bul|interchangeable, replaceable, substitutable|unique, irreplaceable, specific|0|বিনিময়যোগ্য, প্রতিস্থাপনযোগ্য|On the stock market, shares of a company are considered fungible.
+hackneyed|HAK-need|overused, clichéd, trite|original, fresh, novel|-|ঘষামাজা, নীরস|The writer's story relied on hackneyed plot devices.
+incongruous|in-KONG-groo-us|out of place, inappropriate, mismatched|fitting, harmonious, consistent|-|অসঙ্গতিপূর্ণ, বেমানান|The modern sculpture looked incongruous in the historical building.
+interchangeable|in-tur-CHAYN-juh-bul|swappable, equivalent, substitutable|distinct, unique, irreplaceable|0|বিনিময়যোগ্য, অদলবদলযোগ্য|In this recipe, you can use butter and margarine interchangeably.
+laconic|luh-KON-ik|brief, terse, concise|wordy, verbose, long-winded|0|সংক্ষিপ্ত, অল্পবাক|The soldier's laconic reply hid his inner turmoil.
+lucrative|LOO-kruh-tiv|profitable, financially rewarding, money-making|unprofitable, unrewarding, futile|+|লাভজনক|The lawyer had a lucrative career in corporate law.
+magisterial|maj-ih-STEER-ee-ul|authoritative, commanding, imperious|humble, meek, submissive|0|নির্দেশমূলক, কর্তৃত্বপূর্ণ|The magisterial judge silenced the courtroom with a glare.
+onerous|OH-nur-us|burdensome, oppressive, weighty|easy, light, effortless|-|কষ্টদায়ক, ভারী|The tax hike placed an onerous burden on small businesses.
+opprobrium|uh-PROH-bree-um|disgrace, shame, dishonor|honor, praise, glory|-|তিরস্কার, অপমান|He faced opprobrium after the cheating scandal came to light.
+parsimonious|par-suh-MOH-nee-us|stingy, miserly, frugal|generous, lavish, extravagant|-|কৃপণ, খুবই মিতব্যয়ী|The parsimonious old man hoarded his wealth.
+peripheral|puh-RIF-ur-ul|marginal, secondary, tangential|central, essential, primary|0|গৌণ, প্রান্তিক|The argument focused on peripheral issues, not the main point.
+provocative|pruh-VOK-uh-tiv|inflammatory, incendiary, stimulating|soothing, calming, bland|0|উস্কানিমূলক, উত্তেজক|The political ad was deliberately provocative to stir up debate.
+renounce|rih-NOWNS|reject, disown, forsake|embrace, adopt, claim|-|ত্যাগ করা, প্রত্যাখ্যান করা|The monk renounced all worldly possessions.
+tempestuous|tem-PES-choo-us|turbulent, stormy, volatile|calm, peaceful, tranquil|-|অশান্ত, উত্তাল|They had a tempestuous relationship filled with passion and fights.
+tenable|TEN-uh-bul|defensible, justifiable, supportable|indefensible, untenable, unjustifiable|+|যুক্তিসঙ্গত, সমর্থনযোগ্য|The lawyer presented a tenable argument in court.
+transgression|trans-GRESH-un|violation, sin, offense|obedience, compliance, virtue|-|লঙ্ঘন, পাপ|The company was punished for its transgressions against environmental laws.
+urbane|ur-BAYN|sophisticated, refined, polished|crude, unrefined, boorish|+|ভদ্র, শালীন|The urbane diplomat handled the tense situation with grace.
+verisimilitude|ver-uh-sih-MIL-ih-tood|realism, believability, authenticity|implausibility, unreality, artificiality|0|বিশ্বাসযোগ্যতা, বাস্তবতা|The special effects in the movie lacked verisimilitude.
+vitiate|VISH-ee-ayt|impair, spoil, corrupt|improve, purify, enhance|-|দূষিত করা, নষ্ট করা|The scandal vitiated the politician's reputation.`;
+var R13=`affinity|uh-FIN-ih-tee|predilection, proclivity, penchant|aversion, antipathy, dislike|+|আকর্ষণ, সখ|She had an affinity for spicy food.
+altruistic|al-troo-IS-tik|selfless, benevolent, philanthropic|selfish, greedy, self-serving|+|পরার্থপর, নিঃস্বার্থ|The altruistic nurse volunteered in disaster zones.
+baroque|buh-ROHK|ornate, elaborate, flamboyant|plain, simple, austere|0|অলংকৃত, জাঁকাল|The baroque palace was filled with gold and marble.
+byzantine|BIZ-un-teen|convoluted, labyrinthine, intricate|simple, straightforward, direct|-|জটিল, প্যাঁচানো|The company's byzantine approval process took months.
+compromise|KOM-pruh-myz|accord, agreement, settlement|dispute, disagreement, standoff|0|মীমাংসা, সমঝোতা|The two sides finally reached a compromise after days of negotiation.
+conciliatory|kun-SIL-ee-uh-tor-ee|appeasing, placatory, pacifying|hostile, provocative, belligerent|+|শান্তিপূর্ণ, মীমাংসাকারী|Her conciliatory tone helped calm the angry customer.
+countenance|KOWN-tuh-nuns|visage, demeanor, mien|disapproval, rejection, prohibition|0|চেহারা, সমর্থন|His grim countenance revealed his displeasure.
+covert|KOH-vurt|clandestine, surreptitious, furtive|overt, open, public|-|গোপন, লুকানো|The spy carried out covert operations behind enemy lines.
+credible|KRED-uh-bul|believable, plausible, trustworthy|unbelievable, implausible, dubious|+|বিশ্বাসযোগ্য|The witness gave a credible account of the accident.
+diffuse|dih-FYOOS|rambling, discursive, verbose|concise, focused, succinct|-|বিক্ষিপ্ত, বিস্তৃত|The speaker's diffuse presentation lacked clarity.
+documentary|dok-yuh-MEN-tuh-ree|factual, expository, non-fiction|fictional, imaginary, invented|0|তথ্যচিত্র সম্বন্ধীয়|The documentary about climate change was eye-opening.
+exhaustive|ig-ZAW-stiv|comprehensive, thorough, meticulous|incomplete, partial, superficial|+|সম্পূর্ণ, নিখুঁত|The exhaustive investigation left no stone unturned.
+exhilarating|ig-ZIL-uh-ray-ting|thrilling, invigorating, stimulating|boring, depressing, dull|+|প্রাণবন্ত, উদ্দীপক|The roller coaster ride was exhilarating.
+extraneous|ik-STRAY-nee-us|irrelevant, superfluous, immaterial|relevant, essential, pertinent|-|অপ্রাসঙ্গিক|The lawyer removed extraneous details from the report.
+fervor|FUR-vur|zeal, ardor, passion|apathy, indifference, coolness|+|উদ্দীপনা, আবেগ|The crowd's fervor for the team was infectious.
+futile|FYOO-tl|pointless, useless, ineffectual|fruitful, productive, effective|-|নিষ্ফল, বৃথা|Their attempts to start the fire in the rain were futile.
+illusory|ih-LOO-suh-ree|deceptive, misleading, chimerical|real, genuine, actual|-|মায়াজনিত, ভ্রান্ত|The mirage in the desert created an illusory oasis.
+invidious|in-VID-ee-us|offensive, odious, unjust|fair, pleasant, agreeable|-|বিদ্বেষপূর্ণ|The invidious remarks spread ill will in the community.
+lethargic|luh-THAR-jik|sluggish, torpid, inert|energetic, lively, active|-|অলস, জড়|The heat made everyone feel lethargic.
+metaphorical|met-uh-FOR-ih-kul|figurative, symbolic, allegorical|literal, actual, factual|0|রূপক, অলংকারিক|The poem used metaphorical language to describe love.
+mimic|MIM-ik|imitate, copy, emulate|originate, create, invent|0|অনুকরণ করা|The parrot could mimic human speech perfectly.
+numinous|NOO-muh-nus|spiritual, transcendent, mystical|mundane, ordinary, secular|+|আধ্যাত্মিক|The ancient ruins had a numinous aura.
+obscure|ub-SKYOOR|unclear, ambiguous, cryptic|clear, obvious, well-known|-|অস্পষ্ট, দুর্বোধ্য|The obscure poem left readers puzzled.
+overt|oh-VURT|open, undisguised, manifest|hidden, covert, concealed|0|প্রকাশ্য|The overt act of aggression could not be ignored.
+pellucid|puh-LOO-sid|lucid, limpid, transparent|opaque, murky, unclear|+|সহজবোধ্য, স্বচ্ছ|Her writing was pellucid and engaging.
+perpetuate|pur-PECH-oo-ayt|preserve, sustain, prolong|end, terminate, abolish|0|স্থায়ী করা|We must not perpetuate harmful stereotypes.
+rational|RASH-uh-nul|logical, reasoned, sensible|irrational, illogical, absurd|+|যুক্তিসন্গত|He made a rational decision based on the evidence.
+scathing|SKAY-thing|harsh, severe, critical|gentle, kind, complimentary|-|কঠোর, তীব্র|The movie received a scathing review.
+subtle|SUT-l|nuanced, delicate, understated|obvious, blatant, glaring|+|সূক্ষ্ম|The painting had a subtle beauty that grew on you.
+superficial|soo-pur-FISH-ul|shallow, cursory, surface-level|profound, deep, thorough|-|অগভীর|His analysis was superficial and uninformed.`;
+var R14=`acquiesce|ak-wee-ES|comply, submit, assent|resist, protest, object|0|অনিচ্ছা সত্ত্বেও মেনে নেওয়া|After much debate, the board acquiesced to the demands of the striking workers.
+adroit|uh-DROYT|dexterous, skillful, adept|clumsy, inept, awkward|+|দক্ষ, চতুর|The adroit surgeon flawlessly completed the complex procedure.
+amend|uh-MEND|modify, revise, improve|preserve, retain, worsen|+|সংশোধন করা|The constitution was amended to guarantee equal rights for all citizens.
+animus|AN-uh-mus|hostility, animosity, ill-will|goodwill, friendliness, affection|-|দ্বেষ, শত্রুতা|The rivalry between the two teams was fueled by deep animus.
+apologist|uh-POL-uh-jist|defender, advocate, proponent|critic, opponent, detractor|0|সমর্থক|The senator became an apologist for the unpopular policy.
+astringent|uh-STRIN-junt|harsh, severe, rigorous|mild, gentle, soothing|-|কঠোর, নির্মম|The astringent critic had a reputation for scathing reviews.
+collaborate|kuh-LAB-uh-rayt|cooperate, work together, partner|compete, oppose, work alone|+|সহযোগিতা করা|The scientists collaborated on a groundbreaking research project.
+competent|KOM-pih-tunt|capable, proficient, qualified|incompetent, inept, unqualified|+|সক্ষম|The new employee proved to be a competent and reliable worker.
+correlate|KOR-uh-layt|correspond, connect, associate|differ, disconnect, contrast|0|পারস্পরিক সম্পর্ক থাকা|The researchers found a strong correlation between poverty and crime rates.
+deride|dih-RYD|ridicule, mock, scorn|praise, respect, admire|-|উপহাস করা|The bullies cruelly derided the new student.
+dictate|DIK-tayt|command, order, decree|obey, follow, request|0|নির্দেশ দেওয়া|The military leader dictated harsh terms of surrender.
+discreet|dih-SKREET|careful, prudent, cautious|indiscreet, careless, tactless|+|বিচক্ষণ|He made discreet inquiries about the company's financial status.
+divorced|dih-VORST|separate, detached, unconnected|connected, united, joined|0|বিচ্ছিন্ন|The theoretical discussion seemed divorced from the realities of everyday life.
+elitist|ih-LEE-tist|exclusive, snobbish, discriminatory|egalitarian, inclusive, democratic|-|অভিজাততান্ত্রিক|The elitist country club had strict membership requirements.
+exacting|ig-ZAK-ting|demanding, rigorous, meticulous|lenient, easygoing, lax|0|কঠোরভাবে দাবি করা|The teacher was known for her exacting standards.
+flummoxed|FLUM-ukst|confused, baffled, bewildered|enlightened, clear-headed, unperturbed|-|ঘাবড়ে যাওয়া|I was flummoxed by the complicated directions.
+fruitful|FROOT-ful|productive, successful, effective|fruitless, unproductive, futile|+|ফলপ্রসূ|The negotiations led to a fruitful agreement that satisfied both sides.
+inborn|IN-born|innate, natural, inherent|acquired, learned, external|0|সহজাত|She has an inborn talent for music.
+polymath|POL-ee-math|multi-skilled, multi-talented, learned|novice, layman, dilettante|+|সর্বজ্ঞ|Leonardo da Vinci was considered a polymath because of his expertise in various fields.
+reticent|RET-ih-sunt|reserved, introverted, hesitant|outspoken, talkative, forthcoming|0|নীরব|The witness was reticent to share what she had seen.
+stringent|STRIN-junt|strict, rigorous, severe|lenient, lax, flexible|0|কঠোর|The school had stringent safety regulations.
+subservient|sub-SUR-vee-unt|submissive, obedient, servile|dominant, assertive, rebellious|-|বশংবদ|The courtiers were subservient to the king.
+surreptitious|sur-up-TISH-us|secretive, stealthy, clandestine|open, honest, public|-|লুক্কায়িত|The spy made surreptitious recordings of the conversations.
+tantalizing|TAN-tl-eye-zing|tempting, alluring, enticing|repellent, unappealing, off-putting|0|লোভনীয়|The tantalizing aroma of freshly baked bread filled the air.
+tantamount|TAN-tuh-mount|equivalent, equal, synonymous|different, unequal, dissimilar|0|সমান|Her refusal was tantamount to a rejection of the offer.
+torpor|TOR-pur|sluggishness, lethargy, inactivity|energy, vigor, liveliness|-|অবসাদ|The heat wave induced a sense of summer torpor.
+trenchant|TREN-chunt|incisive, sharp, forceful|vague, mild, blunt|+|প্রখর|The author's trenchant critique exposed the flaws in the argument.
+umbrage|UM-brij|offense, resentment, irritation|pleasure, delight, goodwill|-|অসন্তোষ|He took umbrage at the rude comment.
+versatile|VUR-suh-tl|adaptable, flexible, multifaceted|limited, inflexible, narrow|+|বহুমুখী|He was a versatile athlete who excelled in several sports.
+wayward|WAY-wurd|disobedient, rebellious, errant|obedient, compliant, dutiful|-|স্বেচ্ছাচারী|The wayward child was always getting into trouble.`;
+var R15=`alienate|AYL-yuh-nayt|estrange, isolate, disaffect|unite, attract, win over|-|বিচ্ছিন্ন করা, দূরে সরিয়ে দেওয়া|Her rude comments alienated her from the rest of the group.
+apathy|AP-uh-thee|disinterest, indifference, unconcern|enthusiasm, concern, passion|-|উদাসীনতা, অনীহা|Voter apathy resulted in low turnout during the election.
+apropos|ap-ruh-POH|relevant, pertinent, opportune|irrelevant, inappropriate, unrelated|+|প্রাসঙ্গিক, সম্পর্কিত|His remarks about the current weather were quite apropos.
+apt|APT|suitable, appropriate, inclined|unsuitable, inappropriate, unlikely|+|উপযুক্ত, সমীচীন|She was particularly apt at learning languages.
+cloak|KLOHK|mask, disguise, shroud|reveal, expose, uncover|0|আড়াল করা, লুকানো|The spy used a cloak of secrecy to hide her true motives.
+consensus|kun-SEN-sus|agreement, accord, unanimity|disagreement, discord, dissent|+|ঐকমত্য, সমঝোতা|The committee struggled to reach a consensus on the budget.
+distort|dih-STORT|misrepresent, warp, deform|clarify, straighten, represent accurately|-|বিকৃত করা, বিকৃতি|The tabloid often distorts the truth to create sensational headlines.
+divergent|dih-VUR-junt|differing, varying, deviating|convergent, similar, identical|0|ভিন্নমুখী, বিচ্যুত|Their divergent opinions made it difficult to find a compromise.
+elated|ih-LAY-tid|overjoyed, ecstatic, jubilant|dejected, depressed, miserable|+|আনন্দিত, উচ্ছ্বসিত|She was elated to receive the news of her promotion.
+enchant|en-CHANT|charm, delight, captivate|disenchant, repel, bore|+|মুগ্ধ করা, মোহিত করা|The children were enchanted by the magician's tricks.
+entrenched|en-TRENCHT|ingrained, established, fixed|temporary, flexible, uprooted|0|গভীরভাবে প্রোথিত, সুপ্রতিষ্ঠিত|Corruption was deeply entrenched within the government.
+exotic|ig-ZOT-ik|foreign, unusual, unfamiliar|native, familiar, ordinary|0|দূর দেশীয়, অপরিচিত|The market sold exotic spices from all over the world.
+exploitative|ik-SPLOY-tuh-tiv|unfair, abusive, manipulative|fair, ethical, considerate|-|শোষণমূলক, অত্যাচারী|The company was accused of exploitative labor practices.
+foreseeable|for-SEE-uh-bul|predictable, anticipated, expected|unforeseeable, unexpected, surprising|0|পূর্বাভাসযোগ্য, অগ্রজ্ঞেয়|The economic crisis had foreseeable consequences.
+forsake|for-SAYK|abandon, desert, renounce|keep, support, cherish|-|পরিত্যাগ করা|He felt forsaken by his friends when he needed them most.
+gratify|GRAT-uh-fy|please, satisfy, indulge|disappoint, frustrate, deny|+|সন্তুষ্ট করা, তৃপ্ত করা|Her success in the competition gratified her parents.
+heed|HEED|attention, regard, notice|ignore, disregard, neglect|+|মনোযোগ দেওয়া|Please heed my advice and proceed with caution.
+judicious|joo-DISH-us|wise, sensible, prudent|unwise, foolish, rash|+|বিচক্ষণ, বুদ্ধিমান|A judicious investor makes careful decisions.
+lucid|LOO-sid|clear, rational, understandable|confusing, unclear, muddled|+|স্পষ্ট, বোধগম্য|He presented a lucid explanation of the complex concept.
+pertinent|PUR-tn-unt|relevant, applicable, fitting|irrelevant, extraneous, unrelated|+|প্রাসঙ্গিক, উপযুক্ত|Please keep your questions pertinent to the topic being discussed.
+propriety|pruh-PRY-ih-tee|decorum, decency, respectability|impropriety, indecency, rudeness|+|শোভনতা, ভদ্রতা|A sense of propriety prevented her from making a rude remark.
+scintillating|SIN-tl-ay-ting|brilliant, sparkling, dazzling|dull, boring, lackluster|+|উজ্জ্বল, ঝলমলে|The conversation was scintillating and full of wit.
+sensational|sen-SAY-shuh-nul|shocking, scandalous, thrilling|ordinary, dull, mundane|0|আলোড়ন সৃষ্টিকারী, উত্তেজনাপূর্ণ|The sensational news story spread quickly through the town.
+sophisticated|suh-FIS-tih-kay-tid|complex, refined, worldly|naive, simple, unrefined|+|অত্যাধুনিক, মার্জিত|The device had a sophisticated design.
+strife|STRYF|conflict, struggle, discord|peace, harmony, concord|-|সংঘাত, বিরোধ|The region was plagued by years of political strife.
+understated|un-dur-STAY-tid|subtle, muted, restrained|exaggerated, flamboyant, showy|+|সহজ, অলংকারহীন|Her understated elegance was more charming than any flashy display.
+unscrupulous|un-SKROO-pyuh-lus|dishonest, unethical, unprincipled|honest, ethical, principled|-|নীতিহীন, অনৈতিক|The unscrupulous politician abused their power for personal gain.
+veracity|vuh-RAS-ih-tee|truthfulness, honesty, accuracy|falsehood, dishonesty, inaccuracy|+|সত্যতা, সত্যবাদিতা|The witness's veracity was questioned by the defense.
+virulent|VIR-yuh-lunt|poisonous, hostile, bitter|harmless, mild, benign|-|প্রচণ্ড, বিষাক্ত, তীব্র|The virus was a particularly virulent strain.
+volatile|VOL-uh-tl|unpredictable, unstable, explosive|stable, steady, predictable|-|পরিবর্তনশীল, অস্থির|The volatile stock market made investors nervous.`;
+var R16=`antedate|AN-tih-dayt|precede, predate, antecede|follow, succeed, postdate|0|পূর্ববর্তী হওয়া|The ancient city antedates recorded history.
+banish|BAN-ish|expel, exile, ostracize|welcome, admit, invite|-|বহিষ্কার করা|The dictator banished all his political opponents.
+bridle|BRY-dl|restrain, curb, check|unleash, free, release|0|নিয়ন্ত্রণ করা|She bridled her anger and spoke calmly.
+comply|kum-PLY|obey, conform, adhere|defy, resist, disobey|0|মেনে চলা|The company was forced to comply with the new regulations.
+crestfallen|KREST-faw-lun|dejected, despondent, dispirited|elated, cheerful, jubilant|-|নিরুৎসাহিত|The team was crestfallen after losing the championship.
+curtail|kur-TAYL|shorten, reduce, abridge|extend, lengthen, prolong|0|সংক্ষিপ্ত করা|Bad weather forced us to curtail our trip.
+elucidate|ih-LOO-sih-dayt|clarify, explain, illuminate|obscure, confuse, muddle|+|স্পষ্ট করা|The professor elucidated the complex scientific concept.
+evade|ih-VAYD|avoid, dodge, escape|confront, face, meet|-|এড়িয়ে চলা|The criminal evaded capture for months.
+feckless|FEK-lis|incompetent, irresponsible, ineffectual|competent, responsible, effective|-|দুর্বল|The feckless leader was unable to control the situation.
+fester|FES-tur|worsen, aggravate, putrefy|heal, improve, subside|-|আরও খারাপ হওয়া|The infected wound festered without treatment.
+iconoclastic|eye-kon-uh-KLAS-tik|unconventional, unorthodox, heretical|conventional, orthodox, traditional|0|প্রতিমাবাদী|The artist's iconoclastic paintings shocked the public.
+immure|ih-MYOOR|imprison, confine, incarcerate|free, release, liberate|-|বন্দি করা|The villain was immured in a dungeon.
+improvise|IM-pruh-vyz|extemporize, ad-lib, wing it|plan, prepare, rehearse|0|তৎক্ষণাৎ করা|We had to improvise a meal with the limited ingredients available.
+inhibit|in-HIB-it|hinder, restrain, impede|encourage, facilitate, promote|-|বাধা দেওয়া|Fear can inhibit people from trying new things.
+inscrutable|in-SKROO-tuh-bul|enigmatic, impenetrable, mysterious|clear, understandable, transparent|0|রহস্যময়|The painting's meaning was inscrutable.
+lionize|LY-uh-nyz|celebrate, glorify, idolize|vilify, disparage, ignore|+|সেলিব্রিটির মতো আচরণ করা|The media lionized the young athlete.
+monotonous|muh-NOT-n-us|dull, repetitive, tedious|varied, exciting, lively|-|একঘেয়ে|The factory work was monotonous.
+peculiar|pih-KYOOL-yur|odd, strange, eccentric|ordinary, normal, typical|0|অদ্ভুত|She had a peculiar way of dressing.
+premeditate|pree-MED-ih-tayt|plan, consider, prearrange|improvise, act spontaneously, blunder|-|পূর্ব পরিকল্পনা করা|The murder was premeditated.
+profligate|PROF-lih-git|wasteful, extravagant, spendthrift|thrifty, frugal, economical|-|অপচয়ী|The profligate heir squandered his inheritance.
+reconcile|REK-un-syl|resolve, settle, harmonize|estrange, alienate, divide|+|মীমাংসা করা|The estranged couple finally reconciled.
+refine|rih-FYN|improve, purify, perfect|corrupt, coarsen, degrade|+|পরিশোধিত করা|The engineers refined the design for the new car.
+relinquish|rih-LING-kwish|give up, surrender, abandon|keep, retain, hold|0|ত্যাগ করা|She reluctantly relinquished control of the company.
+ruminate|ROO-muh-nayt|contemplate, ponder, meditate|ignore, neglect, forget|0|চিন্তা করা|He ruminated on the meaning of life.
+skittish|SKIT-ish|nervous, excitable, jumpy|calm, steady, composed|-|ভীতু|The skittish horse shied away from every sound.
+superfluous|soo-PUR-floo-us|unnecessary, excessive, surplus|necessary, essential, required|-|অপ্রয়োজনীয়|The instructions included several superfluous steps.
+synoptic|sih-NOP-tik|brief, summarized, concise|detailed, exhaustive, extensive|0|সংক্ষিপ্ত|The professor gave a synoptic review of the topic.
+thorough|THUR-oh|complete, exhaustive, meticulous|incomplete, superficial, careless|+|সম্পূর্ণ|The detective conducted a thorough investigation.
+visionary|VIZH-uh-nair-ee|imaginative, insightful, prophetic|shortsighted, unimaginative, myopic|+|কল্পনাপ্রবণ|The visionary leader inspired her followers.
+vociferous|voh-SIF-ur-us|loud, noisy, clamorous|quiet, silent, subdued|0|কোলাহলপূর্ণ|The protesters made vociferous demands.`;
+var R17=`acclaim|uh-KLAYM|extol, laud, praise|criticize, condemn, denounce|+|প্রশংসা করা|The critics unanimously acclaimed the artist's latest exhibition.
+ascertain|as-ur-TAYN|determine, discover, verify|assume, guess, overlook|0|নিশ্চিত করা|Investigators worked tirelessly to ascertain the cause of the plane crash.
+assertive|uh-SUR-tiv|forceful, confident, insistent|timid, passive, meek|+|জোরালো|The team leader needed to be more assertive to steer the project in the right direction.
+bogus|BOH-gus|counterfeit, fake, spurious|genuine, authentic, real|-|ভুয়া|Police arrested the street vendor for selling bogus designer watches.
+cataclysmic|kat-uh-KLIZ-mik|calamitous, disastrous, ruinous|beneficial, mild, harmless|-|ধ্বংসাত্মক|The cataclysmic earthquake left the city in ruins.
+circumscribe|SUR-kum-skryb|confine, limit, restrict|expand, extend, free|-|সীমাবদ্ধ করা|The school's strict dress code circumscribed students' freedom of expression.
+complementary|kom-pluh-MEN-tuh-ree|completing, matching, corresponding|conflicting, clashing, incompatible|+|পরিপূরক|The chef's choice of herbs provided a complementary flavor profile to the dish.
+contentious|kun-TEN-shus|debatable, controversial, disputable|agreeable, undisputed, peaceable|-|তর্কবিতর্কমূলক|The proposed tax reform became a contentious issue in the election campaign.
+disingenuous|dis-in-JEN-yoo-us|deceitful, dishonest, insincere|sincere, honest, candid|-|অপ্রকৃত|The politician's apology seemed disingenuous and calculated.
+divulge|dih-VULJ|disclose, reveal, unveil|conceal, hide, withhold|0|প্রকাশ করা|The spy was forced to divulge the names of his collaborators.
+dogmatic|dawg-MAT-ik|opinionated, rigid, inflexible|open-minded, flexible, tentative|-|একরোখা|The professor's dogmatic teaching style discouraged open debate in the classroom.
+fallacious|fuh-LAY-shus|erroneous, false, misleading|accurate, sound, valid|-|ভ্রান্ত|The lawyer demonstrated the fallacious nature of the witness's testimony.
+foolhardy|FOOL-har-dee|rash, reckless, imprudent|prudent, cautious, careful|-|বেপরোয়া|It was foolhardy to attempt to climb the mountain without proper equipment.
+hinder|HIN-dur|obstruct, impede, hamper|help, aid, facilitate|-|বাধা দেওয়া|The road construction hindered traffic flow for several days.
+impair|im-PAIR|damage, harm, weaken|improve, repair, enhance|-|ক্ষতিগ্রস্ত করা|Smoking can significantly impair lung function over time.
+impugn|im-PYOON|attack, challenge, dispute|defend, support, vindicate|-|অস্বীকার করা|The defense attorney tried to impugn the witness's credibility.
+incessant|in-SES-unt|ceaseless, nonstop, perpetual|intermittent, occasional, sporadic|-|অনবরত|The incessant rain caused widespread flooding.
+inclined|in-KLYND|prone, disposed, predisposed|averse, reluctant, disinclined|0|প্রবণ|Sarah was inclined to agree with her friend's persuasive argument.
+inveterate|in-VET-ur-it|habitual, ingrained, confirmed|occasional, new, casual|-|দীর্ঘস্থায়ী|The inveterate smoker found it difficult to break the habit.
+miserly|MY-zur-lee|stingy, mean, parsimonious|generous, lavish, charitable|-|কৃপণ|The miserly old man refused to donate to charity.
+patent|PAT-nt|obvious, apparent, evident|hidden, obscure, concealed|0|স্পষ্ট|The patent flaws in the experimental design were quickly noticed by the scientists.
+petulant|PECH-uh-lunt|sulky, peevish, irritable|good-natured, easygoing, cheerful|-|খিটখিটে|The toddler threw a petulant tantrum when he didn't get his way.
+pithy|PITH-ee|concise, succinct, terse|wordy, rambling, long-winded|+|বলিষ্ঠ|The author was known for his pithy and insightful observations.
+pliant|PLY-unt|flexible, adaptable, malleable|rigid, stiff, unyielding|0|নমনীয়|The sculptor preferred working with pliant clay for its versatility.
+sanctimonious|sangk-tuh-MOH-nee-us|hypocritical, self-righteous, holier-than-thou|humble, sincere, genuine|-|ভণ্ড|The politician's sanctimonious speech was at odds with his questionable past.
+sound|SOWND|valid, logical, sensible|unsound, flawed, illogical|+|যুক্তিসঙ্গত|The lawyer presented a sound argument that convinced the jury.
+tarnish|TAR-nish|damage, stain, sully|polish, enhance, burnish|-|কলঙ্কিত করা|His reputation was tarnished by the corruption allegations.
+tepid|TEP-id|lukewarm, unenthusiastic, half-hearted|enthusiastic, fervent, passionate|-|উষ্ণ|The movie received a tepid response from critics.
+upbraid|up-BRAYD|scold, rebuke, reprimand|praise, commend, compliment|-|তিরস্কার করা|The coach upbraided his players for their lack of effort in the game.
+vexation|vek-SAY-shun|annoyance, irritation, exasperation|pleasure, delight, contentment|-|বিরক্তি|Sarah felt a growing sense of vexation at the long delay.`;
+var R18=`abet|uh-BET|foment, instigate, incite|hinder, discourage, thwart|-|প্ররোচিত করা, উস্কানি দেওয়া|The rogue scientist abetted the villain's plans for world domination.
+accessible|ak-SES-uh-bul|attainable, reachable, approachable|inaccessible, remote, unattainable|+|সহজলভ্য, উপলব্ধিযোগ্য|The library aims to make its resources accessible to everyone in the community.
+acquisitive|uh-KWIZ-ih-tiv|greedy, avaricious, covetous|generous, content, giving|-|লোভী, অর্থলিপ্সু|The acquisitive corporation ruthlessly bought out smaller businesses.
+amalgamate|uh-MAL-guh-mayt|combine, merge, fuse|separate, divide, split|0|একীভূত করা, মিশ্রিত করা|The two rival companies decided to amalgamate to increase their market share.
+attenuate|uh-TEN-yoo-ayt|weaken, diminish, dilute|strengthen, intensify, amplify|0|দুর্বল করা, ক্ষীণ করা|The medicine helped attenuate the patient's pain.
+augment|awg-MENT|increase, enlarge, amplify|reduce, decrease, diminish|+|বৃদ্ধি করা, বাড়ানো|The company sought to augment its profits by expanding into new markets.
+aversion|uh-VUR-zhun|dislike, antipathy, repugnance|liking, fondness, affinity|-|বিদ্বেষ, অনীহা|I have a strong aversion to spiders.
+blithe|BLYTH|carefree, nonchalant, lighthearted|anxious, worried, gloomy|+|উদাসীন, নির্লিপ্ত|She strolled along with a blithe spirit, enjoying the sunshine.
+contempt|kun-TEMPT|disdain, scorn, derision|respect, admiration, esteem|-|তুচ্ছতাচ্ছিল্য, অবজ্ঞা|The critic's review of the play was filled with contempt.
+dawdle|DAW-dl|linger, dilly-dally, procrastinate|hurry, rush, hasten|-|সময় নষ্ট করা, দীর্ঘসূত্রিতা করা|Stop dawdling and get your homework done!
+deflect|dih-FLEKT|divert, avert, turn aside|attract, absorb, invite|0|প্রতিহত করা, এড়ানো|The goalkeeper skillfully deflected the penalty shot.
+discount|DIS-kount|disregard, minimize, dismiss|value, heed, take seriously|-|উপেক্ষা করা, গুরুত্ব না দেওয়া|Don't discount her ideas just because she's new to the team.
+dissident|DIS-ih-dunt|rebellious, nonconformist, insurgent|conformist, loyalist, obedient|0|মতবিরোধী, বিদ্রোহী|The dissident group protested against the government's actions.
+efficacious|ef-ih-KAY-shus|effective, productive, successful|ineffective, useless, futile|+|কার্যকর, ফলপ্রসূ|The new medicine proved to be efficacious in treating the illness.
+equitable|EK-wih-tuh-bul|fair, just, impartial|unfair, biased, unjust|+|ন্যায্য, নিরপেক্ষ|The goal is to create an equitable distribution of resources.
+erratic|ih-RAT-ik|unpredictable, irregular, inconsistent|steady, consistent, regular|-|খামখেয়ালি, অনিয়মিত|The weather has been quite erratic this season.
+industrious|in-DUS-tree-us|diligent, hardworking, assiduous|lazy, idle, indolent|+|পরিশ্রমী, কর্মঠ|The industrious student spent hours each day in the library.
+inform|in-FORM|notify, apprise, enlighten|conceal, withhold, mislead|0|অবহিত করা, জ্ঞাত করা|Please inform me of any changes in the schedule.
+irksome|URK-sum|annoying, bothersome, vexatious|pleasant, soothing, agreeable|-|বিরক্তিকর, উদ্বেগজনক|The irksome buzzing of the mosquito kept me awake.
+manacle|MAN-uh-kul|shackle, handcuff, restrain|free, release, unchain|-|হাতকড়ি, বেড়ি|The prisoners were kept in manacles.
+modest|MOD-ist|unpretentious, humble, unassuming|arrogant, boastful, vain|+|নম্র, বিনয়ী|She was modest about her accomplishments, despite her great success.
+noxious|NOK-shus|harmful, poisonous, toxic|harmless, beneficial, healthful|-|ক্ষতিকর, বিষাক্ত|The fumes from the factory were noxious.
+pernicious|pur-NISH-us|destructive, damaging, injurious|beneficial, harmless, helpful|-|মারাত্মক, ধ্বংসাত্মক|The spread of pernicious rumors caused irreparable damage.
+predicament|prih-DIK-uh-munt|dilemma, plight, quandary|solution, ease, advantage|-|বিপদ, দুর্দশা|The lost hikers found themselves in a dangerous predicament.
+proficient|pruh-FISH-unt|skilled, adept, expert|unskilled, inept, incompetent|+|দক্ষ, পারদর্শী|She is proficient in several foreign languages.
+prolix|proh-LIKS|long-winded, verbose, wordy|concise, terse, succinct|-|দীর্ঘসূত্রী, বাগাড়ম্বরপূর্ণ|The professor had a tendency to give prolix lectures.
+scorn|SKORN|contempt, disdain, derision|respect, admiration, esteem|-|ঘৃণা, অবজ্ঞা|She looked at him with scorn.
+subordinate|suh-BOR-dn-it|inferior, secondary, lesser|superior, dominant, primary|0|অধস্তন, গৌণ|The general's subordinates carried out his orders without question.
+unseemly|un-SEEM-lee|improper, inappropriate, unbecoming|proper, fitting, appropriate|-|অনুচিত, অশোভন|His unseemly behavior embarrassed his family.
+veritable|VER-ih-tuh-bul|genuine, authentic, real|false, fake, spurious|+|প্রকৃত, আসল|The exhibit was a veritable treasure trove of historical artifacts.`;
+var R19=`acolyte|AK-uh-lyt|disciple, follower, devotee|leader, master, mentor|0|অনুসারী, ভক্ত|The pop star traveled with an entourage of adoring acolytes.
+anoint|uh-NOYNT|consecrate, ordain, sanctify|desecrate, defile, curse|+|অভিষিক্ত করা|The priest anointed the king during the coronation ceremony.
+base|BAYS|despicable, ignoble, vile|noble, honorable, virtuous|-|নীচ, অনুচিত|It was a base act to betray her friends for personal gain.
+coercion|koh-UR-zhun|duress, compulsion, intimidation|persuasion, freedom, consent|-|জোর, চাপ প্রয়োগ|The confession was obtained through coercion and might not hold up in court.
+coin|KOYN|invent, originate, fabricate|adopt, copy, borrow|0|মুদ্রাঙ্কন করা, নতুন শব্দ তৈরি করা|The marketing team coined a catchy slogan for the new product.
+cunning|KUN-ing|shrewd, crafty, artful|naive, honest, artless|-|চালাক, ধূর্ত|The fox was a cunning predator, always outsmarting its prey.
+discomfit|dis-KUM-fit|disconcert, unsettle, embarrass|comfort, reassure, put at ease|-|অস্বস্তি বোধ করানো|The awkward silence during the party discomfited the guests.
+dissent|dih-SENT|disagree, object, differ|agree, assent, concur|0|মতবিরোধ করা|The new legislation faced strong dissent from several political parties.
+distill|dih-STIL|extract, condense, refine|dilute, expand, muddy|0|পাতন করা, নির্যাস বের করা|Whiskey is made by distilling fermented grains.
+dubious|DOO-bee-us|uncertain, questionable, suspect|certain, reliable, trustworthy|-|সন্দেহজনক|The deal seemed too good to be true, raising dubious feelings about its legitimacy.
+ebullient|ih-BUL-yunt|enthusiastic, exuberant, cheerful|gloomy, subdued, dejected|+|উচ্ছ্বসিত, উৎফুল্ল|Her ebullient personality brightened up the whole room.
+facetious|fuh-SEE-shus|humorous, flippant, tongue-in-cheek|serious, earnest, solemn|-|রসিকতা করা, ঠাট্টাচ্ছলে বলা|His facetious remarks during the meeting were not well-received.
+fallible|FAL-uh-bul|imperfect, errant, flawed|infallible, perfect, flawless|0|ভুল করার ক্ষমতা আছে এমন|We must remember that even great leaders are fallible.
+florid|FLOR-id|ornate, elaborate, flamboyant|plain, simple, restrained|-|অতিশয় সুসজ্জিত|The palace was decorated in a florid style with gold and velvet.
+gawky|GAW-kee|awkward, clumsy, ungainly|graceful, poised, elegant|-|বেমানান, অদ্ভুত|The gawky teenager often tripped over his own feet.
+inveigle|in-VAY-gul|entice, persuade, wheedle|repel, deter, dissuade|-|প্ররোচিত করা, প্রলুব্ধ করা|The salesperson inveigled the customer into buying the overpriced product.
+jettison|JET-ih-sun|discard, abandon, dump|keep, retain, collect|0|পরিত্যাগ করা|To lighten their load, the sailors had to jettison some cargo during the storm.
+mendacity|men-DAS-ih-tee|dishonesty, untruthfulness, deceit|honesty, truthfulness, candor|-|মিথ্যাচার, অসততা|The politician was accused of mendacity after his promises proved empty.
+munificent|myoo-NIF-ih-sunt|generous, charitable, lavish|stingy, miserly, parsimonious|+|উদার|The munificent philanthropist donated millions to the hospital.
+naive|ny-EEV|innocent, unsophisticated, inexperienced|worldly, sophisticated, experienced|-|সরল, নিষ্পাপ|The naive young woman fell for the con artist's tricks.
+noble|NOH-bul|righteous, virtuous, honorable|ignoble, base, dishonorable|+|মহৎ, উচ্চ আদর্শসম্পন্ন|The knight's noble deeds were celebrated throughout the land.
+parochial|puh-ROH-kee-ul|narrow-minded, provincial, insular|cosmopolitan, broad-minded, worldly|-|সংকীর্ণমনা|Some felt the small town had a parochial atmosphere, resistant to new ideas.
+pedestrian|puh-DES-tree-un|ordinary, mundane, unimaginative|original, exciting, imaginative|-|গতানুগতিক, একঘেয়ে|The art critic dismissed the exhibit as dull and pedestrian.
+prevaricate|prih-VAR-ih-kayt|lie, equivocate, mislead|be direct, tell the truth, clarify|-|সত্য লুকানো|When questioned about his whereabouts, the suspect prevaricated.
+prime|PRYM|prepare, equip, ready|neglect, leave unprepared, disarm|0|প্রস্তুত করা|The artist carefully primed the canvas before starting to paint.
+radical|RAD-ih-kul|fundamental, extreme, revolutionary|moderate, conventional, mild|0|মৌলিক|The protest group demanded radical political reforms.
+recrudescent|ree-kroo-DES-unt|resurgent, recurring, reviving|dormant, subsiding, waning|-|পুনরুজ্জীবিত হওয়া|Doctors were concerned about the recrudescent virus spreading through the population again.
+temporal|TEM-pur-ul|earthly, secular, worldly|spiritual, eternal, heavenly|0|পার্থিব, জাগতিক|The church tried to balance its temporal and spiritual responsibilities.
+transitory|TRAN-sih-tor-ee|temporary, fleeting, ephemeral|permanent, lasting, enduring|0|ক্ষণস্থায়ী|The joys of youth are often transitory.
+viable|VY-uh-bul|workable, feasible, practicable|unworkable, impractical, infeasible|+|বাস্তবসম্মত, কার্যকরী|After careful analysis, they determined the business plan was viable.`;
+var R20=`abreast|uh-BREST|alongside, level, up-to-date|behind, outdated, uninformed|+|সর্বশেষ অগ্রগতির সাথে তাল মিলিয়ে চলা|Staying abreast of current trends is crucial in the fashion industry.
+confound|kun-FOWND|confuse, bewilder, perplex|clarify, enlighten, explain|-|বিভ্রান্ত করা|The magician's trick confounded the audience, leaving them scratching their heads.
+digression|dy-GRESH-un|deviation, detour, aside|focus, directness, relevance|-|মূল বিষয় থেকে বিচ্যুতি|The professor's frequent digressions made it difficult to follow the lecture's central theme.
+discrepancy|dih-SKREP-un-see|inconsistency, difference, contradiction|agreement, consistency, accord|-|বৈসাদৃশ্য|The police report showed significant discrepancies compared to the witness's statement.
+duplicitous|doo-PLIS-ih-tus|deceitful, two-faced, dishonest|honest, straightforward, sincere|-|প্রতারণাপূর্ণ|The duplicitous politician was exposed when his secret dealings were leaked to the press.
+expedient|ik-SPEE-dee-unt|advantageous, convenient, practical|inconvenient, disadvantageous, impractical|0|উপযুক্ত|In a crisis, sometimes the most expedient solution isn't always the most ethical one.
+fabricate|FAB-rih-kayt|invent, concoct, forge|tell the truth, uncover, reveal|-|জাল করা|The witness was accused of fabricating her story to protect the accused.
+glum|GLUM|gloomy, depressed, sullen|cheerful, joyful, upbeat|-|বিষণ্ণ|The rainy weather made everyone feel glum and downcast.
+harbinger|HAR-bin-jur|forerunner, omen, precursor|aftermath, follower, result|0|পূর্বলক্ষণ|The dark clouds were a harbinger of the approaching storm.
+intrinsic|in-TRIN-zik|inherent, fundamental, innate|extrinsic, external, acquired|0|সহজাত|The intrinsic beauty of the artwork lay in its simplicity.
+largesse|lar-ZHES|generosity, liberality, munificence|stinginess, miserliness, greed|+|দানশীলতা|The philanthropist's largesse was responsible for the construction of a new hospital.
+libertine|LIB-ur-teen|dissolute, immoral, debauched|puritan, ascetic, moralist|-|ব্যভিচারী|The libertine led a life of reckless abandon and pleasure-seeking.
+malfeasance|mal-FEE-zuns|wrongdoing, misconduct, corruption|integrity, honesty, propriety|-|দুষ্কর্ম|The politician was removed from office due to allegations of malfeasance.
+manifest|MAN-uh-fest|obvious, evident, apparent|hidden, obscure, concealed|0|স্পষ্ট|The patient's symptoms were manifest signs of the illness.
+minute|my-NOOT|tiny, minuscule, diminutive|huge, enormous, gigantic|0|ক্ষুদ্র|The biologist examined minute organisms under the microscope.
+modish|MOH-dish|fashionable, stylish, chic|old-fashioned, outmoded, unfashionable|0|আধুনিক|The modish boutique carried all the latest trends.
+nascent|NAY-sunt|emerging, developing, incipient|mature, established, declining|+|উদীয়মান|The company's nascent technology had the potential to revolutionize the industry.
+perennial|puh-REN-ee-ul|enduring, persistent, everlasting|temporary, short-lived, fleeting|0|চিরন্তন|The novel explored perennial themes of love, loss, and redemption.
+pious|PY-us|devout, religious, godly|impious, irreligious, irreverent|+|পরমধার্মিক|The pious woman prayed daily and attended services regularly.
+providential|prov-ih-DEN-shul|fortunate, lucky, opportune|unfortunate, unlucky, ill-timed|+|ভাগ্যবান|The discovery of the antidote was providential, saving countless lives.
+prowess|PROW-is|skill, expertise, mastery|incompetence, ineptitude, weakness|+|দক্ষতা|The athlete's prowess on the field was unmatched.
+schism|SIZ-um|division, separation, rift|unity, union, accord|-|বিভাজন|The political schism led to the formation of two opposing parties.
+slander|SLAN-dur|defamation, libel, calumny|praise, flattery, compliment|-|মানহানি|The tabloid was sued for slander after publishing malicious rumors about the actress.
+stalwart|STAWL-wurt|strong, loyal, resolute|weak, disloyal, wavering|+|স্থির, অবিচলিত|The stalwart knight defended the castle with unwavering courage.
+supplicate|SUP-lih-kayt|beg, plead, implore|demand, command, insist|0|কাতরভাবে প্রার্থনা করা|The villagers supplicated the gods for rain during the drought.
+terse|TURS|brief, concise, succinct|wordy, verbose, long-winded|0|সংক্ষিপ্ত|The lawyer delivered a terse closing statement, summarizing the key points of the case.
+tirade|TY-rayd|rant, diatribe, harangue|praise, compliment, tribute|-|ভর্ৎসনা|The coach went on a tirade after the team's disappointing performance.
+universal|yoo-nuh-VUR-sul|widespread, general, ubiquitous|limited, particular, local|0|বিশ্বজনীন|The desire for happiness is a universal human experience.
+vanquish|VANG-kwish|defeat, conquer, overcome|surrender, yield, lose|0|পরাজিত করা|The army vowed to vanquish their enemies and restore peace to the land.
+woeful|WOH-ful|miserable, sorrowful, wretched|joyful, cheerful, happy|-|শোকপূর্ণ|The woeful cries of the families filled the air after the tragedy.`;
+var R21=`abject|AB-jekt|servile, groveling, debased|dignified, proud, exalted|-|দুর্দশাগ্রস্ত, অধঃপতিত|Her abject apology failed to move her former friend.
+amicable|AM-ih-kuh-bul|harmonious, cordial, congenial|hostile, antagonistic, unfriendly|+|বন্ধুত্বপূর্ণ, আন্তরিক|The couple reached an amicable divorce agreement.
+animosity|an-uh-MOS-ih-tee|enmity, rancor, antipathy|goodwill, friendship, affection|-|বিদ্বেষ, শত্রুতা|The animosity between the two rival teams was palpable.
+aver|uh-VUR|assert, affirm, declare|deny, refute, retract|0|নিশ্চিত করে বলা|The witness averred that she saw the defendant leaving the crime scene.
+barrage|buh-RAHZH|onslaught, bombardment, fusillade|trickle, lull, smattering|-|আক্রমণ, ঝড়|The senator faced a barrage of questions from angry constituents.
+cathartic|kuh-THAR-tik|purgative, cleansing, therapeutic|distressing, stifling, repressive|+|মানসিক শুদ্ধিকরণ|After the breakup, writing in her journal proved to be a cathartic experience for Sarah.
+decipher|dih-SY-fur|decode, unravel, interpret|encode, obscure, confuse|0|ব্যাখ্যা করা, পাঠোদ্ধার করা|The detectives worked tirelessly to decipher the killer's cryptic message.
+delusion|dih-LOO-zhun|misconception, hallucination, misbelief|reality, truth, insight|-|ভ্রম, মরীচিকা|The grandeur delusion is a symptom found in certain mental illnesses.
+dispense|dih-SPENS|distribute, allocate, apportion|withhold, hoard, retain|0|বিতরণ করা, সমাধান করা|The pharmacist carefully dispensed the medication.
+eloquent|EL-uh-kwunt|fluent, articulate, persuasive|inarticulate, tongue-tied, halting|+|বাকপটু, স্পষ্টভাষী|The lawyer delivered an eloquent closing argument.
+enthrall|en-THRAWL|captivate, mesmerize, transfix|bore, repel, disenchant|+|মুগ্ধ করা, মোহিত করা|The magician's performance enthralled the audience.
+eradicate|ih-RAD-ih-kayt|eliminate, exterminate, obliterate|create, foster, establish|0|নির্মূল করা, ধ্বংস করা|The health officials worked hard to eradicate the virus.
+fledgling|FLEJ-ling|novice, nascent, budding|veteran, experienced, mature|0|নবীন, অপরিণত|The fledgling startup faced many challenges in its first year.
+fortitude|FOR-tih-tood|resolve, mettle, resilience|weakness, cowardice, fragility|+|মনের জোর, সাহসিকতা|She showed remarkable fortitude while battling her illness.
+fortuitous|for-TOO-ih-tus|serendipitous, advantageous, providential|planned, unlucky, intentional|0|আকস্মিক, ভাগ্যক্রমে ঘটা|Their fortuitous meeting at the airport changed their lives.
+goad|GOHD|prod, provoke, incite|restrain, deter, discourage|-|প্ররোচিত করা, উস্কে দেওয়া|He tried to goad his opponent into losing his temper.
+imminent|IM-uh-nunt|impending, approaching, inevitable|distant, remote, unlikely|0|আসন্ন, অনিবার্য|The imminent threat of the storm caused widespread panic.
+incontrovertible|in-kon-truh-VUR-tuh-bul|indisputable, undeniable, irrefutable|doubtful, questionable, disputable|0|অকাট্য, অস্বীকার্য|There was incontrovertible evidence of their guilt.
+itinerant|eye-TIN-ur-unt|nomadic, wandering, peripatetic|settled, stationary, resident|0|ভ্রাম্যমাণ, পরিব্রাজক|The itinerant musician played in towns across the country.
+magnanimous|mag-NAN-uh-mus|generous, noble, benevolent|petty, vindictive, selfish|+|উদার, মহানুভব|The magnanimous king pardoned the rebels.
+meritorious|mer-ih-TOR-ee-us|commendable, praiseworthy, exemplary|undeserving, blameworthy, unworthy|+|প্রশংসনীয়, পুরস্কারযোগ্য|The student received an award for her meritorious academic performance.
+mutiny|MYOOT-n-ee|uprising, rebellion, revolt|obedience, submission, compliance|-|বিদ্রোহ, গণ-অভ্যুত্থান|The sailors staged a mutiny against their cruel captain.
+paradoxical|par-uh-DOK-sih-kul|contradictory, incongruous, inconsistent|consistent, logical, expected|0|আত্মবিরোধী, অসঙ্গতিপূর্ণ|The time travel story had many paradoxical elements.
+perseverance|pur-suh-VEER-uns|determination, tenacity, persistence|surrender, indecision, laziness|+|অধ্যবসায়, দৃঢ়তা|Her perseverance paid off when she finally completed her thesis.
+render|REN-dur|provide, give, furnish|withhold, retain, deny|0|প্রদান করা, করে তোলা|The artist beautifully rendered the emotions of her subject.
+repertoire|REP-ur-twar|collection, stock, inventory|void, lack, shortage|0|ভাণ্ডার, মজুদ|The comedian had a vast repertoire of jokes.
+resilient|rih-ZIL-yunt|adaptable, hardy, tenacious|fragile, brittle, vulnerable|+|স্থিতিস্থাপক, দ্রুত আরোগ্যলাভী|The resilient child bounced back quickly after the setback.
+resolute|REZ-uh-loot|determined, unwavering, steadfast|hesitant, wavering, irresolute|+|দৃঢ়প্রতিজ্ঞ, অটল|She remained resolute in her decision to pursue her dreams.
+supple|SUP-ul|flexible, pliable, limber|stiff, rigid, inflexible|+|নমনীয়, নম্র|The dancer's body was incredibly supple.
+valor|VAL-ur|bravery, courage, heroism|cowardice, timidity, fear|+|বীরত্ব, সাহস, শৌর্য|The soldier was awarded a medal for his valor on the battlefield.`;
+var R22=`arresting|uh-RES-ting|striking, captivating, riveting|dull, unremarkable, forgettable|+|গ্রেপ্তারকরী|The painting's bold colors and unusual composition made it truly arresting.
+chastise|chas-TYZ|scold, reprimand, rebuke|praise, commend, applaud|-|তিরস্কার করা|The teacher chastised the student for repeatedly disrupting the class.
+cumbersome|KUM-bur-sum|unwieldy, burdensome, awkward|manageable, handy, compact|-|বোঝাই, কষ্টকর|Moving the cumbersome old piano proved to be a real challenge.
+economy|ih-KON-uh-mee|thrift, frugality, efficiency|waste, extravagance, squandering|+|মিতব্যয়িতা|The company practiced strict economy in order to survive the economic downturn.
+elementary|el-uh-MEN-tuh-ree|basic, fundamental, rudimentary|advanced, complex, sophisticated|0|প্রাথমিক|The teacher explained the elementary principles of arithmetic.
+embellish|em-BEL-ish|decorate, adorn, ornament|strip, simplify, deface|0|অলঙ্কৃত করা|The designer embellished the dress with intricate embroidery.
+euphoric|yoo-FOR-ik|ecstatic, elated, overjoyed|despondent, depressed, miserable|+|আনন্দমগ্ন|Winning the championship filled the team with a euphoric sense of victory.
+exonerate|ig-ZON-uh-rayt|vindicate, absolve, acquit|blame, convict, condemn|+|অভিযোগমুক্ত করা|The new evidence exonerated the wrongly convicted man.
+extrapolate|ik-STRAP-uh-layt|infer, project, predict|ignore, observe, record|0|বহির্বাচন করা|Scientists extrapolated population growth patterns based on birth and death rates.
+falter|FAWL-tur|hesitate, waver, stumble|persist, advance, steady|-|সঙ্কোচ করা|The speaker faltered for a moment, then regained his composure.
+fervent|FUR-vunt|passionate, ardent, zealous|apathetic, indifferent, cool|+|উদ্দীপ্ত|The crowd erupted in fervent applause for the inspiring speech.
+foment|foh-MENT|stir up, instigate, incite|quell, suppress, pacify|-|উস্কে দেওয়া|Political activists were accused of fomenting unrest among the workers.
+gaffe|GAF|blunder, faux pas, misstep|triumph, success, achievement|-|সামাজিক ভুল|The politician's gaffe during the interview became a media sensation.
+heterodox|HET-ur-uh-doks|unconventional, unorthodox, dissenting|orthodox, conventional, traditional|0|প্রচলিত ধর্মবিরোধী|The artist's heterodox techniques shocked the conservative art world.
+histrionic|his-tree-ON-ik|melodramatic, theatrical, exaggerated|restrained, subdued, understated|-|নাটকীয়|Her histrionic outburst seemed out of proportion to the situation.
+implicit|im-PLIS-it|implied, understood, hinted|explicit, stated, express|0|অন্তর্নিহিত|There was an implicit agreement that they would help each other.
+inviolate|in-VY-uh-lit|sacred, untouchable, inviolable|violated, profaned, desecrated|+|অলঙ্ঘনীয়|The treaty aimed to protect the inviolate rights of all citizens.
+liability|ly-uh-BIL-ih-tee|disadvantage, hindrance, burden|asset, advantage, benefit|-|দায়|The company's outdated technology became a major liability.
+obstinate|OB-stuh-nit|stubborn, inflexible, unyielding|flexible, compliant, yielding|-|একগুঁয়ে|The obstinate child refused to eat her vegetables.
+painstaking|PAYNZ-tay-king|meticulous, careful, diligent|careless, sloppy, negligent|+|অত্যন্ত যত্নসহকারে|The restoration of the antique vase required painstaking work.
+phlegmatic|fleg-MAT-ik|calm, stoic, unexcitable|excitable, passionate, emotional|0|শান্ত|The phlegmatic negotiator remained unfazed by the heated debate.
+prodigious|pruh-DIJ-us|enormous, immense, extraordinary|tiny, ordinary, modest|+|বিপুল|The whale's prodigious size awed the onlookers.
+propensity|pruh-PEN-sih-tee|inclination, tendency, predisposition|aversion, disinclination, reluctance|0|প্রবণতা|He had a propensity for getting into trouble.
+qualm|KWAHM|misgiving, doubt, hesitation|confidence, certainty, assurance|-|অনিশ্চয়তা|He had no qualms about accepting the ethically questionable job offer.
+renege|rih-NEG|default, retract, back out|honor, fulfill, keep|-|প্রতিশ্রুতি ভঙ্গ করা|The team accused their star player of reneging on his contract.
+stinting|STIN-ting|sparing, frugal, restricting|generous, lavish, bountiful|-|কৃপণতা করা|The stinting portions of food left the guests unsatisfied.
+temper|TEM-pur|moderate, soften, mitigate|aggravate, intensify, inflame|0|নিয়ন্ত্রণ করা|The negotiator tried to temper the increasingly hostile atmosphere.
+tentative|TEN-tuh-tiv|provisional, uncertain, hesitant|definite, certain, confident|0|অনিশ্চিত|The scientists presented tentative findings, awaiting further data.
+unprecedented|un-PRES-ih-den-tid|historic, novel, unparalleled|usual, common, customary|0|অভূতপূর্ব|The magnitude of the humanitarian crisis was unprecedented.
+vivacious|vih-VAY-shus|lively, spirited, animated|lifeless, dull, listless|+|প্রাণবন্ত|The vivacious puppy brought joy to the household.`;
+var R23=`allusive|uh-LOO-siv|suggestive, symbolic, implicit|explicit, direct, literal|0|পরোক্ষ, আভাসপূর্ণ|The poem's allusive style left readers wondering about its deeper meaning.
+astute|uh-STOOT|shrewd, discerning, perceptive|naive, obtuse, dull|+|চতুর, তীক্ষ্ণ বুদ্ধিসম্পন্ন|The astute detective immediately noticed the inconsistencies in the suspect's story.
+commence|kuh-MENS|begin, initiate, inaugurate|end, conclude, cease|0|শুরু করা, আরম্ভ করা|The graduation ceremony commenced with a processional of faculty members.
+convalescent|kon-vuh-LES-unt|recuperating, recovering, rehabilitating|deteriorating, declining, ailing|+|আরোগ্যলাভকারী, সুস্থ হয়ে ওঠা|The convalescent patient enjoyed short walks in the hospital garden.
+curb|KURB|restrain, suppress, check|encourage, unleash, promote|0|নিয়ন্ত্রণ করা, দমন করা|The city passed regulations to curb noise pollution.
+decry|dih-KRY|denounce, condemn, disparage|praise, laud, extol|-|নিন্দা করা, তিরস্কার করা|Environmentalists decry the destruction of rainforests.
+duress|doo-RES|coercion, compulsion, pressure|freedom, free will, choice|-|জোরপূর্বক চাপ|The suspect signed the confession under duress.
+evoke|ih-VOHK|conjure, summon, recall|suppress, banish, dismiss|0|স্মরণ করিয়ে দেওয়া, মনে জাগানো|The old photograph evoked memories of her childhood.
+fawn|FAWN|flatter, grovel, toady|disdain, snub, defy|-|চাটুকারিতা করা, তোষামোদ করা|The courtiers fawned over the king, hoping to gain his favor.
+fret|FRET|worry, agonize, brood|relax, calm down, rejoice|-|উদ্বিগ্ন হওয়া|She fretted about her son's safety during the storm.
+glib|GLIB|flippant, superficial, slick|sincere, thoughtful, halting|-|চটপটে, অগভীর|The politician's glib answers failed to impress the voters.
+headstrong|HED-strawng|willful, obstinate, stubborn|compliant, docile, obedient|-|একগুঁয়ে, জেদী|The headstrong child refused to listen to her parents.
+intermittent|in-tur-MIT-nt|sporadic, irregular, fitful|continuous, constant, steady|0|অনিয়মিত, খণ্ড খণ্ড|The intermittent rain showers made outdoor activities difficult.
+ire|YR|rage, fury, wrath|calm, pleasure, serenity|-|প্রচণ্ড রাগ, ক্রোধ|The unfair decision aroused the ire of the crowd.
+languid|LANG-gwid|listless, sluggish, enervated|energetic, vigorous, lively|-|অলস, শক্তিহীন|The humid weather made everyone feel languid.
+lull|LUL|respite, pause, hiatus|storm, outburst, commotion|0|বিরাম, স্থবিরতা|There was a lull in the conversation before the argument resumed.
+mettlesome|MET-l-sum|spirited, courageous, plucky|timid, cowardly, spiritless|+|সাহসী, উদ্যমী|The mettlesome young athlete was not afraid of challenges.
+mollify|MOL-uh-fy|soothe, appease, placate|infuriate, provoke, irritate|+|প্রশমিত করা, শান্ত করা|She tried to mollify her angry friend with kind words.
+neutralize|NOO-truh-lyz|counteract, offset, nullify|strengthen, reinforce, activate|0|নিষ্ক্রিয় করা, প্রতিহত করা|The antidote neutralized the effects of the poison.
+nonplussed|non-PLUST|perplexed, baffled, confounded|composed, unruffled, unfazed|-|হতবুদ্ধি, বিভ্রান্ত, হকচকিয়ে যাওয়া|The strange question left him nonplussed.
+precipitous|prih-SIP-ih-tus|steep, abrupt, hasty|gradual, gentle, slow|-|খাড়া, অনতিবিলম্ব, তাড়াহুড়ো করা|The stock market took a precipitous drop.
+pretentious|prih-TEN-shus|ostentatious, showy, affected|modest, unpretentious, humble|-|আড়ম্বরপূর্ণ, দেখনদারী, ভণ্ডামিপূর্ণ|Their pretentious house was filled with expensive but tasteless decorations.
+profound|pruh-FOUND|insightful, wise, deep|shallow, superficial, trivial|+|গভীর, গূঢ়, জ্ঞানগর্ভ|The philosopher's work had a profound impact on modern thought.
+propagate|PROP-uh-gayt|spread, disseminate, proliferate|suppress, contain, stifle|0|বিস্তার করা, প্রচার করা|The rumor propagated quickly through the town.
+recourse|REE-kors|resort, remedy, redress|helplessness, futility, despair|0|আশ্রয়, অবলম্বন|When negotiations failed, their only recourse was legal action.
+refute|rih-FYOOT|disprove, rebut, invalidate|prove, confirm, support|0|খণ্ডন করা, অসত্য প্রমাণ করা|The scientist's experiments refuted the earlier theory.
+regress|rih-GRES|revert, decline, deteriorate|progress, advance, improve|-|পশ্চাৎপদ হওয়া, অধোগতি হওয়া|The patient's health regressed after the treatment stopped.
+repercussion|ree-pur-KUSH-un|consequence, outcome, aftermath|cause, source, origin|0|প্রতিক্রিয়া, ফলাফল|The economic repercussions of the war were felt for years.
+replenish|rih-PLEN-ish|refill, restock, restore|deplete, drain, empty|+|পুনরায় পূর্ণ করা, আবার ভর্তি করা|Before the long hike, they replenished their water bottles.
+vigilant|VIJ-uh-lunt|watchful, alert, attentive|careless, negligent, inattentive|+|সজাগ, সতর্ক|The security guards remained vigilant throughout the night.`;
+var R24=`assail|uh-SAYL|attack, impugn, assault|defend, support, protect|-|সমালোচনা করা, আক্রমণ করা|The opposing political candidate assailed her record on environmental issues.
+benevolent|buh-NEV-uh-lunt|generous, altruistic, benign|malevolent, cruel, selfish|+|দয়ালু, পরোপকারী|The benevolent philanthropist donated millions to charity.
+berate|bih-RAYT|scold, chide, rebuke|praise, commend, compliment|-|তিরস্কার করা, ভর্ৎসনা করা|The coach berated the player for making a careless mistake.
+buoyant|BOY-unt|cheerful, optimistic, resilient|depressed, gloomy, sinking|+|ভাসমান; প্রফুল্ল, আশাবাদী|The buoyant hot air balloon drifted across the clear sky.
+buttress|BUT-ris|support, reinforce, bolster|undermine, weaken, sabotage|+|সমর্থন করা, শক্তিশালী করা|Evidence was gathered to buttress the prosecution's case.
+condone|kun-DOHN|overlook, excuse, tolerate|condemn, forbid, censure|-|চোখ বন্ধ করে রাখা, ক্ষমা করা|The school has a strict policy against condoning any form of bullying.
+contravene|kon-truh-VEEN|violate, transgress, breach|obey, uphold, observe|-|লঙ্ঘন করা|The company was accused of contravening safety regulations.
+denounce|dih-NOWNS|condemn, censure, criticize|praise, endorse, commend|-|নিন্দা করা, সমালোচনা করা|Civil rights leaders denounced the unjust law.
+despotic|dih-SPOT-ik|tyrannical, autocratic, dictatorial|democratic, lenient, benevolent|-|স্বৈরাচারী, নির্মম শাসক|The despotic ruler suppressed all opposition to his regime.
+deviate|DEE-vee-ayt|diverge, stray, swerve|conform, adhere, follow|0|বিচ্যুত হওয়া|The explorer deviated from the planned route in search of new territory.
+disinterested|dis-IN-trih-stid|impartial, unbiased, neutral|biased, partial, interested|+|নিঃস্বার্থ, নিরপেক্ষ|A disinterested judge was brought in to settle the dispute.
+escalate|ES-kuh-layt|intensify, magnify, augment|diminish, de-escalate, subside|-|বৃদ্ধি করা|The conflict escalated into a full-scale war.
+exorcise|EK-sur-syz|expel, banish, purge|summon, invite, welcome|0|তাড়ানো, বিতাড়িত করা|The priest performed an exorcism to rid the house of the alleged demon.
+finicky|FIN-ih-kee|fussy, fastidious, meticulous|easygoing, undemanding, tolerant|-|খুঁতখুঁতে|The finicky eater refused anything with the slightest imperfection.
+foil|FOYL|thwart, frustrate, obstruct|aid, assist, facilitate|0|ব্যর্থ করা|The detective's clever questioning foiled the suspect's alibi.
+intertwined|in-tur-TWYND|interconnected, entangled, interwoven|separate, unconnected, disentangled|0|জড়ানো, জড়িত|The roots of the ancient trees were beautifully intertwined.
+inundate|IN-un-dayt|overwhelm, flood, deluge|drain, parch, deprive|0|প্লাবিত করা|The city was inundated with tourists during the summer festival.
+ironclad|EYE-urn-klad|unbreakable, binding, indisputable|breakable, flimsy, loose|0|অলঙ্ঘনীয়|They signed an ironclad contract, leaving no room for loopholes.
+jeopardize|JEP-ur-dyz|endanger, imperil, risk|protect, safeguard, secure|-|বিপন্ন করা|Reckless driving jeopardizes the lives of everyone on the road.
+mercurial|mur-KYOOR-ee-ul|volatile, capricious, unpredictable|steady, stable, constant|-|চঞ্চল, অস্থির|The mercurial artist was known for dramatic shifts in style.
+oblivious|uh-BLIV-ee-us|unaware, unmindful, heedless|aware, alert, attentive|-|বেখেয়ালী|Oblivious to the noise, the child continued building his block tower.
+perpetrate|PUR-pih-trayt|commit, carry out, execute|prevent, avert, thwart|-|ঘটানো|The investigation aimed to identify who had perpetrated the crime.
+plaintive|PLAYN-tiv|sorrowful, mournful, melancholy|joyful, cheerful, upbeat|-|কাতর|The plaintive melody echoed through the empty concert hall.
+poignant|POYN-yunt|touching, moving, affecting|trivial, unmoving, bland|0|মর্মস্পর্শী, দুঃখজনক|The poignant story brought tears to her eyes.
+quiescent|kwee-ES-unt|inactive, dormant, still|active, energetic, agitated|0|নিশ্চল|The volcano had been quiescent for many years.
+reiterate|ree-IT-uh-rayt|repeat, restate, emphasize|omit, withhold, retract|0|পুনরাবৃত্তি করা|The teacher reiterated the instructions to ensure everyone understood.
+subside|sub-SYD|decrease, abate, lessen|intensify, escalate, swell|0|প্রশমিত হওয়া|The storm finally subsided after raging for hours.
+subsume|sub-SOOM|include, incorporate, encompass|exclude, separate, omit|0|অন্তর্ভুক্ত করা|The new company was subsumed into the larger corporation.
+surmount|sur-MOUNT|overcome, conquer, vanquish|succumb, yield, fail|+|অতিক্রম করা|She surmounted all challenges to achieve her dream.
+tangential|tan-JEN-shul|peripheral, irrelevant, incidental|central, relevant, essential|-|সামান্য সম্পর্কযুক্ত|His comments were tangential to the main topic of discussion.`;
+var R25=`adept|uh-DEPT|proficient, skillful, dexterous|inept, unskilled, clumsy|+|দক্ষ, পারদর্শী|The surgeon was adept at performing even the most complex procedures.
+adverse|ad-VURS|unfavorable, hostile, detrimental|favorable, beneficial, helpful|-|প্রতিকূল, ক্ষতিকর|The project ran into adverse weather conditions, significantly delaying its completion.
+appropriate|uh-PROH-pree-it|suitable, fitting, apt|inappropriate, unsuitable, improper|+|উপযুক্ত, যথাযথ|It would be more appropriate to discuss this matter privately.
+archetype|AR-kih-typ|prototype, model, exemplar|copy, imitation, deviation|0|আদিরূপ, আদর্শ নমুনা|Sherlock Holmes has become the archetype of the brilliant but eccentric detective.
+articulate|ar-TIK-yuh-lit|eloquent, well-spoken, lucid|inarticulate, incoherent, mumbling|+|স্পষ্টভাষী, সুবক্তা|The professor was highly articulate, making complex theories understandable to the class.
+auspicious|aw-SPISH-us|promising, favorable, propitious|ominous, unfavorable, inauspicious|+|শুভ, মঙ্গলজনক|The company's strong sales figures made for an auspicious start to the year.
+bereft|bih-REFT|deprived, devoid, lacking|endowed, provided, full|-|বঞ্চিত, শূন্য|She was bereft of hope after the tragedy.
+captious|KAP-shus|fault-finding, hypercritical, carping|easygoing, tolerant, agreeable|-|ক্ষুদ্রোচক, সমালোচক|The movie critic's captious reviews were known for their harshness.
+conclusive|kun-KLOO-siv|decisive, definitive, final|inconclusive, uncertain, doubtful|0|নিশ্চায়ক, চূড়ান্ত|The evidence was conclusive; the suspect was undeniably guilty.
+conspire|kun-SPYR|collude, plot, scheme|disclose, cooperate openly, oppose|-|ষড়যন্ত্র করা|The criminals conspired to rob the bank.
+delineate|dih-LIN-ee-ayt|describe, outline, depict|obscure, blur, confuse|0|বর্ণনা করা, রূপরেখা দেওয়া|The report carefully delineated the key steps involved in the project.
+disentangle|dis-en-TANG-gul|extricate, separate, unravel|entangle, tangle, complicate|0|ছাড়ানো, পৃথক করা|They spent hours trying to disentangle the knotted fishing line.
+exhort|ig-ZORT|urge, implore, entreat|discourage, dissuade, deter|+|উদ্বুদ্ধ করা, জোর করে বলা|The coach exhorted the players to give their best effort.
+frailty|FRAYL-tee|weakness, vulnerability, brittleness|strength, robustness, resilience|-|দুর্বলতা, ভঙ্গুরতা|She showed remarkable resolve in the face of her own frailty.
+grievance|GREE-vuns|complaint, injustice, wrong|satisfaction, contentment, approval|-|অভিযোগ, অন্যায়|The workers staged a strike to air their grievances about low wages.
+harangue|huh-RANG|rant, tirade, diatribe|praise, compliment, tribute|-|ভর্ৎসনা, দীর্ঘ তিরস্কারপূর্ণ বক্তৃতা|The protester launched into a harangue against government corruption.
+ploy|PLOY|tactic, maneuver, scheme|honesty, directness, candor|-|কৌশল, চাল|Her apology seemed like a ploy to win back his sympathy.
+poise|POYZ|composure, self-assurance, grace|awkwardness, nervousness, agitation|+|আত্মবিশ্বাস, ভারসাম্য|The gymnast displayed extraordinary poise during her difficult routine.
+pomposity|pom-POS-ih-tee|pretentiousness, arrogance, self-importance|humility, modesty, unpretentiousness|-|আড়ম্বর, আত্মগরিমা|The politician's pomposity made him seem arrogant and out of touch.
+proxy|PROK-see|substitute, representative, stand-in|principal, original, authority|0|প্রতিনিধি|The CEO sent a proxy to the meeting in her place.
+relent|rih-LENT|yield, soften, give in|persist, harden, resist|+|নরম হওয়া, মন গলা|The strict teacher finally relented and let the students play outside.
+rhetoric|RET-ur-ik|persuasion, oratory, eloquence|silence, plainness, inarticulacy|0|অলংকারশাস্ত্র|The candidate's speech was filled with empty rhetoric and lacked substance.
+rigor|RIG-ur|strictness, precision, thoroughness|laxity, carelessness, leniency|0|কঠোরতা, নির্ভুলতা|The scientist's work was known for its intellectual rigor.
+sparse|SPARS|meager, scanty, thin|dense, abundant, plentiful|0|অপ্রতুল, স্বল্প, বিরল|Vegetation was sparse in the arid desert landscape.
+steadfast|STED-fast|unwavering, resolute, determined|wavering, fickle, irresolute|+|অবিচল, দৃঢ়|Her steadfast support throughout the ordeal was a great comfort.
+suspect|SUS-pekt|dubious, questionable, doubtful|trustworthy, reliable, credible|-|সন্দেহজনক|The police investigated a suspect package found in the building.
+tedious|TEE-dee-us|boring, dull, monotonous|interesting, exciting, engaging|-|বিরক্তিকর, একঘেয়ে|The tedious paperwork took hours to complete.
+vitality|vy-TAL-ih-tee|energy, liveliness, exuberance|lethargy, weakness, lifelessness|+|প্রাণশক্তি, উদ্দীপনা|The dancer's performance was full of vitality.
+whimsical|WIM-zih-kul|playful, fanciful, capricious|serious, practical, predictable|0|খেয়ালী, চপল|The whimsical design of the building looked like something from a fairy tale.
+yield|YEELD|produce, generate, surrender|withhold, resist, retain|0|ফল দেওয়া, উৎপাদন করা, সমর্পণ করা|The apple tree yielded a bountiful harvest this year.`;
+var R26=`apprehension|ap-rih-HEN-shun|trepidation, foreboding, disquiet|confidence, calm, assurance|-|আশঙ্কা, ভয়|Sarah's apprehension about her job interview was palpable.
+ardent|AR-dnt|fervent, zealous, passionate|apathetic, indifferent, unenthusiastic|+|উৎসাহী, আগ্রহী|The team's ardent fans cheered them on throughout the game.
+axiomatic|ak-see-uh-MAT-ik|indisputable, undeniable, self-apparent|questionable, doubtful, debatable|0|স্বতঃসিদ্ধ, অকাট্য|The laws of physics are often considered axiomatic.
+cease|SEES|terminate, desist, discontinue|begin, continue, start|0|বন্ধ হওয়া, থামা|The rain will cease later this evening.
+conducive|kun-DOO-siv|propitious, advantageous, beneficial|detrimental, harmful, obstructive|+|সহায়ক, অনুকূল|The quiet library was conducive to studying.
+corporeal|kor-POR-ee-ul|material, bodily, somatic|spiritual, incorporeal, ethereal|0|শারীরিক, দৈহিক|Ghosts are often depicted as fading, insubstantial beings, lacking a corporeal form.
+doctrinaire|dok-truh-NAIR|inflexible, dogmatic, intransigent|flexible, open-minded, pragmatic|-|গোঁড়া, মতবাদী|The doctrinaire politician refused to compromise on any issue.
+eclectic|ih-KLEK-tik|diverse, heterogeneous, multifaceted|uniform, narrow, homogeneous|+|বহুমুখী, বৈচিত্র্যপূর্ণ|The restaurant had an eclectic menu, offering dishes from all over the world.
+equanimity|ee-kwuh-NIM-ih-tee|tranquility, poise, self-possession|agitation, anxiety, turmoil|+|স্থিরতা, শান্তভাব|She handled the crisis with remarkable equanimity.
+exorbitant|ig-ZOR-bih-tunt|excessive, extortionate, outrageous|reasonable, moderate, fair|-|অত্যধিক, গলাকাটা|The exorbitant cost of the designer handbag was beyond her budget.
+fickle|FIK-ul|inconstant, capricious, volatile|constant, loyal, steady|-|চঞ্চল, পরিবর্তনশীল|Fashion trends can be notoriously fickle.
+figurative|FIG-yur-uh-tiv|symbolic, representational, allegorical|literal, actual, factual|0|রূপক, অলঙ্কারবহুল|The poet used figurative language to paint vivid images in the reader's mind.
+flustered|FLUS-turd|perturbed, discombobulated, disconcerted|calm, composed, unruffled|-|বিচলিত, অস্থির|The surprise question flustered the speaker, momentarily interrupting his flow.
+gullible|GUL-uh-bul|credulous, naive, unsuspecting|skeptical, suspicious, shrewd|-|বোকা, সহজে প্রতারিত|The con artist preyed upon gullible tourists.
+idiosyncratic|id-ee-oh-sin-KRAT-ik|eccentric, quirky, unconventional|typical, conventional, common|0|স্বতন্ত্র, ব্যক্তিগত|Her idiosyncratic sense of style made her stand out.
+incidental|in-sih-DEN-tl|secondary, peripheral, subsidiary|essential, primary, central|0|আনুষঙ্গিক, গৌণ|The costs of travel are incidental to the main purpose of the trip.
+ingrained|in-GRAYND|entrenched, deep-rooted, deep-seated|superficial, shallow, temporary|0|গভীরভাবে নিহিত|The ingrained belief in superstitions was hard to shake off.
+insolent|IN-suh-lunt|impertinent, impudent, audacious|respectful, polite, deferential|-|উদ্ধত, অপমানজনক|The student's insolent remark earned him a detention.
+lampoon|lam-POON|parody, burlesque, caricature|praise, flatter, honor|-|ব্যঙ্গ করা, উপহাস|The political cartoonist was famous for his sharp lampoons of public figures.
+lavish|LAV-ish|opulent, sumptuous, prodigal|meager, frugal, sparing|0|অপরিসীম, বিলাসবহুল|The wedding reception was a lavish affair with a five-course meal.
+lugubrious|loo-GOO-bree-us|doleful, melancholy, dismal|cheerful, joyful, lighthearted|-|শোকপূর্ণ, বিষণ্ণ|The lugubrious music set a somber tone for the funeral.
+macabre|muh-KAH-bruh|gruesome, grisly, morbid|pleasant, cheerful, wholesome|-|ভয়ঙ্কর, মৃত্যু-সম্পর্কিত|The horror movie was filled with macabre scenes.
+morose|muh-ROHS|gloomy, sulky, despondent|cheerful, jovial, upbeat|-|বিষণ্ণ, মনমরা|The morose teenager refused to participate in any activities.
+officious|uh-FISH-us|meddlesome, intrusive, impertinent|reserved, unobtrusive, aloof|-|হস্তক্ষেপকারী, বাড়াবাড়ি|The officious store clerk kept trying to steer her towards expensive items.
+ramification|ram-uh-fih-KAY-shun|repercussion, implication, outcome|cause, origin, source|0|প্রতিক্রিয়া, ফলাফল|The company didn't fully understand the ramifications of its decision.
+serene|suh-REEN|tranquil, placid, composed|turbulent, agitated, stormy|+|প্রশান্ত, নির্মল|The serene lake at dawn was a breathtaking sight.
+supplant|suh-PLANT|supersede, displace, oust|retain, preserve, maintain|0|প্রতিস্থাপন করা, উৎখাত করা|The new technology quickly supplanted the old methods.
+tacit|TAS-it|implicit, implied, unspoken|explicit, stated, expressed|0|অনুমিত, বোঝা যায় এমন|There was a tacit agreement between them to keep the matter secret.
+transcend|tran-SEND|surpass, outstrip, exceed|fall short, sink, lag|+|অতিক্রম করা, ছাড়িয়ে যাওয়া|The artist's work transcended the limitations of her medium.
+treatise|TREE-tis|dissertation, monograph, exposition|note, jotting, summary|0|গ্রন্থ, প্রবন্ধ|He wrote a lengthy treatise on the history of philosophy.`;
+var R27=`antagonize|an-TAG-uh-nyz|provoke, irritate, harass|appease, pacify, befriend|-|বিরক্ত করা, উত্যক্ত করা|The child loved to antagonize his younger sister.
+barren|BAR-un|sterile, unproductive, desolate|fertile, fruitful, productive|-|অনুর্বর, শুষ্ক|The desert landscape was stark and barren.
+bombastic|bom-BAS-tik|pompous, pretentious, inflated|plain, modest, understated|-|আড়ম্বরপূর্ণ, জাঁকালো|The speaker's bombastic style quickly bored the audience.
+cajole|kuh-JOHL|persuade, coax, wheedle|coerce, force, compel|0|তুষ্ট করা, খোশামোদ করা|She managed to cajole her reluctant friend into going to the party.
+chary|CHAIR-ee|cautious, wary, hesitant|reckless, careless, bold|0|সতর্ক, সাবধান|Investors were chary about putting money into the volatile market.
+curmudgeon|kur-MUJ-un|grouch, grump, crank|optimist, cheerful person, charmer|-|বদমেজাজি লোক|The old man had a reputation as a curmudgeon.
+dirge|DURJ|lament, elegy, requiem|celebration, anthem, jubilee|-|বিলাপগীতি|The funeral procession played a slow, mournful dirge.
+estimable|ES-tuh-muh-bul|admirable, respectable, commendable|contemptible, despicable, ignoble|+|সম্মানজনক|The professor was an estimable scholar in her field.
+euphemism|YOO-fuh-miz-um|substitute, indirect term, polite expression|bluntness, dysphemism, directness|0|সুবচন|"Passed away" is a common euphemism for "died".
+excoriate|ik-SKOR-ee-ayt|criticize, denounce, censure|praise, commend, laud|-|তীব্র সমালোচনা করা|The film critic excoriated the director's latest movie.
+exigent|EK-sih-junt|urgent, pressing, critical|trivial, unimportant, minor|0|জরুরী|The exigent situation required swift action.
+haughty|HAW-tee|arrogant, conceited, supercilious|humble, modest, unassuming|-|দাম্ভিক, অহংকারী|The haughty heiress treated her servants with disdain.
+heady|HED-ee|intoxicating, exhilarating, potent|dull, sobering, mild|0|মাতাল করা|The heady scent of jasmine filled the air.
+imperturbable|im-pur-TUR-buh-bul|calm, composed, unflappable|excitable, agitated, nervous|+|অবিচলিত|The yoga instructor maintained an imperturbable demeanor even in stressful situations.
+implacable|im-PLAK-uh-bul|relentless, unforgiving, unyielding|forgiving, lenient, merciful|-|নির্দয়|The detective was implacable in his pursuit of justice.
+lambaste|lam-BAYST|berate, rebuke, scold|praise, applaud, commend|-|তীব্র ভর্ৎসনা করা|The coach lambasted the players for their poor performance.
+miscreant|MIS-kree-unt|villain, scoundrel, reprobate|saint, hero, innocent|-|দুর্বৃত্ত|The police were searching for the miscreant who had vandalized the property.
+peccadillo|pek-uh-DIL-oh|minor offense, indiscretion, fault|crime, felony, grave sin|-|ক্ষুদ্র ত্রুটি|They were willing to overlook his occasional peccadilloes.
+philistine|FIL-uh-steen|uncultured, boorish, materialistic|connoisseur, aesthete, intellectual|-|অসভ্য|He dismissed the art exhibit as the work of philistines.
+relegate|REL-ih-gayt|demote, downgrade, assign|promote, elevate, advance|-|অবনমিত করা|The company relegated him to a less prestigious position.
+repugnant|rih-PUG-nunt|repulsive, disgusting, abhorrent|attractive, pleasing, appealing|-|বিরক্তিকর|The smell of rotting garbage was utterly repugnant.
+sentimental|sen-tuh-MEN-tl|nostalgic, emotional, tender|unemotional, practical, hardheaded|0|আবেগপ্রবণ|She kept all her old love letters for sentimental reasons.
+squander|SKWON-dur|waste, misuse, dissipate|save, conserve, hoard|-|অপচয় করা|He squandered his inheritance on frivolous luxuries.
+swindle|SWIN-dl|cheat, defraud, trick|reimburse, deal fairly, repay|-|প্রতারণা করা|The con artist swindled unsuspecting victims out of their savings.
+tangible|TAN-juh-bul|touchable, real, concrete|intangible, abstract, imaginary|+|বাস্তব, স্পর্শনীয়|They needed tangible evidence to support their claim.
+turpitude|TUR-pih-tood|depravity, wickedness, immorality|virtue, goodness, decency|-|নৈতিক অধঃপতন|The politician's acts of turpitude shocked the nation.
+unalloyed|un-uh-LOYD|pure, absolute, unqualified|mixed, diluted, tempered|+|খাঁটি|The joy she felt at her graduation was unalloyed.
+undercut|UN-dur-kut|undermine, weaken, sabotage|support, bolster, strengthen|-|দুর্বল করা|The new store undercut its competitors' prices to attract customers.
+wheedle|WEE-dl|flatter, coax, persuade|demand, force, bully|-|চাটুবাক্য করা|The child tried to wheedle an extra piece of candy from his mother.
+xenophobic|zee-nuh-FOH-bik|prejudiced, intolerant, insular|tolerant, welcoming, cosmopolitan|-|বিদেশী বিদ্বেষী|The rise in xenophobic sentiment worried human rights activists.`;
+var R28=`abeyance|uh-BAY-uns|suspension, dormancy, deferral|activity, continuation, action|0|স্থগিতাবস্থা|The plans for the new library were put in abeyance due to budget cuts.
+abstract|AB-strakt|theoretical, conceptual, nonrepresentational|concrete, tangible, real|0|বিমূর্ত|Her paintings were abstract explorations of color and form.
+affront|uh-FRUNT|insult, offense, indignity|compliment, honor, tribute|-|অপমান|The rude remark was considered a personal affront.
+agitate|AJ-ih-tayt|disturb, excite, foment|calm, soothe, pacify|-|উত্তেজিত করা|The political activist agitated the crowd with his fiery speech.
+august|aw-GUST|majestic, venerable, imposing|humble, lowly, undignified|+|মহিমান্বিত|The august cathedral stood as a testament to centuries of devotion.
+burnish|BUR-nish|polish, buff, shine|tarnish, dull, stain|+|চকচকে করা|She burnished the antique silver until it gleamed.
+coy|KOY|shy, modest, demure|bold, brazen, forward|0|লাজুক|Her coy smile and playful glances hinted at her interest.
+deprecate|DEP-rih-kayt|belittle, disparage, decry|praise, extol, approve|-|নিন্দা করা|I deprecate his reckless behavior and lack of concern for others.
+disdain|dis-DAYN|contempt, scorn, derision|respect, admiration, esteem|-|অবজ্ঞা|The aristocrat looked upon the commoners with disdain.
+disperse|dih-SPURS|scatter, dissipate, disband|gather, assemble, collect|0|ছত্রভঙ্গ করা|The crowd dispersed after the concert was over.
+distend|dih-STEND|swell, expand, bloat|shrink, contract, deflate|0|প্রসারিত করা|The balloon distended as more and more air was blown into it.
+endemic|en-DEM-ik|native, indigenous, prevalent|foreign, alien, extraneous|0|স্থানীয়ভাবে প্রচলিত|Malaria is endemic to certain tropical regions.
+enmity|EN-mih-tee|hostility, hatred, antagonism|friendship, goodwill, amity|-|শত্রুতা|The enmity between the two nations had lasted for centuries.
+gauche|GOHSH|awkward, tactless, uncouth|graceful, refined, tactful|-|অভদ্র|His gauche attempts at flirting were embarrassing.
+hysterical|hih-STER-ih-kul|frenzied, overwrought, uncontrolled|calm, composed, rational|-|হিস্টিরিয়াগ্রস্ত|The woman became hysterical as she searched for her lost child.
+impudent|IM-pyuh-dunt|disrespectful, impertinent, insolent|respectful, polite, courteous|-|ধৃষ্ট|The impudent student was sent to the principal's office.
+inchoate|in-KOH-it|rudimentary, undeveloped, incipient|developed, complete, mature|0|সদ্য সূচিত|The project was still in its inchoate stages, with only a rough outline in place.
+penchant|PEN-chunt|liking, fondness, inclination|aversion, dislike, antipathy|+|পক্ষপাত|He had a penchant for collecting antique clocks.
+quandary|KWON-duh-ree|dilemma, predicament, plight|solution, certainty, clarity|-|দ্বিধা|The unexpected situation left her in a quandary.
+quarantine|KWOR-un-teen|isolate, segregate, confine|release, free, mingle|0|পৃথকীকরণ|The ship was quarantined due to an outbreak of illness on board.
+quash|KWOSH|suppress, subdue, squash|encourage, foment, promote|-|দমন করা|The rebellion was quashed by the government forces.
+quibble|KWIB-ul|bicker, squabble, nitpick|agree, concede, accept|-|তুচ্ছ বিষয়ে তর্ক করা|Let's not quibble over such small details.
+ravage|RAV-ij|devastate, ruin, pillage|restore, build, preserve|-|ধ্বংস করা|The storm ravaged the coastal town.
+recant|rih-KANT|retract, renounce, disavow|affirm, maintain, uphold|0|প্রত্যাহার করা|He was forced to recant his earlier testimony.
+redoubtable|rih-DOW-tuh-bul|formidable, fearsome, awe-inspiring|harmless, unimpressive, weak|0|ভয়ঙ্কর|The dragon was a redoubtable foe.
+retiring|rih-TY-ring|shy, modest, reserved|outgoing, sociable, forward|0|লাজুক|She had a retiring personality and preferred to keep to herself.
+shrill|SHRIL|piercing, high-pitched, grating|soft, soothing, mellow|-|কর্কশ|The shrill sound of the alarm made everyone jump.
+sophistry|SOF-uh-stree|trickery, deception, specious reasoning|sound logic, honesty, candor|-|কুযুক্তি|His argument was pure sophistry, devoid of any real logic.
+substantiate|sub-STAN-shee-ayt|verify, confirm, validate|disprove, refute, contradict|+|প্রমাণ করা|The detectives worked to substantiate their theory with concrete facts.
+wily|WY-lee|cunning, crafty, shrewd|naive, artless, guileless|-|ধূর্ত|The wily fox managed to evade the hunters at every turn.`;
+var R29=`abscond|ab-SKOND|flee, escape, bolt|remain, stay, surrender|-|পালিয়ে যাওয়া, লুকিয়ে পড়া|The thief absconded with the jewels in the dead of night.
+apogee|AP-uh-jee|zenith, pinnacle, climax|nadir, low point, bottom|+|চূড়ান্ত বিন্দু, শীর্ষবিন্দু|The company's expansionary phase reached its apogee in the early 2000s.
+aspersion|uh-SPUR-zhun|slander, defamation, denigration|praise, compliment, tribute|-|কুৎসা রটনা, নিন্দা|The allegations were unsubstantiated aspersions on the politician's character.
+bawdy|BAW-dee|raunchy, lewd, obscene|clean, decent, wholesome|-|অশালীন, অশ্লীল|The play was filled with bawdy humor that made some audience members uncomfortable.
+chagrin|shuh-GRIN|annoyance, vexation, mortification|delight, satisfaction, pride|-|বিরক্তি, অসন্তোষ, লজ্জা|To her chagrin, she stumbled during her dance performance.
+collude|kuh-LOOD|conspire, collaborate, connive|compete, oppose, disclose|-|গোপনে ষড়যন্ত্র করা|Rival companies were accused of colluding to fix prices.
+commiserate|kuh-MIZ-uh-rayt|sympathize, empathize, condole|rejoice, gloat, ignore|+|সমবেদনা প্রকাশ করা|He commiserated with her over the loss of her beloved pet.
+conflagration|kon-fluh-GRAY-shun|inferno, blaze, wildfire|trickle, spark, flicker|-|ব্যাপক অগ্নিকাণ্ড|The conflagration destroyed acres of forest land.
+contretemps|KON-truh-tahn|mishap, blunder, embarrassment|success, harmony, triumph|-|দুর্ঘটনা, বিব্রতকর পরিস্থিতি|A scheduling contretemps led to both speakers arriving at the same time.
+conviction|kun-VIK-shun|certitude, belief, assurance|doubt, uncertainty, indecision|+|দৃঢ় বিশ্বাস|She spoke with such conviction that she swayed the audience in her favor.
+croon|KROON|hum, warble, sing softly|shout, bellow, scream|+|মৃদুস্বরে গান গাওয়া|He crooned a sweet lullaby to his newborn daughter.
+depose|dih-POHZ|oust, overthrow, unseat|install, enthrone, restore|-|ক্ষমতাচ্যুত করা|The king was deposed in a military coup.
+detente|day-TAHNT|truce, thaw, easing of tensions|hostility, tension, escalation|+|উত্তেজনা প্রশমন|After years of conflict, the two countries finally reached a detente.
+dowdy|DOW-dee|shabby, frumpy, unfashionable|stylish, smart, chic|-|বিশ্রী পোশাক পরিহিত|Her dowdy clothes made her seem much older than she was.
+echelon|ESH-uh-lon|rank, level, status|nobody, bottom, base|0|পদমর্যাদা, স্তর|She quickly rose through the echelons of the corporation.
+ennui|ahn-WEE|boredom, tedium, listlessness|excitement, interest, enthusiasm|-|বিরক্তি, একঘেয়েমি|A sense of ennui washed over him during the long, monotonous meeting.
+expatiate|ik-SPAY-shee-ayt|elaborate, enlarge, dwell on|abbreviate, summarize, curtail|0|বিশদভাবে ব্যাখ্যা করা|The professor tended to expatiate on his favorite topics.
+fraught|FRAWT|charged, tense, anxious|calm, relaxed, untroubled|-|উদ্বেগপূর্ণ, দুশ্চিন্তাগ্রস্ত|Their journey home was fraught with danger.
+fulcrum|FUL-krum|pivot, support, linchpin|periphery, afterthought, hindrance|0|ভরকেন্দ্র|The politician's campaign promises became the fulcrum of his electoral strategy.
+imbroglio|im-BROHL-yoh|entanglement, predicament, mess|clarity, harmony, order|-|জটিল অবস্থা, বিব্রতকর পরিস্থিতি|He became embroiled in an imbroglio over a financial dispute.
+jocund|JOK-und|merry, cheerful, jovial|gloomy, morose, solemn|+|আনন্দিত, হাসিখুশি|He was full of jocund laughter and playful banter.
+languish|LANG-gwish|weaken, decline, fade|thrive, flourish, prosper|-|অবহেলিত অবস্থায় থাকা, দুর্বল হওয়া|The prisoners languished in their cells for years.
+nadir|NAY-dur|low point, bottom, trough|zenith, apogee, peak|-|নিম্নতম বিন্দু|After the stock market crash, his wealth reached its nadir.
+nimble|NIM-bul|agile, dexterous, sprightly|clumsy, sluggish, stiff|+|চটপটে, ত্বরিত|The gymnast's movements were incredibly nimble.
+ominous|OM-uh-nus|threatening, menacing, foreboding|promising, auspicious, reassuring|-|অশুভ, অসংশয়ী|The ominous clouds overhead foreshadowed a storm.
+outlandish|owt-LAN-dish|bizarre, eccentric, peculiar|ordinary, conventional, normal|-|উদ্ভট, অদ্ভুত|Her outlandish fashion sense always turned heads.
+propitious|pruh-PISH-us|favorable, advantageous, auspicious|unfavorable, ominous, inauspicious|+|অনুকূল, শুভ|The weather conditions were propitious for planting the new crop.
+prurient|PROOR-ee-unt|salacious, lustful, lewd|chaste, decent, wholesome|-|কামুক, লালসাপূর্ণ|The magazine was criticized for its prurient content.
+sadistic|suh-DIS-tik|cruel, malicious, perverse|kind, compassionate, gentle|-|নিষ্ঠুরতাপ্রিয়|The sadistic murderer showed no remorse for his crimes.
+zenith|ZEE-nith|peak, apex, pinnacle|nadir, bottom, low point|+|চূড়ান্ত বিন্দু, শীর্ষবিন্দু|At the zenith of his career, the actor was beloved by fans worldwide.`;
+var R30=`aberrant|AB-ur-unt|deviant, abnormal, irregular|normal, typical, regular|-|অসঙ্গতিপূর্ণ|Her aberrant behavior raised concerns among her colleagues.
+abide|uh-BYD|tolerate, endure, comply|reject, defy, flout|0|মান্য করা|Students must abide by the school's dress code.
+bravado|bruh-VAH-doh|swagger, bluster, audacity|humility, modesty, timidity|-|আস্ফালন|His acts of bravado often landed him in trouble.
+allow|uh-LOW|permit, grant, authorize|forbid, prohibit, deny|+|স্বীকার করা|The teacher allowed the students to work in groups.
+capitulate|kuh-PICH-uh-layt|surrender, yield, submit|resist, fight, persevere|0|পরাজয় স্বীকার করা|After a long siege, the defenders were forced to capitulate.
+cogitate|KOJ-ih-tayt|ponder, contemplate, meditate|ignore, neglect, overlook|0|বিবেচনা করা|The philosopher cogitated on the nature of existence.
+deportment|dih-PORT-munt|behavior, conduct, bearing|misbehavior, slouch, impropriety|+|চালচলন|Her impeccable deportment made her a favorite among the guests.
+extemporize|ik-STEM-puh-ryz|improvise, ad-lib, wing it|prepare, rehearse, plan|0|আশু রচনা করা|The speaker had to extemporize when he forgot his notes.
+factious|FAK-shus|divisive, sectarian, discordant|united, harmonious, cooperative|-|দলাদলিপূর্ণ|The factious political climate made it difficult to pass legislation.
+fallow|FAL-oh|dormant, idle, unproductive|cultivated, productive, active|0|খামার|The fields lay fallow during the winter months.
+feint|FAYNT|ruse, trick, bluff|genuine attack, sincerity, honesty|-|কৌশল|The boxer used a feint to draw his opponent into an opening.
+flagrant|FLAY-grunt|blatant, glaring, egregious|subtle, hidden, minor|-|কুৎসিত|The politician's corruption was a flagrant abuse of power.
+gratuitous|gruh-TOO-ih-tus|unnecessary, unwarranted, unjustified|justified, necessary, warranted|-|অযৌক্তিক|The movie contained scenes of gratuitous violence.
+grovel|GROV-ul|cower, cringe, fawn|stand tall, defy, assert|-|চাটুকারিতা করা|He refused to grovel before his superiors to get a promotion.
+indecorous|in-DEK-ur-us|improper, unseemly, inappropriate|proper, seemly, decorous|-|অশোভন|His indecorous remarks shocked the other guests.
+intrigue|IN-treeg|plot, scheme, conspiracy|openness, honesty, transparency|-|গোপন পরামর্শ|The palace was rife with political intrigue.
+nominal|NOM-uh-nl|token, symbolic, minimal|substantial, considerable, significant|0|নগণ্য|They charged a nominal fee for the service.
+obdurate|OB-duh-rit|stubborn, inflexible, unyielding|flexible, yielding, compliant|-|জেদি|The company's obdurate stance in negotiations led to a stalemate.
+obstreperous|ob-STREP-ur-us|unruly, boisterous, noisy|orderly, quiet, docile|-|উশৃঙ্খল|The obstreperous crowd made it difficult for the speaker to be heard.
+odious|OH-dee-us|repulsive, detestable, abhorrent|pleasant, delightful, admirable|-|বিদ্বেষপূর্ণ|The crime was so odious that it shocked the entire nation.
+plucky|PLUK-ee|courageous, spirited, brave|timid, cowardly, spineless|+|দুঃসাহসী|The plucky firefighter rushed into the burning building to save a child.
+precocious|prih-KOH-shus|advanced, gifted, mature|backward, slow, immature|+|প্রতিভাবান|The precocious child was reading college-level textbooks by the age of ten.
+remuneration|rih-myoo-nuh-RAY-shun|payment, compensation, reimbursement|nonpayment, penalty, loss|0|উপার্জন|The employees demanded fair remuneration for their overtime work.
+slovenly|SLUV-un-lee|untidy, careless, sloppy|neat, tidy, meticulous|-|নোংরা|His slovenly appearance made a poor impression on the interviewer.
+soliloquy|suh-LIL-uh-kwee|monologue, speech to oneself|dialogue, conversation, discussion|0|নাটকের স্বগতোক্তি|Hamlet's famous soliloquy reveals his inner turmoil.
+spurn|SPURN|reject, scorn, disdain|accept, embrace, welcome|-|অবজ্ঞা করা|The rejected suitor spurned his former love.
+stolid|STOL-id|impassive, unemotional, unresponsive|emotional, expressive, excitable|0|স্থবির|The soldier maintained a stolid expression even in the face of danger.
+temerity|tuh-MER-ih-tee|audacity, boldness, recklessness|timidity, caution, prudence|-|স্পর্ধা|She had the temerity to challenge her boss's decision.
+tenuous|TEN-yoo-us|weak, flimsy, shaky|strong, solid, substantial|-|পাতলা|The evidence supporting their claim was tenuous at best.
+verve|VURV|enthusiasm, vigor, liveliness|apathy, lethargy, dullness|+|প্রাণচাঞ্চল্য|The dancer performed with great verve and passion.`;
+var R31=`abrogate|AB-ruh-gayt|repeal, annul, revoke|enact, establish, uphold|0|বাতিল করা, বিলুপ্ত করা|The company decided to abrogate the old contract and negotiate a new one.
+aghast|uh-GAST|horrified, appalled, shocked|unmoved, indifferent, unfazed|-|হতবাক, বিস্মিত, আতঙ্কে ওঠা|The audience was aghast at the magician's seemingly impossible trick.
+apprise|uh-PRYZ|inform, notify, advise|conceal, withhold, mislead|0|অবহিত করা, জানানো|The manager will apprise us of any changes to the schedule.
+beguile|bih-GYL|deceive, charm, trick|disenchant, repel, disillusion|-|প্রতারণা করা, মুগ্ধ করা|The con artist beguiled the elderly woman, stealing her money.
+boon|BOON|blessing, benefit, godsend|curse, bane, disadvantage|+|আশীর্বাদ, উপকার|The new technology proved to be a boon for the company's efficiency.
+callous|KAL-us|heartless, unfeeling, insensitive|compassionate, sensitive, caring|-|নিষ্ঠুর, হৃদয়হীন|His callous remarks about the tragedy demonstrated a lack of empathy.
+coddle|KOD-l|pamper, spoil, overprotect|neglect, toughen, mistreat|-|আদরে লালন করা|Parents sometimes coddle their children, preventing them from learning independence.
+crescendo|krih-SHEN-doh|climax, peak, culmination|decrescendo, lull, quiet|0|ধীরে ধীরে তীব্রতা বৃদ্ধি|The symphony reached a dramatic crescendo before the final movement.
+extenuating|ik-STEN-yoo-ay-ting|mitigating, justifying, lessening|aggravating, worsening, condemning|0|দোষ বা অপরাধকে ক্ষমার যোগ্য করা|The judge considered the extenuating circumstances before deciding on a sentence.
+frenetic|frih-NET-ik|frantic, frenzied, wild|calm, leisurely, relaxed|-|উন্মত্ত, অস্থির|The city had a frenetic pace that could be overwhelming for some visitors.
+fringe|FRINJ|peripheral, marginal, unorthodox|mainstream, central, conventional|0|প্রান্তিক, গৌণ, অপ্রচলিত|Her interest in fringe science led her to research unusual theories.
+hapless|HAP-lis|unfortunate, unlucky, ill-fated|fortunate, lucky, blessed|-|দুর্ভাগা, অভাগা|The hapless traveler lost his luggage and missed his flight.
+immaculate|ih-MAK-yuh-lit|spotless, flawless, perfect|dirty, flawed, stained|+|নিখুঁত, নিষ্পাপ|The hotel room was immaculate when we arrived.
+obfuscate|OB-fuh-skayt|confuse, obscure, muddle|clarify, explain, illuminate|-|অস্পষ্ট করা, বিভ্রান্ত করা|Politicians sometimes obfuscate the truth to avoid answering difficult questions.
+ossify|OS-uh-fy|rigidify, harden, solidify|soften, loosen, flexibilize|-|অনমনীয় হওয়া, অস্থিভূত হওয়া|Some people fear that, as they age, their ideas will ossify.
+pastiche|pa-STEESH|imitation, medley, homage|original, innovation, creation|0|নকল, অনুকরণ|The director's new film was considered a clever pastiche of classic detective movies.
+perspicacious|pur-spih-KAY-shus|astute, shrewd, discerning|obtuse, dull, undiscerning|+|তীক্ষ্ণ বুদ্ধিসম্পন্ন, বিচক্ষণ|The perspicacious detective immediately noticed inconsistencies in the witness's story.
+ponderous|PON-dur-us|heavy, cumbersome, dull|light, graceful, lively|-|ভারী, অপ্রতিভ, নিস্তেজ|The philosopher's writing style was ponderous and difficult to understand.
+recluse|REK-loos|hermit, loner, solitary|socialite, extrovert, mixer|0|একাকী, সমাজবিচ্ছিন্ন ব্যক্তি|The reclusive billionaire rarely made public appearances.
+retaliate|rih-TAL-ee-ayt|counterattack, strike back, avenge|forgive, submit, pardon|-|প্রতিশোধ নেওয়া, পাল্টা আক্রমণ করা|Nations sometimes retaliate against trade restrictions imposed by other countries.
+rhapsody|RAP-suh-dee|ecstasy, euphoria, elation|despair, gloom, sorrow|+|আনন্দোচ্ছ্বাস, উল্লাসপূর্ণ রচনা বা সঙ্গীত|Fans went into a rhapsody when the team scored the winning goal.
+serendipitous|ser-un-DIP-ih-tus|fortuitous, happy, lucky|unfortunate, planned, unlucky|+|আকস্মিকভাবে ভাগ্যবান|A serendipitous meeting at a conference led to a wonderful job opportunity.
+shirk|SHURK|avoid, evade, dodge|undertake, face, fulfill|-|এড়িয়ে যাওয়া, অবহেলা করা|He was never one to shirk his responsibilities.
+sinecure|SY-nih-kyoor|cushy job, easy position|drudgery, hard work, toil|0|নামেমাত্র কাজ কিন্তু বেতন-ভাতা ভালো|Politicians sometimes appoint their allies to comfortable sinecure positions.
+sinuous|SIN-yoo-us|curving, winding, twisting|straight, direct, rigid|0|বিকর্ষী, ঘূর্ণিত, প্রলম্বিত|The river followed a sinuous path through the valley.
+stanch|STANCH|stop, halt, stem|start, promote, let flow|0|থামানো, বন্ধ করা (প্রধানত তরল)|The nurse quickly applied pressure to stanch the flow of blood.
+surfeit|SUR-fit|excess, overabundance, glut|scarcity, shortage, dearth|-|অতিরিক্ত পরিমাণ|A surfeit of food at the party led to a lot of leftovers.
+ulterior|ul-TEER-ee-ur|hidden, covert, concealed|obvious, open, stated|-|গুপ্ত, প্রচ্ছন্ন|Some suspected the company's charitable donations had an ulterior motive of improving their public image.
+voluble|VOL-yuh-bul|talkative, garrulous, loquacious|reticent, taciturn, quiet|0|বাকপটু, বাচাল|The voluble speaker kept the audience entertained for hours.
+sordid|SOR-did|sleazy, dirty, morally corrupt|noble, pure, honorable|-|নোংরা, অনৈতিক|The scandal exposed the politician's sordid past.`;
+var R32=`abstruse|ab-STROOS|arcane, esoteric, recondite|clear, obvious, simple|-|দুর্বোধ্য, জটিল|The philosopher's work was so abstruse that few scholars could fully comprehend it.
+auxiliary|awg-ZIL-yuh-ree|ancillary, supplementary, accessory|primary, main, essential|0|সহায়ক, অতিরিক্ত|The auxiliary power generator kicked in when the main electricity supply failed.
+caricature|KAR-ih-kuh-choor|parody, burlesque, travesty|portrait, accurate depiction, likeness|-|ব্যঙ্গচিত্র, হাস্যকর অনুকরণ|The political cartoonist drew a caricature of the senator, emphasizing his large nose and ears.
+depravity|dih-PRAV-ih-tee|corruption, wickedness, degeneracy|virtue, goodness, morality|-|নৈতিক অধঃপতন, দুষ্টতা|The crimes revealed a level of depravity that shocked the community.
+dilettante|DIL-ih-tahnt|dabbler, amateur, nonprofessional|expert, professional, master|-|অপেশাদার শিল্পী বা বিশেষজ্ঞ|He was a mere dilettante in the field of music, more interested in talking about it than practicing.
+effrontery|ih-FRUN-tuh-ree|audacity, impudence, impertinence|politeness, humility, respect|-|ধৃষ্টতা, দুঃসাহস|The student's effrontery in talking back to the teacher earned him a detention.
+encroach|en-KROHCH|intrude, infringe, trespass|retreat, respect, withdraw|-|অন্যের সীমা লঙ্ঘন করা, অনধিকার প্রবেশ করা|The development of new housing encroached upon the wildlife preserve.
+endow|en-DOW|bestow, grant, bequeath|deprive, withhold, strip|+|দান করা, প্রদান করা|The wealthy philanthropist endowed the university with a large scholarship fund.
+entreat|en-TREET|beseech, implore, plead|command, demand, order|0|আকুতি করা, বিনীতভাবে অনুরোধ করা|The children entreated their parents for permission to go to the amusement park.
+gregarious|grih-GAIR-ee-us|sociable, outgoing, convivial|solitary, introverted, reserved|+|সামাজিক, মেলামেশাপ্রিয়|The gregarious puppy loved making new friends at the dog park.
+indictment|in-DYT-munt|accusation, charge, arraignment|acquittal, exoneration, pardon|-|অভিযোগ, দোষারোপ|The grand jury issued an indictment against the politician for corruption.
+indignant|in-DIG-nunt|resentful, aggrieved, infuriated|pleased, content, unbothered|-|ক্ষুব্ধ, ক্রুদ্ধ|The workers were indignant at the company's decision to cut their wages.
+ineluctable|in-ih-LUK-tuh-bul|unavoidable, inescapable, inevitable|avoidable, escapable, preventable|0|অনিবার্য|Despite her best efforts, the ineluctable march of time brought about many changes.
+inquisitive|in-KWIZ-ih-tiv|curious, inquiring, probing|indifferent, incurious, uninterested|+|জ্ঞানপিপাসু, কৌতূহলী|The inquisitive child asked a never-ending stream of questions.
+latitude|LAT-ih-tood|freedom, scope, leeway|restriction, limitation, constraint|+|স্বাধীনতা, ক্ষমতা|The teacher gave her students wide latitude in choosing their research topics.
+levity|LEV-ih-tee|lightheartedness, frivolity, flippancy|seriousness, gravity, solemnity|-|হালকাভাবে, চপলতা|His levity during the funeral service was considered inappropriate.
+malevolent|muh-LEV-uh-lunt|malicious, spiteful, malign|benevolent, kind, caring|-|দূষিত, হিংস্র|The villain's malevolent plot threatened the safety of the entire city.
+mediate|MEE-dee-ayt|arbitrate, intervene, negotiate|provoke, inflame, side with|+|মধ্যস্থতা করা, সমঝোতা করানো|The diplomat was called upon to mediate the peace talks between the warring nations.
+occlude|uh-KLOOD|obstruct, block, impede|open, clear, unblock|-|বাধা দেওয়া, বন্ধ করা|A blood clot occluded the artery, preventing proper circulation.
+pacify|PAS-uh-fy|appease, placate, mollify|agitate, provoke, enrage|+|শান্ত করা, প্রবোধ দেওয়া|The mother tried to pacify her crying baby with a lullaby.
+paragon|PAR-uh-gon|model, exemplar, ideal|disgrace, anomaly, worst|+|আদর্শ|The athlete was considered a paragon of sportsmanship and dedication.
+patronize|PAY-truh-nyz|condescend, treat with superiority|respect, honor, defer to|-|গুরুত্ব না দেওয়া, অবজ্ঞা করা|The wealthy woman patronized the local artists, making them feel small and insignificant.
+penurious|puh-NYOOR-ee-us|destitute, impoverished, indigent|wealthy, affluent, prosperous|-|অত্যন্ত দরিদ্র|The penurious family struggled to put food on the table.
+piquant|PEE-kunt|zesty, spicy, tangy|bland, mild, insipid|+|ঝাঁঝালো (খাবার), উত্তেজক (অন্যান্য ক্ষেত্রে)|The piquant sauce added a delightful kick to the dish.
+rampant|RAM-punt|uncontrolled, unchecked, widespread|controlled, restrained, rare|-|অনিয়ন্ত্রিত, ব্যাপক|Corruption was rampant throughout the government.
+remote|rih-MOHT|distant, isolated, faraway|near, close, accessible|0|দূরবর্তী, বিচ্ছিন্ন; সামান্য (সম্ভাবনা)|The remote village was only accessible by a long and difficult trek.
+reprobate|REP-ruh-bayt|scoundrel, degenerate, immoral|saint, upright person, paragon|-|দুশ্চরিত্র, নীতিহীন ব্যক্তি|The reprobate's actions brought shame upon his family.
+turbid|TUR-bid|muddy, cloudy, opaque|clear, transparent, limpid|-|ঘোলাটে, অস্পষ্ট|The rainwater runoff turned the river turbid.
+turgid|TUR-jid|swollen, bloated, pompous|plain, concise, deflated|-|অতিরঞ্জিত (শৈলী বা ভাষার ক্ষেত্রে); ফোলা|The writer's turgid prose was difficult to understand.
+vacuous|VAK-yoo-us|empty-headed, mindless, inane|thoughtful, intelligent, meaningful|-|শূন্যমনা, বুদ্ধিহীন|The celebrity's vacuous comments disappointed her fans.`;
+var R33=`affluent|AF-loo-unt|prosperous, wealthy, opulent|poor, impoverished, needy|+|ধনী, সম্পদশালী|The affluent businessman donated generously to the local charity.
+allegorical|al-uh-GOR-ih-kul|symbolic, figurative, representational|literal, factual, direct|0|রূপক, অলঙ্কারবহুল|The animal characters in "Animal Farm" represent an allegorical critique of communism.
+allude|uh-LOOD|refer, suggest, hint|state, declare, specify|0|ইঙ্গিত করা, পরোক্ষভাবে উল্লেখ করা|The professor alluded to the historical significance of the artwork without explicitly stating it.
+amplify|AM-pluh-fy|increase, magnify, intensify|reduce, diminish, muffle|0|বৃদ্ধি করা, বাড়ানো|The microphone amplified the speaker's voice throughout the auditorium.
+catastrophic|kat-uh-STROF-ik|disastrous, ruinous, devastating|beneficial, fortunate, harmless|-|বিপর্যয়কর, ধ্বংসাত্মক|The catastrophic earthquake left thousands of people without homes.
+contemporary|kun-TEM-puh-rair-ee|modern, current, present-day|ancient, old-fashioned, antiquated|0|সমসাময়িক|The museum's exhibit showcased the work of contemporary artists.
+conundrum|kuh-NUN-drum|riddle, enigma, puzzle|solution, answer, certainty|-|ধাঁধা, জটিল সমস্যা|The detectives were faced with a conundrum when the evidence seemed to contradict itself.
+defame|dih-FAYM|slander, malign, libel|praise, honor, exalt|-|অপমান করা, কুৎসা রটানো|The tabloid tried to defame the celebrity with false rumors.
+detract|dih-TRAKT|diminish, lessen, depreciate|enhance, add to, increase|-|হ্রাস করা, গুরুত্ব কমানো|His negative comments detracted from the overall success of the project.
+detrimental|det-ruh-MEN-tl|harmful, damaging, injurious|beneficial, helpful, advantageous|-|ক্ষতিকর|Smoking is detrimental to your health.
+devious|DEE-vee-us|cunning, deceitful, underhanded|honest, straightforward, candid|-|ধূর্ত, প্রতারণাপূর্ণ|The devious politician manipulated public opinion to further his own agenda.
+dormant|DOR-munt|inactive, sleeping, latent|active, awake, erupting|0|নিষ্ক্রিয়, সুপ্ত|The volcano had been dormant for centuries before it suddenly erupted.
+draconian|druh-KOH-nee-un|harsh, severe, rigorous|lenient, mild, humane|-|কঠোর, নিষ্ঠুর|The new school rules were considered draconian by the students.
+egalitarian|ih-gal-ih-TAIR-ee-un|equal, fair, democratic|elitist, hierarchical, unequal|+|সমতাবাদী|The leader championed an egalitarian society where every person had the same opportunities.
+elusive|ih-LOO-siv|evasive, slippery, difficult to find|obvious, easy to find, catchable|-|মায়াবী, যা সহজ পাওয়া যায় না|The elusive thief managed to escape the police every time.
+erstwhile|URST-wyl|former, previous, one-time|current, present, existing|0|পূর্বতন, অতীত|The popular restaurant was now a shadow of its erstwhile glory.
+gloat|GLOHT|brag, crow, boast|sympathize, be humble, commiserate|-|বিজয়গর্ব করা|The winner couldn't resist gloating over his defeated opponent.
+harrowing|HAIR-oh-ing|distressing, disturbing, traumatic|soothing, comforting, pleasant|-|মর্মান্তিক, কষ্টদায়ক|The news report about the disaster was deeply harrowing.
+indefinite|in-DEF-uh-nit|unlimited, vague, unspecified|definite, specific, fixed|0|অনির্দিষ্ট, অস্পষ্ট|The project was postponed for an indefinite period.
+ingenious|in-JEEN-yus|clever, inventive, resourceful|unimaginative, dull, clumsy|+|মেধাবী, উদ্ভাবনী|The engineer came up with an ingenious solution to the problem.
+keen|KEEN|sharp, astute, perceptive|dull, blunt, obtuse|+|তীক্ষ্ণ, তীব্র, ধারালো|The detective had a keen eye for detail.
+multifaceted|mul-tee-FAS-ih-tid|complex, diverse, many-sided|simple, one-dimensional, narrow|+|বহুমুখী|The issue was multifaceted, requiring careful consideration from various angles.
+omniscient|om-NISH-unt|all-knowing, all-seeing, wise|ignorant, unaware, limited|+|সর্বজ্ঞ|The narrator of the novel took on an omniscient perspective.
+remarkable|rih-MAR-kuh-bul|extraordinary, exceptional, noteworthy|ordinary, unremarkable, commonplace|+|লক্ষণীয়, অসাধারণ|The scientist made a remarkable discovery that changed the field forever.
+sober|SOH-bur|serious, sensible, solemn|drunk, frivolous, flippant|0|গম্ভীর, মদ্যপান না করা (বিশেষত অতিরিক্ত মদ্যপান)|We need a sober analysis of the situation before we can make a decision.
+stem from|STEM frum|arise from, originate from, derive from|cause, produce, lead to|0|থেকে উদ্ভূত হওয়া|Her nervousness seemed to stem from a lack of confidence.
+subdued|sub-DOOD|quiet, muted, restrained|loud, lively, boisterous|0|নম্র, শান্ত|The lighting in the room created a subdued and relaxing atmosphere.
+token|TOH-kun|symbolic, nominal, perfunctory|substantial, genuine, significant|0|প্রতীক, নিদর্শন|He gave her a ring as a token of his affection.
+unravel|un-RAV-ul|untangle, solve, clarify|tangle, complicate, confuse|0|সমাধান করা (কোন জটিল বিষয়ের)|It took weeks for the detectives to unravel the mystery.
+withstand|with-STAND|resist, endure, bear|yield, succumb, surrender|+|প্রতিরোধ করা, সহ্য করা|The building was designed to withstand hurricane-force winds.`;
+var R34=`abrasive|uh-BRAY-siv|caustic, grating, harsh|gentle, smooth, soothing|-|ঘর্ষণকারী, অমসৃণ, রূড়|The manager's abrasive tone of voice made many employees feel uncomfortable.
+artful|ART-ful|crafty, cunning, wily|artless, honest, naive|0|চতুর, ধূর্ত, কৌশলী|The con man used an artful scheme to trick people out of their money.
+avert|uh-VURT|prevent, forestall, ward off|cause, allow, invite|+|প্রতিরোধ করা, এড়ানো, ফিরিয়ে দেওয়া|The firefighters were able to avert a major disaster by quickly containing the blaze.
+avid|AV-id|keen, eager, enthusiastic|apathetic, indifferent, unenthusiastic|+|আগ্রহী, উৎসাহী, আকুল|An avid reader, she devoured books at an astonishing pace.
+brevity|BREV-ih-tee|conciseness, succinctness, terseness|wordiness, verbosity, length|+|সংক্ষিপ্ততা, স্বল্পতা|The speaker was admired for the brevity and clarity of his presentation.
+bromide|BROH-myd|platitude, cliché, commonplace|original remark, insight, epigram|-|অতিপরিচিত উক্তি, ক্লান্তিকর বাক্য|The politician's speech was filled with tired bromides that the audience had heard countless times.
+circumstantial|sur-kum-STAN-shul|indirect, inferential, inconclusive|direct, conclusive, firsthand|0|পরোক্ষ, আনুষঙ্গিক|The case against the suspect was largely circumstantial, with no concrete evidence linking him to the crime.
+cloying|KLOY-ing|sickeningly sweet, saccharine, excessive|subtle, tart, restrained|-|অতিরিক্ত মিষ্টি, বিরক্তিকর|The cloying sentimentality of the movie made it difficult to watch.
+counterfeit|KOWN-tur-fit|fake, forged, fraudulent|genuine, authentic, real|-|জাল, নকল, ভেজাল|The art dealer was arrested for selling counterfeit paintings.
+denigrate|DEN-ih-grayt|disparage, belittle, malign|praise, extol, exalt|-|অপমান করা, নিন্দা করা, মর্যাদাহানি করা|The political candidate tried to denigrate her opponent with a series of false accusations.
+disciple|dih-SY-pul|follower, adherent, devotee|master, teacher, leader|0|অনুসারী, শিষ্য|The philosopher attracted a small but devoted group of disciples.
+extol|ik-STOHL|praise, glorify, acclaim|criticize, condemn, disparage|+|প্রশংসা করা, উচ্চকিত গান করা|The critics extolled the young artist's extraordinary talent.
+forebode|for-BOHD|foreshadow, portend, augur|reassure, promise well, belie|-|পূর্বাভাস দেওয়া, ইঙ্গিত করা (বিশেষত খারাপ কিছুর)|The dark clouds and sudden drop in temperature foreboded an approaching storm.
+ideologue|EYE-dee-uh-log|doctrinaire, zealot, dogmatist|pragmatist, moderate, open-minded person|-|মতবাদী, আদর্শবাদী|The political ideologue refused to consider any viewpoint that differed from his own.
+impediment|im-PED-uh-munt|obstacle, hindrance, barrier|aid, help, advantage|-|বাধা, বিঘ্ন, অন্তরায়|The lack of funding was a major impediment to the project's completion.
+imperative|im-PER-uh-tiv|essential, vital, crucial|optional, unnecessary, trivial|0|অত্যাবশ্যক, জরুরি|It is imperative that we take action to address the climate crisis.
+impulsive|im-PUL-siv|impetuous, rash, spontaneous|cautious, deliberate, thoughtful|-|আবেগপ্রবণ, চিন্তাহীনভাবে কাজ করা|Her impulsive decision to quit her job surprised everyone.
+interminable|in-TUR-mih-nuh-bul|endless, unceasing, everlasting|brief, short, finite|-|অন্তহীন, অবিরাম|The interminable meeting felt like it would never end.
+intuitive|in-TOO-ih-tiv|instinctive, innate, natural|learned, reasoned, analytical|+|স্বজ্ঞাত, সহজাত বোধের উপর ভিত্তি করে|She had an intuitive understanding of her child's needs.
+lassitude|LAS-ih-tood|fatigue, lethargy, weariness|energy, vigor, vitality|-|অবসাদ, ক্লান্তি, দুর্বলতা|After a long day of work, a feeling of lassitude washed over him.
+omit|oh-MIT|leave out, exclude, neglect|include, add, insert|0|বাদ দেওয়া, বর্জন করা|The writer accidentally omitted an important detail from the story.
+ornate|or-NAYT|elaborate, decorative, flamboyant|plain, simple, austere|0|অলংকৃত, সুসজ্জিত|The palace was filled with ornate furniture and intricate carvings.
+paltry|PAWL-tree|meager, insignificant, trifling|substantial, generous, significant|-|সামান্য, তুচ্ছ, নগণ্য|The workers were offered a paltry wage increase.
+pejorative|pih-JOR-uh-tiv|disparaging, derogatory, insulting|complimentary, flattering, laudatory|-|অবমাননাকার, নিন্দাসূচক|The politician's speech was filled with pejorative remarks about his opponents.
+prefigure|pree-FIG-yur|foreshadow, anticipate, augur|follow, recall, echo|0|পূর্বাভাস দেওয়া, ইঙ্গিত করা|The recent economic downturn prefigured a larger financial crisis.
+presage|PRES-ij|portend, foreshadow, foretell|belie, conceal, follow|-|পূর্বাভাস দেওয়া, আগাম বার্তা দেওয়া|The strange weather patterns seemed to presage a natural disaster.
+prescribe|prih-SKRYB|recommend, order, dictate|forbid, ban, withhold|0|ওষুধের ব্যবস্থাপত্র দেওয়া, নির্দেশ করা|The doctor prescribed medication for the patient's infection.
+prevail|prih-VAYL|triumph, succeed, win|fail, lose, yield|+|জয়ী হওয়া, প্রাধান্য লাভ করা|Despite the challenges, justice prevailed in the end.
+propitiate|pruh-PISH-ee-ayt|appease, placate, conciliate|anger, provoke, antagonize|+|শান্ত করা, প্রসন্ন করা|They made sacrifices to propitiate the angry gods.
+recapitulate|ree-kuh-PICH-uh-layt|summarize, recap, review|expand, elaborate, extend|0|সংক্ষেপে পুনরাবৃত্তি করা, উপসংহার করা|At the end of the lecture, the professor recapitulated the key concepts.`;
+var R35=`aplomb|uh-PLOM|assurance, composure, poise|nervousness, awkwardness, agitation|+|আত্মবিশ্বাস, ধৈর্য, স্থিরতা|The speaker handled the difficult questions with remarkable aplomb.
+apposite|AP-uh-zit|relevant, pertinent, appropriate|irrelevant, inappropriate, unsuited|+|যথাযথ, প্রাসঙ্গিক, উপযুক্ত|Her comment was very apposite to the discussion.
+beholden|bih-HOHL-dun|indebted, obligated, grateful|independent, free, unobligated|0|কৃতজ্ঞ, উপকৃত, বাধ্য|I am forever beholden to my parents for their support.
+belittle|bih-LIT-l|disparage, deprecate, minimize|praise, exalt, magnify|-|তুচ্ছ করা, ছোট করা, অবমূল্যায়ন করা|The cruel supervisor constantly belittled her employees.
+cluster|KLUS-tur|group, gathering, assemblage|scatter, individual, dispersion|0|ঝাঁক, গুচ্ছ, সমষ্টি|A cluster of stars twinkled in the night sky.
+coherent|koh-HEER-unt|logical, consistent, reasoned|incoherent, confused, disjointed|+|সুসংগত, যুক্তিসঙ্গত, সামঞ্জস্যপূর্ণ|The detective presented a coherent theory of the crime.
+contemplate|KON-tum-playt|ponder, meditate, consider|ignore, disregard, dismiss|0|চিন্তা করা, গভীরভাবে ভাবা, বিবেচনা করা|She contemplated her future after graduation.
+crafty|KRAF-tee|cunning, sly, artful|honest, naive, straightforward|-|ধূর্ত, চতুর, চালাক|The crafty spy evaded capture for years.
+dismantle|dis-MAN-tl|take apart, disassemble, break down|assemble, build, construct|0|খুলে ফেলা, ভেঙে ফেলা, বিচ্ছিন্ন করা|The engineers had to dismantle the old bridge.
+elaborate|ih-LAB-ur-it|detailed, intricate, complex|simple, plain, basic|0|সবিস্তার, জটিল, ব্যাপক|The wedding cake had elaborate decorations.
+exegesis|ek-suh-JEE-sis|interpretation, analysis, explication|misinterpretation, confusion, obscuring|0|ব্যাখ্যা, বিশ্লেষণ, বর্ণনা|The professor's exegesis of the poem revealed hidden meanings.
+forgo|for-GOH|renounce, relinquish, do without|indulge, enjoy, take|0|ত্যাগ করা, বর্জন করা, পরিহার করা|I decided to forgo dessert in order to eat healthier.
+impenetrable|im-PEN-ih-truh-bul|impassable, impermeable, inaccessible|penetrable, accessible, passable|-|অভেদ্য, দুর্ভেদ্য, বোধগম্য নয়|The dense forest was impenetrable.
+impervious|im-PUR-vee-us|resistant, unaffected, impenetrable|vulnerable, susceptible, permeable|0|অভেদ্য, প্রতিরোধী, অনুভূতিহীন|The rubber boots were impervious to water.
+inalienable|in-AYL-yuh-nuh-bul|unassailable, untransferable, absolute|transferable, alienable, conditional|+|অলঙ্ঘনীয়, অন্তর্হিত, অপরিবর্তনীয়|The Declaration of Independence speaks of inalienable rights to life, liberty, and the pursuit of happiness.
+inept|in-EPT|incompetent, unskillful, clumsy|competent, skillful, adept|-|অদক্ষ, অযোগ্য, অপটু|The inept mechanic made the car problems worse.
+martinet|mar-tn-ET|strict disciplinarian, authoritarian, taskmaster|pushover, softie, lenient person|-|কঠোর শৃঙ্খলাবদ্ধ, স্বৈরাচারী, কর্তৃত্বপরায়ণ ব্যক্তি|The drill sergeant was a martinet who wouldn't tolerate any mistakes.
+narcissist|NAR-sih-sist|egotist, egomaniac, self-centered|humble person, altruist, selfless person|-|আত্মমুগ্ধ, আত্মকেন্দ্রিক, অহংকারী|The narcissist constantly posted selfies on social media.
+objurgation|ob-jur-GAY-shun|rebuke, reprimand, scolding|praise, commendation, approval|-|তিরস্কার, ভর্ৎসনা, ধমক|Her objurgation of the child's behavior was excessive.
+passable|PAS-uh-bul|tolerable, adequate, acceptable|unacceptable, excellent, inadequate|0|গ্রহণযোগ্য, চলনসই, মোটামুটি ভাল|The food at the restaurant was passable but not exceptional.
+penetrating|PEN-ih-tray-ting|insightful, perceptive, sharp|superficial, obtuse, dull|+|অন্তর্দৃষ্টিসম্পন্ন, তীক্ষ্ণ, মর্মভেদী|The critic offered a penetrating analysis of the painting.
+picturesque|pik-chuh-RESK|scenic, charming, visually appealing|ugly, unattractive, drab|+|মনোরম, চিত্তাকর্ষক, সুদৃশ্য|The picturesque village nestled in the valley was a popular tourist destination.
+reflect|rih-FLEKT|ponder, contemplate, meditate|ignore, disregard, forget|0|চিন্তা করা, বিবেচনা করা, প্রতিফলিত করা|She took some time to reflect on her choices before making a decision.
+resourceful|rih-SOR-sful|ingenious, inventive, adaptable|helpless, unimaginative, inept|+|কৌশলী, উদ্ভাবনী, বুদ্ধিমান|The resourceful scout found a way to build a shelter with limited supplies.
+retrench|rih-TRENCH|cut back, economize, reduce|expand, spend, increase|0|ব্যয় সংকোচ করা, মিতব্যয়ী হওয়া, ছাঁটাই করা|The company had to retrench during the recession.
+self-indulgent|self-in-DUL-junt|hedonistic, pleasure-seeking, decadent|restrained, ascetic, self-denying|-|আত্মসুখী, বিলাসপ্রিয়, ভোগী|Her self-indulgent lifestyle led to financial problems.
+speculate|SPEK-yuh-layt|theorize, conjecture, hypothesize|know, confirm, prove|0|অনুমান করা, জল্পনা করা, ধারণা করা|Scientists speculated about the origins of the mysterious signal.
+staid|STAYD|sedate, serious, respectable|frivolous, lively, adventurous|0|গম্ভীর, ভদ্র, শালীন|The staid professor rarely showed any emotion in his lectures.
+suppress|suh-PRES|subdue, stifle, restrain|encourage, release, express|-|দমন করা, চেপে রাখা, নিরস্ত করা|The military tried to suppress the rebellion.
+vestigial|veh-STIJ-ee-ul|remnant, residual, remaining|functional, developed, complete|0|অবশেষ, অবশিষ্টাংশ, লুপ্তপ্রায়|Some animals have vestigial organs that no longer serve a purpose.`;
+var R36=`accord|uh-KORD|agreement, harmony, consensus|discord, disagreement, conflict|+|ঐক্য, সমঝোতা, চুক্তি|The two countries finally reached an accord after months of negotiation.
+adhere|ad-HEER|cling, stick, follow|detach, deviate, abandon|0|লেগে থাকা, অনুসরণ করা|The wet poster adhered to the wall.
+ad hoc|ad HOK|impromptu, makeshift, temporary|permanent, planned, standing|0|একবারের, অস্থায়ী|An ad hoc committee was formed to address the sudden increase in complaints from customers.
+all-encompassing|awl-en-KUM-pah-sing|comprehensive, inclusive, universal|limited, narrow, partial|+|সবকিছু অন্তর্ভুক্ত করা|The encyclopedia offered an all-encompassing look at world history.
+aphorism|AF-uh-riz-um|proverb, maxim, saying|rambling, long-winded speech, ramble|0|প্রবাদবাক্য, নীতিবাক্য|Ben Franklin was famous for his aphorisms like, "Early to bed and early to rise makes a man healthy, wealthy, and wise."
+benchmark|BENCH-mark|standard, yardstick, criterion|exception, anomaly, deviation|0|মাপকাঠি, মানদণ্ড|The company's sales figures were used as a benchmark for the rest of the industry.
+blighted|BLY-tid|damaged, ruined, spoiled|thriving, flourishing, healthy|-|ধ্বংসপ্রাপ্ত, নষ্ট|The once-beautiful neighborhood was blighted by crime and poverty.
+content|kun-TENT|satisfied, pleased, gratified|discontented, dissatisfied, unhappy|+|সন্তুষ্ট, তৃপ্ত|The baby looked content as it slept soundly in its crib.
+debased|dih-BAYST|degraded, corrupted, adulterated|elevated, purified, ennobled|-|অবমূল্যায়িত, অধঃপতিত|The once-noble ideals of the revolution were debased by the dictator's greed.
+disconcerting|dis-kun-SUR-ting|disturbing, unsettling, troubling|reassuring, comforting, calming|-|উদ্বেগজনক, বিচলিত করা|The news reports about the rising crime rates were disconcerting.
+extant|EK-stunt|existing, surviving, remaining|extinct, lost, destroyed|0|বিদ্যমান, অস্তিত্বশীল|There are only a few extant copies of the original manuscript.
+facility|fuh-SIL-ih-tee|aptitude, ease, talent|difficulty, ineptitude, clumsiness|+|সুবিধা, দক্ষতা|The artist had a remarkable facility for painting lifelike portraits.
+fitful|FIT-ful|irregular, intermittent, sporadic|steady, constant, regular|-|থাপছাড়া, অনিয়মিত|The storm brought fitful gusts of wind and rain throughout the night.
+incite|in-SYT|provoke, instigate, arouse|calm, restrain, pacify|-|উস্কানি দেওয়া, প্ররোচিত করা|The demagogue's speech was designed to incite the crowd to riot.
+induce|in-DOOS|persuade, convince, prevail upon|deter, dissuade, discourage|0|প্ররোচিত করা, প্রভাবিত করা|The low prices induced many customers to make impulsive purchases.
+infelicity|in-fih-LIS-ih-tee|unhappiness, misfortune, unsuitableness|happiness, good fortune, aptness|-|দুর্ভাগ্য, অনুপযুক্ততা|An infelicity of phrase led to a misunderstanding between the two diplomats.
+intelligible|in-TEL-ih-juh-bul|understandable, clear, comprehensible|unintelligible, incomprehensible, obscure|+|বোধগম্য|The professor's explanation was so complex that it was scarcely intelligible to the students.
+makeshift|MAYK-shift|temporary, improvised, expedient|permanent, planned, well-made|0|অস্থায়ীভাবে তৈরি|After the storm, the survivors had to build makeshift shelters from fallen branches.
+onetime|WUN-tym|former, past, previous|current, present, existing|0|পূর্ববর্তী, অতীত|The onetime boxing champion had fallen on hard times.
+opportunistic|op-ur-too-NIS-tik|self-serving, exploitative, calculating|principled, selfless, ethical|-|সুযোগসন্ধানী|The opportunistic politician changed his stance to align with popular opinion.
+plausible|PLAW-zuh-bul|believable, credible, reasonable|implausible, unbelievable, far-fetched|+|গ্রহণযোগ্য, যুক্তিসঙ্গত|The detective presented a plausible theory for how the crime had occurred.
+posturing|POS-chur-ing|pretending, posing, attitudinizing|sincerity, genuineness, honesty|-|ভান, অঙ্গভঙ্গি|The politician's speech was filled with empty posturing and very little substance.
+potent|POHT-nt|powerful, strong, effective|weak, feeble, impotent|+|শক্তিশালী, প্রভাবশালী|The medicine proved to be a potent remedy for the illness.
+redundant|rih-DUN-dunt|unnecessary, superfluous, excessive|necessary, essential, needed|-|অপ্রয়োজনীয়, বাড়তি|The report was filled with redundant phrases and could have been much shorter.
+sacrosanct|SAK-roh-sangkt|sacred, inviolable, hallowed|profane, violable, ordinary|0|অলঙ্ঘনীয়, পবিত্র|For many, the right to free speech is considered sacrosanct.
+shrewd|SHROOD|astute, sharp, clever|naive, foolish, gullible|+|চতুর, তীক্ষ্ণবুদ্ধিসম্পন্ন|The shrewd investor made a fortune in the stock market.
+unadorned|un-uh-DORND|plain, simple, undecorated|ornate, decorated, embellished|0|অলংকারহীন, সরল|The writer's style was unadorned and direct, focusing on clarity over flourish.
+valedictory|val-ih-DIK-tuh-ree|farewell, parting, closing|welcoming, opening, inaugural|0|বিদায়ী|The valedictory speech at the graduation ceremony was both touching and inspiring.
+warranted|WOR-un-tid|justified, authorized, guaranteed|unjustified, unwarranted, baseless|+|ন্যায্য, সত্যায়িত|The police officer felt that a search of the suspect's house was warranted based on the evidence.
+wistful|WIST-ful|yearning, longing, nostalgic|content, indifferent, satisfied|0|আকাঙ্ক্ষাপূর্ণ, আক্ষেপপূর্ণ|The old photograph filled her with a wistful longing for her childhood.`;
+var R37=`attribute|uh-TRIB-yoot|ascribe, impute, refer|disclaim, withhold, deny|0|কারণ হিসেবে উল্লেখ করা|She attributes her success to hard work and a positive attitude.
+calamitous|kuh-LAM-ih-tus|disastrous, catastrophic, ruinous|fortunate, beneficial, auspicious|-|মহাবিপর্যয়কর|The calamitous earthquake left the city in ruins.
+censor|SEN-sur|expurgate, redact, suppress|publish, allow, release|-|সেন্সর করা, বাদ দেওয়া|The government tried to censor news reports about the scandal.
+champion|CHAM-pee-un|advocate, defender, supporter|oppose, attack, undermine|+|পক্ষে লড়া, সমর্থন করা|She has been a tireless champion of women's rights.
+compound|KOM-pownd|intensify, aggravate, exacerbate|alleviate, relieve, ease|-|আরও খারাপ করা|The heavy rain compounded the traffic problems.
+deter|dih-TUR|discourage, inhibit, prevent|encourage, prompt, spur|-|নিরুৎসাহিত করা|The high prices deterred many potential buyers.
+dexterous|DEK-stur-us|skillful, adroit, proficient|clumsy, awkward, inept|+|দক্ষ|He was a dexterous craftsman, able to create intricate wood carvings.
+dictum|DIK-tum|pronouncement, decree, precept|suggestion, rumor, hearsay|0|আনুষ্ঠানিকঘোষণা|The judge's dictum carried the weight of law.
+dutiful|DOO-tih-ful|conscientious, responsible, obedient|neglectful, irresponsible, disobedient|+|কর্তব্যপরায়ণ|She was a dutiful daughter, always caring for her aging parents.
+empathetic|em-puh-THET-ik|understanding, compassionate, sensitive|callous, unsympathetic, indifferent|+|সহানুভূতিশীল|An empathetic therapist can help their clients work through difficult emotions.
+ensue|en-SOO|result, follow, arise|precede, lead up to, come before|0|ফলস্বরূপ ঘটা|Chaos ensued after the announcement of the controversial policy.
+fathom|FATH-um|comprehend, grasp, penetrate|misunderstand, misjudge, overlook|0|বুঝতে পারা|I could not fathom the complexities of quantum physics.
+frank|FRANGK|candid, blunt, forthright|evasive, secretive, deceitful|+|স্পষ্টবাদী|She gave her frank opinion on the artwork.
+germane|jur-MAYN|relevant, pertinent, applicable|irrelevant, unrelated, immaterial|+|প্রাসঙ্গিক|Her comments were not germane to the topic at hand.
+grumble|GRUM-bul|complain, mutter, protest|praise, applaud, rejoice|-|অভিযোগ জানানো|He grumbled about the long wait at the restaurant.
+hidebound|HYD-bownd|conservative, reactionary, narrow-minded|progressive, open-minded, liberal|-|সংকীর্ণমনা|The company was criticized for its hidebound attitude towards technology.
+hypocrite|HIP-uh-krit|phony, pretender, dissembler|sincere person, honest person, straight shooter|-|ভণ্ড|He accused the politician of being a hypocrite.
+impolitic|im-POL-ih-tik|unwise, tactless, imprudent|wise, tactful, prudent|-|অবিবেচনাপ্রসূত|It would be impolitic to criticize our new business partners at this early stage.
+insidious|in-SID-ee-us|stealthy, treacherous, subtle|obvious, open, harmless|-|কূটিল|The spread of the disease was insidious, often showing no symptoms at first.
+intermediary|in-tur-MEE-dee-air-ee|mediator, go-between, negotiator|principal, party, adversary|0|মধ্যস্থতাকারী|The union leader acted as an intermediary in the contract negotiations.
+passive|PAS-iv|inactive, submissive, unresisting|active, assertive, resistant|-|নিষ্ক্রিয়|He had a passive attitude towards his studies, never taking initiative.
+raillery|RAY-luh-ree|banter, teasing, mockery|seriousness, solemnity, earnestness|0|হালকা ঠাট্টা তামাশা|There was much laughter and raillery at the dinner party.
+ramble|RAM-bul|wander, digress, meander|focus, be concise, stay on point|-|অবান্তর কথা বলা|The speaker tended to ramble, making it difficult to follow his presentation.
+resent|rih-ZENT|begrudge, feel bitter, be offended by|welcome, appreciate, accept|-|বিরক্ত হওয়া|She resented having to do all the housework while her brother did nothing.
+residual|rih-ZIJ-oo-ul|remaining, leftover, lingering|total, initial, whole|0|অবশিষ্ট|There was some residual bitterness after the argument.
+resolve|rih-ZOLV|determination, firmness, willpower|indecision, hesitation, wavering|+|দৃঢ়সংকল্প|She made a New Year's resolve to exercise more regularly.
+surrogate|SUR-uh-git|substitute, deputy, replacement|original, principal, authority|0|বিকল্প|The vice president acted as a surrogate for the president while he was ill.
+vilify|VIL-ih-fy|disparage, slander, malign|praise, laud, honor|-|কুৎসা রটানো|The rival politicians vilified each other in the press.
+wanting|WON-ting|lacking, deficient, inadequate|sufficient, adequate, complete|-|অনুপস্থিত|The report was found wanting in factual evidence.
+willful|WIL-ful|deliberate, intentional, headstrong|accidental, unintentional, compliant|-|ইচ্ছাকৃত|Her willful defiance of the rules led to her suspension.`;
+var R38=`querulous|KWER-uh-lus|peevish, fretful, captious|content, easygoing, cheerful|-|অভিযোগপূর্ণ, ক্রমাগত অসন্তুষ্ট|The querulous customer, peevish about the long wait time, demanded to speak to the manager.
+phony|FOH-nee|fraudulent, spurious, counterfeit|genuine, authentic, real|-|জাল, নকল|The art dealer was arrested for selling fraudulent paintings he claimed were originals, discovering his collection was filled with spurious and counterfeit works.`;
+var G={1:parse(RAW),2:parse(R2),3:parse(R3),4:parse(R4),5:parse(R5),6:parse(R6),7:parse(R7),8:parse(R8),9:parse(R9),10:parse(R10),11:parse(R11),12:parse(R12),13:parse(R13),14:parse(R14),15:parse(R15),16:parse(R16),17:parse(R17),18:parse(R18),19:parse(R19),20:parse(R20),21:parse(R21),22:parse(R22),23:parse(R23),24:parse(R24),25:parse(R25),26:parse(R26),27:parse(R27),28:parse(R28),29:parse(R29),30:parse(R30),31:parse(R31),32:parse(R32),33:parse(R33),34:parse(R34),35:parse(R35),36:parse(R36),37:parse(R37),38:parse(R38)};
+var EX=`abound|The garden abounded with colorful flowers.
+amorphous|The amorphous blob on the slide confused the scientists.
+austere|The monk lived an austere life, devoid of worldly pleasures.
+belie|Her cheerful smile belied the sadness she felt within.
+capricious|The weather was capricious, shifting from sunshine to rain in minutes.
+cerebral|The professor's lecture was too cerebral for the average student.
+congenial|She found the warm climate and friendly people very congenial.
+conspicuous|The bright red hat made her conspicuous in the crowd.
+cursory|A cursory glance at the report was not enough to identify the problem.
+daunting|The daunting task of climbing the mountain loomed before them.
+deify|Some ancient cultures deified their rulers.
+didactic|The didactic novel was full of life lessons.
+disseminate|The organization disseminated information about the upcoming election.
+feasible|The plan seemed feasible, given enough resources.
+flout|The rebels flouted the government's curfew.
+homogeneous|The scientists aimed to create a homogeneous mixture.
+humdrum|The humdrum routine of his daily life made him restless.
+insipid|The food was disappointingly insipid.
+loquacious|The loquacious salesman could talk for hours.
+misanthropic|The misanthropic old man lived alone on the hill.
+misnomer|Calling the whale a fish is a common misnomer.
+negligent|He was negligent in his duties and was fired.
+obsequious|The obsequious servant bowed and scraped before his master.
+placate|They tried to placate the angry crowd with promises.
+proclivity|He had a proclivity for getting into trouble.
+puerile|His puerile jokes annoyed everyone.
+quixotic|His quixotic plan to end world hunger was inspiring but naive.
+spendthrift|The spendthrift heir quickly squandered his inheritance.
+taciturn|The taciturn man rarely spoke.
+wary|The hikers were wary of wild animals in the forest.
+adulterate|The unscrupulous merchant adulterated the olive oil with cheaper substitutes.
+advocate|She is a strong advocate for gender equality.
+aggrandize|The new CEO sought to aggrandize the company through aggressive acquisitions.
+alacrity|She accepted the new assignment with alacrity.
+ambivalent|He was ambivalent about his feelings towards his ex-girlfriend.
+ameliorate|The new measures were intended to ameliorate the living conditions of the poor.
+amenable|The new manager was amenable to our suggestions for streamlining the workflow.
+anachronistic|The old-fashioned dress looked anachronistic among the modern styles.
+audacious|The audacious plan to climb the summit without oxygen was met with skepticism.
+avaricious|The avaricious landlord evicted his tenants without mercy.
+banal|The movie's plot was so banal that we left halfway through.
+benign|The doctor reassured the patient that the tumor was benign.
+brazen|The brazen thief stole the necklace in broad daylight.
+calumny|The politician tried to discredit his opponent with vile calumnies.
+candid|The candidate gave a refreshingly candid interview, admitting past mistakes.
+castigate|The coach castigated the players for their sloppy performance.
+caustic|Her caustic remarks stung the sensitive young writer.
+construe|The lawyer carefully construed the wording of the contract.
+contrite|He offered a contrite apology for his hurtful words.
+convoluted|The tax code was so convoluted that even accountants had trouble understanding it.
+covet|I covet my neighbor's beautiful garden.
+craven|The craven soldier fled the battlefield.
+decorum|Guests are expected to observe proper decorum at formal dinners.
+deft|The deft surgeon performed the delicate operation with ease.
+demur|She initially demurred at the job offer, but later accepted it.
+derivative|The new movie was criticized for its derivative plot.
+desiccate|The hot sun quickly desiccated the plants.
+diatribe|The politician launched into a diatribe against her opponent.
+incredulous|He gave an incredulous laugh when he heard the news.
+ingenuous|She had an ingenuous charm that was quite endearing.
+abate|The storm finally abated, leaving behind a sense of calm.
+abjure|She abjured her former beliefs and embraced a new philosophy.
+anomalous|The scientist was intrigued by the anomalous results of the experiment.
+antipathy|The two politicians had a long-standing antipathy towards each other.
+arcane|The arcane rituals of the ancient tribe were shrouded in secrecy.
+arduous|The arduous hike to the summit took them all day.
+artless|Her artless charm endeared her to everyone she met.
+ascetic|The ascetic monk lived a life of extreme simplicity and self-discipline.
+assuage|Her words helped to assuage his fears.
+betray|The spy betrayed his country by selling secrets to the enemy.
+bucolic|They enjoyed the bucolic charm of the small village.
+burgeon|The town's economy burgeoned with the new factory.
+cacophonous|The cacophonous noise of the construction site was unbearable.
+canonize|The church canonized the beloved priest after his death.
+censure|The senator was censured for her unethical behavior.
+chicanery|He used chicanery to win the business deal.
+coalesce|The smaller factions coalesced into a powerful political party.
+cogent|The lawyer presented a cogent argument in the courtroom.
+compelling|The movie had a compelling plot that kept the audience engaged.
+contend|They had to contend with severe weather conditions.
+copious|The farmer had a copious harvest this year.
+cosmopolitan|The cosmopolitan city was a melting pot of different nationalities.
+deference|He showed deference to his elders.
+desultory|Our conversation became desultory as we ran out of things to talk about.
+diffident|The diffident student rarely spoke in class.
+dilatory|The bureaucracy was frustratingly dilatory in processing our application.
+equivocate|The politician equivocated when asked about his controversial stance.
+polarize|The issue polarized the community, leading to heated debates.
+prodigal|The prodigal son squandered his inheritance on frivolous luxuries.
+verbose|The verbose report could have been condensed into a few pages.`;
+(function(){var m={};EX.split("\n").forEach(function(l){var i=l.indexOf("|");m[l.slice(0,i)]=l.slice(i+1)});Object.keys(G).forEach(function(g){G[g].forEach(function(w){w.g=+g;if(+g<4)w.e=m[w.t]})})})();
+var S={known:{},best:{}},view="home",gid=0,mode="cards",queue=[],built=false,fl=false,T=null,tType="m";
+var $app=document.getElementById("app");
+function load(){try{var r=localStorage.getItem(K);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+function W(g){if(g===0){var a=[];for(var i=1;i<=38;i++)a=a.concat(G[i]||[]);return a}return G[g]||[]}
+function kn(g){return W(g).filter(function(w){return (S.known[w.g]||{})[w.t]}).length}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function chip(c){var m={"+":["p","POS"],"-":["n","NEG"],"0":["z","NEU"]}[c]||["z","NEU"];return'<span class="chip '+m[0]+'">['+m[1]+']</span>'}
+
+/* Retro Web Audio Synthesizer Effects */
+var audioCtx=null;
+function playSound(type){
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    var osc=audioCtx.createOscillator(),g=audioCtx.createGain();
+    osc.connect(g);g.connect(audioCtx.destination);
+    var now=audioCtx.currentTime;
+    if(type==="click"){
+      osc.type="square";osc.frequency.setValueAtTime(440,now);
+      g.gain.setValueAtTime(0.05,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.05);
+      osc.start(now);osc.stop(now+0.05);
+    }else if(type==="flip"){
+      osc.type="triangle";osc.frequency.setValueAtTime(220,now);osc.frequency.exponentialRampToValueAtTime(880,now+0.08);
+      g.gain.setValueAtTime(0.08,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.08);
+      osc.start(now);osc.stop(now+0.08);
+    }else if(type==="ok"){
+      osc.type="square";osc.frequency.setValueAtTime(523.25,now);osc.frequency.setValueAtTime(659.25,now+0.08);
+      g.gain.setValueAtTime(0.08,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.16);
+      osc.start(now);osc.stop(now+0.16);
+    }else if(type==="no"){
+      osc.type="sawtooth";osc.frequency.setValueAtTime(200,now);osc.frequency.setValueAtTime(120,now+0.08);
+      g.gain.setValueAtTime(0.1,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.2);
+      osc.start(now);osc.stop(now+0.2);
+    }
+  }catch(e){}
+}
+
+function render(){
+  if(view==="home")return home();
+  var n=W(gid).length,h='<div class="top"><button class="back" data-a="home">◄ GROUPS</button><h1 style="margin:0;font-size:1.1rem">'+(gid?'GROUP '+gid:'MIXED WORDS')+'</h1><div class="tabs" role="tablist"><button role="tab" data-a="m-cards" aria-selected="'+(mode==="cards")+'">CARDS</button><button role="tab" data-a="m-test" aria-selected="'+(mode==="test")+'">TEST</button></div></div>';
+  $app.innerHTML=h+'<div id="body"></div>';
+  mode==="cards"?cards():test();
+}
+function home(){
+  var h='<span class="header-tag">What Makes A GRE Design</span><h1>★ RETRO VOCABULARY ★</h1><div class="stars">★★★</div>'+(function(){var t=0,k=0;for(var g=1;g<=38;g++){t+=W(g).length;k+=kn(g)}return '<div class="hero">PROGRESS: <b>'+k+'</b> / '+t+' WORDS MASTERED<div class="bar"><i style="width:'+Math.round(k/t*100)+'%"></i></div></div>'})()+'<div class="grid">';
+  for(var g=1;g<=38;g++){var n=W(g).length;h+='<button class="tile'+(n?'':' off')+'" '+(n?'data-g="'+g+'"':'disabled')+'><b>G-'+g+'</b><span>'+(n?kn(g)+'/'+n+' KNOWN':'LOCKED')+'</span><em class="pg" style="width:'+(n?Math.round(kn(g)/n*100):0)+'%"></em></button>'}
+  $app.innerHTML=h+'</div>';
+}
+function build(){queue=shuf(W(gid).filter(function(w){return!(S.known[w.g]||{})[w.t]}));built=true;fl=false}
+function cards(){
+  if(!built)build();
+  var n=W(gid).length,k=kn(gid),b=document.getElementById("body"),h='<div class="stat"><span>KNOWN: '+k+'/'+n+'</span> <span>LEFT: '+queue.length+'</span> <button class="btn pr" data-a="shuffle" style="padding:6px 12px;font-size:0.65rem">SHUFFLE</button></div><div class="bar"><i style="width:'+Math.round(k/n*100)+'%"></i></div>';
+  if(!queue.length){b.innerHTML=h+'<div class="box"><h2>ROUND COMPLETE!</h2><p class="lead">EXCELLENT! ALL WORDS IN THIS GROUP MARKED AS KNOWN.</p><div class="act"><button class="btn" data-a="restart">RESET PROGRESS</button><button class="btn pr" data-a="m-test">TAKE TEST</button></div></div>';return}
+  var w=queue[0];
+  h+='<div class="scene" id="scene" tabindex="0" role="button" aria-label="Flip card" data-a="flip"><div class="card'+(fl?' fl':'')+'" id="card"><div class="face front"><div class="term">'+w.t+'</div><div class="hint">[ PRESS SPACE / TAP TO FLIP ]</div></div>'
+   +'<div class="face back-f"><div class="pron">/'+w.p+'/</div>'+chip(w.c)+'<div class="bnm bn">'+w.b+'</div><div class="row"><small>Synonyms</small>'+w.s+'</div><div class="row"><small>Antonyms</small>'+w.a+'</div>'+(w.e?'<div class="row"><small>Example</small><i>'+w.e+'</i></div>':'')+'</div></div></div>'
+   +'<div class="act"><button class="btn no" data-a="again">◄ STILL LEARNING</button><button class="btn ok" data-a="know">I KNOW IT ►</button></div>';
+  b.innerHTML=h;
+}
+var LBL={b:"Bangla meaning",s:"synonyms",a:"antonyms"};
+function blank(w){return(w.e||"").replace(new RegExp("\\b"+w.t.slice(0,Math.max(3,w.t.length-3))+"\\w*","i"),"_____")}
+function test(){
+  var b=document.getElementById("body"),n=W(gid).length;
+  if(n<5){b.innerHTML='<div class="box"><p>THIS GROUP NEEDS AT LEAST 5 WORDS FOR A TEST.</p></div>';return}
+  if(!T){
+    var best=S.best[gid];
+    b.innerHTML='<div class="box"><h2>GROUP '+gid+' TEST</h2><p class="lead">'+Math.min(20,n)+' QUESTIONS, 5 CHOICES EACH.'+(best!=null?' HIGH SCORE: '+best+'%.':'')+'</p><label>MODE:<br><select id="tt"><option value="b"'+(tType==="b"?" selected":"")+'>Bangla Meaning</option><option value="s"'+(tType==="s"?" selected":"")+'>Synonyms</option><option value="a"'+(tType==="a"?" selected":"")+'>Antonyms</option><option value="e"'+(tType==="e"?" selected":"")+'>Fill in the Blank</option><option value="m"'+(tType==="m"?" selected":"")+'>Mixed (Arcade Hard)</option></select></label><br><button class="btn pr" style="width:100%;margin-top:10px" data-a="start">START QUIZ</button></div>';
+    return;
+  }
+  if(T.i>=T.qs.length){
+    var pct=Math.round(T.sc/T.qs.length*100);
+    if(S.best[gid]==null||pct>S.best[gid]){S.best[gid]=pct;save()}
+    var h='<div class="box"><h2>RESULT: '+T.sc+' / '+T.qs.length+' ('+pct+'%)</h2>';
+    if(T.miss.length){h+='<p class="lead">REVIEW MISSED WORDS:</p><ul class="miss">'+T.miss.map(function(w){return'<li><b>'+w.t+'</b>: <span class="bn">'+w.b+'</span><br><small>'+w.s+'</small></li>'}).join("")+'</ul>'}else h+='<p class="lead">★ PERFECT SCORE! ★</p>';
+    b.innerHTML=h+'<div class="act"><button class="btn" data-a="m-cards">BACK TO CARDS</button><button class="btn pr" data-a="retry">RETRY TEST</button></div></div>';return;
+  }
+  var q=T.qs[T.i],f=q.f,h='<div class="stat"><span>QUESTION '+(T.i+1)+'/'+T.qs.length+'</span> <span>SCORE: '+T.sc+'</span></div><div class="bar"><i style="width:'+Math.round(T.i/T.qs.length*100)+'%"></i></div>'+(f==="e"?'<p class="q">CHOOSE THE WORD THAT FITS THE BLANK:</p><p class="qw" style="font-size:1.1rem;line-height:1.4">'+blank(q.w)+'</p>':'<p class="q">SELECT THE '+LBL[f].toUpperCase()+' OF:</p><p class="qw">'+q.w.t+'</p>');
+  q.o.forEach(function(o,i){
+    var c="";if(T.pick!=null){if(i===q.ans)c=" good";else if(i===T.pick)c=" bad"}
+    h+='<button class="opt'+(f==="b"?" bn":"")+c+'" data-a="pick" data-i="'+i+'"'+(T.pick!=null?" disabled":"")+'>'+(i+1)+'. '+o+'</button>';
+  });
+  if(T.pick!=null)h+='<button class="btn pr" style="width:100%;margin-top:10px" data-a="next">'+(T.i+1<T.qs.length?"NEXT QUESTION ►":"SEE RESULTS ►")+'</button>';
+  b.innerHTML=h;
+}
+function startTest(){
+  var ws=W(gid),qs=shuf(ws).slice(0,20).map(function(w){
+    var f=tType==="m"?["b","s","a","e"][Math.floor(Math.random()*4)]:tType;
+    if(f==="e"&&!w.e)f="b";
+    var key=f==="e"?"t":f;
+    var filtered = ws.filter(function(x){return x && x[key] !== w[key] && x[key]});
+    if(filtered.length < 4) {
+      filtered = W(0).filter(function(x){return x && x[key] !== w[key] && x[key]});
+    }
+    var d=shuf(filtered).slice(0,4).map(function(x){return x[key]});
+    var o=shuf(d.concat([w[key]]));
+    return{w:w,f:f,o:o,ans:o.indexOf(w[key])};
+  });
+  T={qs:qs,i:0,sc:0,pick:null,miss:[],type:tType};
+}
+function mark(w,add){var g=w.g;S.known[g]=S.known[g]||{};if(add)S.known[g][w.t]=true;save()}
+document.addEventListener("click",function(e){
+  var el=e.target.closest("[data-a],[data-g]");if(!el)return;
+  playSound("click");
+  if(el.dataset.g){gid=+el.dataset.g;view="group";mode="cards";built=false;T=null;return render()}
+  var a=el.dataset.a;
+  if(a==="home"){view="home";T=null;return render()}
+  if(a==="m-cards"){mode="cards";T=null;built=false;return render()}
+  if(a==="m-test"){mode="test";T=null;return render()}
+  if(a==="flip"){playSound("flip");fl=!fl;var c=document.getElementById("card");if(c)c.classList.toggle("fl",fl);return}
+  if(a==="know"){playSound("ok");mark(queue[0],true);queue.shift();fl=false;return cards()}
+  if(a==="again"){playSound("no");var w=queue.shift();queue.splice(Math.min(3,queue.length),0,w);fl=false;return cards()}
+  if(a==="shuffle"){queue=shuf(queue);fl=false;return cards()}
+  if(a==="restart"){W(gid).forEach(function(w){if(S.known[w.g])delete S.known[w.g][w.t]});save();built=false;return cards()}
+  if(a==="start"){var s=document.getElementById("tt");if(s)tType=s.value;startTest();return test()}
+  if(a==="retry"){T=null;return test()}
+  if(a==="pick"&&T&&T.pick==null){
+    var q=T.qs[T.i];T.pick=+el.dataset.i;
+    if(T.pick===q.ans){playSound("ok");T.sc++;}else{playSound("no");T.miss.push(q.w);}
+    return test();
+  }
+  if(a==="next"){T.i++;T.pick=null;return test()}
+});
+document.addEventListener("keydown",function(e){
+  if(view!=="group"||mode!=="cards"||!queue.length)return;
+  var tg=e.target.tagName;if(tg==="SELECT"||tg==="INPUT")return;
+  if(e.key===" "){e.preventDefault();playSound("flip");fl=!fl;var c=document.getElementById("card");if(c)c.classList.toggle("fl",fl)}
+  else if(e.key==="ArrowRight"){playSound("ok");mark(queue[0],true);queue.shift();fl=false;cards()}
+  else if(e.key==="ArrowLeft"){playSound("no");var w=queue.shift();queue.splice(Math.min(3,queue.length),0,w);fl=false;cards()}
+});
+load();render();
+})();
+</script>
+</body>
+</html>

@@ -1,556 +1,830 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GRE Word Groups :: Vintage Edition</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>CYBERPUNK 2077 // GRE WORD SYSTEM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@500;700&family=Orbitron:wght@600;800;900&family=Rajdhani:wght@600;700&family=Share+Tech+Mono&family=Teko:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-color: #b23b28;
-  --dot: #9a3020;
-  --paper: #f3edd7;
-  --paper-dark: #e5dbba;
-  --ink: #2b2625;
-  --ink-light: #524845;
-  --accent: #d6503b;
-  --accent-dark: #b23b28;
-  --gold: #d99a38;
-  --teal: #2c6f6c;
-  --ok: #2a6644;
-  --no: #9e2e22;
-  --shadow: 3px 3px 0px rgba(43, 38, 37, 0.85);
-  --shadow-lg: 5px 5px 0px rgba(43, 38, 37, 0.85);
+  --cp-yellow: #fcee0a;
+  --cp-yellow-glow: rgba(252, 238, 10, 0.4);
+  --cp-black: #050505;
+  --cp-dark-panel: #0b0c10;
+  --cp-card-bg: #12131a;
+  --cp-cyan: #00f0ff;
+  --cp-red: #ff003c;
+  --cp-green: #00ff66;
+  --cp-text: #ffffff;
+  --cp-muted: #7e8b9b;
+  --font-logo: 'Orbitron', sans-serif;
+  --font-heading: 'Teko', sans-serif;
+  --font-subhead: 'Rajdhani', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-bn: 'Noto Sans Bengali', sans-serif;
 }
 
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background-color: var(--cp-black); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--bg-color);
-  color: var(--ink);
-  font-family: 'Courier Prime', "Noto Sans Bengali", monospace;
-  font-size: 20px;
-  line-height: 1.4;
+  background: var(--cp-black);
+  color: var(--cp-text);
+  font-family: var(--font-subhead);
   min-height: 100vh;
-  min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
-  /* Vintage Linen / Texture Pattern Simulation */
   background-image: 
-    radial-gradient(var(--dot) 15%, transparent 16%),
-    radial-gradient(var(--dot) 15%, transparent 16%);
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
+    radial-gradient(circle at 80% 20%, rgba(252, 238, 10, 0.08) 0%, transparent 40%),
+    linear-gradient(rgba(252, 238, 10, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(252, 238, 10, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px, 24px 24px;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
-/* Paper Grain Texture Overlay */
-body::before {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0; left: 0; bottom: 0; right: 0;
-  background: repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px);
-  z-index: 99;
-  pointer-events: none;
-}
+.bn { font-family: var(--font-bn); }
+.mono { font-family: var(--font-mono); }
 
-.bn { font-family: "Noto Sans Bengali", 'Courier Prime', serif; }
-
-main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 30px 18px 64px;
-}
-
-/* Vintage Header Title */
-.header-tag {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.1rem;
-  color: var(--paper);
-  text-align: center;
-  display: block;
-  margin-bottom: 2px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0px var(--ink);
-}
-
-h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 16px;
-  color: var(--paper);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-  text-shadow: 4px 4px 0px var(--ink);
-}
-
-.stars {
-  text-align: center;
-  color: var(--paper);
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  letter-spacing: 6px;
-}
-
-.hero {
-  background: var(--paper);
-  border: 4px solid var(--ink);
-  outline: 2px dashed var(--paper);
-  outline-offset: -10px;
-  box-shadow: var(--shadow-lg);
-  padding: 24px 20px;
-  margin: 0 0 28px;
-  text-align: center;
-  position: relative;
-}
-
-.hero b {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2.2rem;
-  color: var(--accent);
-  letter-spacing: 1px;
-}
-
-.bar {
-  height: 20px;
-  background: var(--paper-dark);
-  border: 3px solid var(--ink);
-  margin: 14px 0 0;
-  padding: 2px;
-  position: relative;
-  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-.bar i {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
-  gap: 16px;
-}
-
-.tile {
-  background: var(--paper);
-  border: 3px solid var(--ink);
-  box-shadow: var(--shadow);
-  padding: 16px 10px 14px;
-  text-align: center;
-  cursor: pointer;
+/* Navigation Bar */
+.cp-navbar {
+  background: #000000;
+  border-bottom: 2px solid var(--cp-yellow);
+  padding: 12px 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
-  position: relative;
-  transition: transform 0.15s, box-shadow 0.15s;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.tile:not(.off):hover {
-  transform: translateY(-3px);
-  box-shadow: 6px 6px 0px var(--ink);
-  background: #fffdf5;
-}
-
-.tile:not(.off):active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--ink);
-}
-
-.tile b {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.8rem;
-  color: var(--accent);
-  letter-spacing: 1px;
-}
-
-.tile span {
-  font-size: 0.85rem;
-  font-family: 'Courier Prime', monospace;
-  font-weight: 700;
-  color: var(--ink-light);
-}
-
-.tile .pg {
-  position: absolute;
-  left: 0; bottom: 0;
-  height: 6px;
-  background: var(--teal);
-  display: block;
-}
-
-.tile.off {
-  opacity: 0.6;
-  background: var(--paper-dark);
-  cursor: not-allowed;
-  border-style: dashed;
-}
-
-/* Retro Badge / Top Bar Navigation */
-.top {
+.cp-logo-group {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.cp-logo {
+  font-family: var(--font-logo);
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+  font-weight: 900;
+  color: var(--cp-yellow);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-style: italic;
+  text-shadow: 2px 2px 0px #00f0ff;
+  line-height: 1;
+}
+
+.cp-logo span {
+  color: #fff;
+  font-size: 0.7rem;
+  font-style: normal;
+  display: block;
+  font-family: var(--font-mono);
+  letter-spacing: 2px;
+}
+
+.cp-nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cp-nav-btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--cp-text);
+  background: transparent;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+  min-height: 40px;
+}
+
+.cp-nav-btn:hover, .cp-nav-btn.active {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  border-color: var(--cp-yellow);
+}
+
+.cp-buy-btn {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  font-family: var(--font-subhead);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  box-shadow: 0 0 10px var(--cp-yellow-glow);
+  min-height: 40px;
+}
+
+.cp-buy-btn:hover {
+  background: #fff;
+  color: var(--cp-black);
+}
+
+/* Mobile Nav Toggle */
+.mobile-toggle {
+  display: none;
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  border: none;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Official Yellow Hero Banner */
+.cp-hero-banner {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  padding: clamp(20px, 4vw, 32px) clamp(16px, 4vw, 30px);
   margin-bottom: 24px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  position: relative;
+  border-bottom: 4px solid var(--cp-black);
+  overflow: hidden;
+}
+
+.cp-hero-banner::before {
+  content: "CYBERPUNK";
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 15vw, 11rem);
+  color: rgba(0,0,0,0.06);
+  font-weight: bold;
+  pointer-events: none;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.cp-laurels {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a1a00;
   flex-wrap: wrap;
 }
 
-.back, button {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
+.cp-laurel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0 10px;
+}
+
+.cp-laurel-item::before, .cp-laurel-item::after {
+  content: "❯";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cp-black);
+}
+.cp-laurel-item::before { left: -4px; transform: translateY(-50%) rotate(180deg); }
+.cp-laurel-item::after { right: -4px; }
+
+.glitch-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 7.5vw, 5rem);
   font-weight: 700;
-  color: var(--ink);
-  background: var(--paper);
-  border: 3px solid var(--ink);
-  box-shadow: var(--shadow);
-  padding: 10px 18px;
-  cursor: pointer;
   text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.5px;
+  color: var(--cp-black);
+  max-width: 750px;
+  margin-bottom: 14px;
+}
+
+.sub-header {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--cp-black);
+  color: var(--cp-yellow);
+  display: inline-block;
+  padding: 4px 10px;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Cyberpunk Buttons */
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; outline: none; }
+
+.cyber-btn {
+  font-family: var(--font-subhead);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 12px 20px;
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+  border: 2px solid var(--cp-black);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  position: relative;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
+.cyber-btn:hover {
+  background: var(--cp-black);
+  color: var(--cp-yellow);
+  border-color: var(--cp-yellow);
+  box-shadow: 0 0 15px var(--cp-yellow-glow);
+}
+
+.cyber-btn.outline {
+  background: transparent;
+  color: var(--cp-yellow);
+  border-color: var(--cp-yellow);
+}
+.cyber-btn.outline:hover {
+  background: var(--cp-yellow);
+  color: var(--cp-black);
+}
+
+.cyber-btn.red {
+  background: var(--cp-red);
+  color: #fff;
+  border-color: #fff;
+}
+.cyber-btn.red:hover {
+  background: var(--cp-black);
+  color: var(--cp-red);
+  border-color: var(--cp-red);
+  box-shadow: 0 0 15px rgba(255, 0, 60, 0.5);
+}
+
+.cyber-btn.cyan {
+  background: var(--cp-cyan);
+  color: var(--cp-black);
+  border-color: var(--cp-cyan);
+}
+.cyber-btn.cyan:hover {
+  background: var(--cp-black);
+  color: var(--cp-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+/* Grid Card Layout (Previous Style Restored) */
+.grid-container {
+  padding: 0;
+}
+
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  color: var(--cp-cyan);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tech-tag::before {
+  content: "";
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--cp-cyan);
+}
+
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.grid-card {
+  background: var(--cp-dark-panel);
+  border: 2px solid #22252e;
+  border-top: 4px solid var(--cp-yellow);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 110px;
+  touch-action: manipulation;
+}
+
+.grid-card:hover:not(.off) {
+  border-color: var(--cp-yellow);
+  background: var(--cp-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--cp-yellow-glow);
+}
+
+.grid-card:hover:not(.off) b { color: var(--cp-black); }
+.grid-card:hover:not(.off) span { color: #222; }
+.grid-card:hover:not(.off) .item-code { color: rgba(0,0,0,0.6); }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.item-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cp-muted);
   letter-spacing: 1px;
 }
 
-.back:hover, button:hover:not(:disabled) {
-  background: var(--ink);
-  color: var(--paper);
+.grid-card b {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: #fff;
+  line-height: 1;
 }
 
-.back:active, button:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--ink);
+.grid-card span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cp-muted);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.grid-card .pg-wrap {
+  width: 100%;
+  height: 4px;
+  background: #111;
+  margin-top: 10px;
+  position: relative;
+}
+
+.grid-card .pg {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--cp-cyan);
+  box-shadow: 0 0 8px var(--cp-cyan);
+}
+
+.grid-card.off {
+  opacity: 0.25;
+  cursor: not-allowed;
+  border-top-color: var(--cp-muted);
+}
+
+/* Nav & Top Controls */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.top-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: var(--cp-yellow);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px var(--cp-yellow-glow);
 }
 
 .tabs {
   display: flex;
-  gap: 8px;
-  margin-left: auto;
+  background: #000;
+  border: 2px solid var(--cp-yellow);
+  padding: 2px;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  width: auto;
 }
 
 .tabs button {
-  border-color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  color: var(--cp-muted);
+  transition: all 0.15s ease;
+  min-height: 38px;
 }
 
 .tabs button[aria-selected="true"] {
-  background: var(--accent-dark);
-  color: var(--paper);
+  background: var(--cp-yellow);
+  color: var(--cp-black);
 }
 
-.stat {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  color: var(--paper);
-  margin-bottom: 10px;
+/* Content Panel Wrapper */
+.content-body {
+  padding: 0;
+}
+
+/* Stats & Progress Bar */
+.stat-bar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  text-shadow: 2px 2px 0px var(--ink);
-  letter-spacing: 1px;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: bold;
+  color: var(--cp-yellow);
+  margin-bottom: 10px;
+  gap: 10px;
 }
 
-/* Flashcard Vintage Stamp Design */
+.bar-container {
+  height: 8px;
+  background: #111;
+  border: 1px solid var(--cp-yellow);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bar-container i {
+  display: block;
+  height: 100%;
+  background: var(--cp-yellow);
+  box-shadow: 0 0 10px var(--cp-yellow);
+  transition: width 0.3s ease;
+}
+
+/* Flashcard Scene */
 .scene {
-  perspective: 1000px;
-  height: 480px;
+  perspective: 1200px;
+  height: clamp(380px, 60vh, 520px);
   cursor: pointer;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  touch-action: pan-y;
 }
 
 .card {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   transform-style: preserve-3d;
 }
 
-.card.fl {
-  transform: rotateY(180deg);
-}
+.card.fl { transform: rotateY(180deg); }
 
 .face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border: 4px solid var(--ink);
-  outline: 2px dashed var(--accent);
-  outline-offset: -12px;
-  box-shadow: var(--shadow-lg);
-  padding: 28px;
+  background: var(--cp-card-bg);
+  border: 3px solid var(--cp-yellow);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  padding: clamp(16px, 4vw, 32px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+
+.face.front {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 12px;
-  background: var(--paper);
+  background: #08080a;
 }
 
-.front .term {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(2rem, 6vw, 3.2rem);
+.face.back-f {
+  transform: rotateY(180deg);
+  border-color: var(--cp-cyan);
+  text-align: left;
+  align-items: flex-start;
+  gap: 12px;
+  background: #08080a;
+}
+
+.term {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 9vw, 5.5rem);
   font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 2px;
+  color: var(--cp-yellow);
+  line-height: 0.9;
+  letter-spacing: 1px;
   text-transform: uppercase;
   word-break: break-word;
-  line-height: 1.2;
+  text-shadow: 0 0 15px var(--cp-yellow-glow);
 }
 
-.front .hint {
-  font-family: 'Courier Prime', monospace;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink-light);
-  margin-top: 16px;
-  letter-spacing: 1px;
-}
-
-.back-f {
-  transform: rotateY(180deg);
-  align-items: flex-start;
-  text-align: left;
-  justify-content: flex-start;
-  background: #fbf7ea;
+.hint {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  color: var(--cp-black);
+  background: var(--cp-yellow);
+  border: 1px solid var(--cp-yellow);
+  padding: 4px 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  font-weight: bold;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
 }
 
 .pron {
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.4rem;
-  font-style: italic;
-  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  color: var(--cp-cyan);
+  font-weight: bold;
 }
 
 .bnm {
-  font-size: 2.1rem;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 700;
-  color: var(--accent);
+  color: var(--cp-yellow);
   line-height: 1.2;
 }
 
 .row {
   width: 100%;
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
   padding-top: 10px;
-  border-top: 2px dashed var(--paper-dark);
-  font-size: 1.15rem;
-  color: var(--ink);
+  border-top: 1px solid #1f2430;
+  color: var(--cp-text);
+  word-break: break-word;
 }
 
 .row small {
   display: block;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.85rem;
-  color: var(--ink-light);
-  margin-bottom: 2px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  color: var(--cp-muted);
+  margin-bottom: 2px;
+  font-weight: bold;
 }
+
+.row.syn small { color: var(--cp-cyan); }
+.row.ant small { color: var(--cp-red); }
+.row.ex small { color: var(--cp-yellow); }
+.row.ex i { color: #e1e1e1; font-style: normal; }
 
 .chip {
   display: inline-block;
-  padding: 3px 12px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  border: 2px solid var(--ink);
-  box-shadow: 2px 2px 0px var(--ink);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-.chip.p { background: #d3ebd8; color: var(--ok); }
-.chip.n { background: #fbdad6; color: var(--no); }
-.chip.z { background: #faecc9; color: var(--ink); }
 
+.chip.p { background: var(--cp-yellow); color: var(--cp-black); }
+.chip.n { background: var(--cp-red); color: #fff; }
+.chip.z { background: #333; color: #fff; }
+
+/* Actions Grid */
 .act {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 16px;
+  gap: 12px;
 }
 
-.btn {
-  padding: 14px;
-  font-size: 0.95rem;
+@media (max-width: 480px) {
+  .act {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cyber Box Panels */
+.cyber-box {
+  background: var(--cp-dark-panel);
+  border: 2px solid var(--cp-yellow);
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  padding: clamp(16px, 4vw, 32px);
   text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.9);
 }
 
-.btn.no { background: #fbdad6; color: var(--no); border-color: var(--ink); }
-.btn.no:hover { background: var(--no); color: var(--paper); }
-.btn.ok { background: #d3ebd8; color: var(--ok); border-color: var(--ink); }
-.btn.ok:hover { background: var(--ok); color: var(--paper); }
-.btn.pr { background: var(--paper); color: var(--ink); }
-.btn.pr:hover { background: var(--accent-dark); color: var(--paper); }
-
-.box {
-  background: var(--paper);
-  border: 4px solid var(--ink);
-  outline: 2px dashed var(--accent);
-  outline-offset: -10px;
-  box-shadow: var(--shadow-lg);
-  padding: 32px 24px;
-  text-align: center;
-}
-
-.box h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.8rem;
-  color: var(--accent);
-  letter-spacing: 1px;
-  margin: 0 0 14px;
+.cyber-box h2 {
+  font-family: var(--font-heading);
+  color: var(--cp-yellow);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 10px;
 }
 
 select {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  background: var(--paper-dark);
-  color: var(--ink);
-  border: 3px solid var(--ink);
-  padding: 8px 14px;
-  margin: 12px 0 20px;
-  cursor: pointer;
-  box-shadow: 2px 2px 0px var(--ink);
+  font-family: var(--font-mono);
+  background: #000;
+  color: var(--cp-yellow);
+  border: 2px solid var(--cp-yellow);
+  padding: 12px;
+  margin: 14px 0 20px;
+  width: 100%;
+  max-width: 380px;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bold;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
 }
 
+/* Options */
 .q {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  color: var(--cp-muted);
   text-transform: uppercase;
-  color: #ffffff;
-  margin: 0 0 6px;
-  text-shadow: 2px 2px 0px var(--ink);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
 }
 
 .qw {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.8rem;
-  color: #ffffff;
-  line-height: 1.3;
-  margin: 0 0 20px;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 0px var(--ink);
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
+  color: var(--cp-yellow);
+  line-height: 1;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  word-break: break-word;
 }
 
 .opt {
   display: block;
   width: 100%;
   text-align: left;
-  background: #fbf7ea;
-  border: 3px solid var(--ink);
-  box-shadow: var(--shadow);
-  padding: 14px 18px;
-  margin-bottom: 12px;
+  background: #0d0f14;
+  border: 2px solid #232836;
+  padding: 14px 16px;
+  margin-bottom: 10px;
   cursor: pointer;
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.2rem;
-  color: var(--ink);
+  color: #fff;
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  transition: all 0.15s ease;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  word-break: break-word;
 }
 
-.opt:hover:not(:disabled) {
-  background: var(--paper-dark);
+.opt:hover:not([disabled]) {
+  border-color: var(--cp-yellow);
+  background: var(--cp-yellow);
+  color: var(--cp-black);
 }
 
 .opt.good {
-  border-color: var(--ink);
-  background: #d3ebd8;
-  color: var(--ok);
+  border-color: var(--cp-yellow) !important;
+  background: var(--cp-yellow) !important;
+  color: var(--cp-black) !important;
   font-weight: bold;
 }
 
 .opt.bad {
-  border-color: var(--ink);
-  background: #fbdad6;
-  color: var(--no);
+  border-color: var(--cp-red) !important;
+  background: var(--cp-red) !important;
+  color: #fff !important;
 }
 
 .miss {
   text-align: left;
-  margin: 20px 0 0;
+  margin: 16px 0;
   padding: 0;
   list-style: none;
 }
 
 .miss li {
-  padding: 10px;
-  border-bottom: 2px dashed var(--ink);
+  padding: 10px 0;
+  border-bottom: 1px solid #1c212d;
+  font-size: 1rem;
 }
 
-/* ---- Polish pass: contrast, type, mobile, focus ---- */
-::selection { background: var(--ink); color: var(--paper); }
-
-main {
-  padding: 30px max(18px, env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+.miss li b {
+  color: var(--cp-yellow);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
 }
 
-h1, .box h2, .q, .qw { text-wrap: balance; }
-.box p { max-width: 60ch; margin-left: auto; margin-right: auto; }
-.stat, .hero, .tile span, .box h2 { font-variant-numeric: tabular-nums; }
-
-/* The inner dashed frame was paper on paper, so it never showed */
-.hero { outline-color: var(--accent); }
-
-/* Small heading and small button fixes */
-.top h1 { text-shadow: 2px 2px 0 var(--ink); letter-spacing: 1.5px; }
-.stat .btn { font-size: 0.8rem !important; }
-.bar + .q { margin-top: 20px; }
-.bar + .scene, .bar + #body { margin-top: 20px; }
-
-/* Locked groups stay readable: change the surface, not the opacity */
-.tile.off { opacity: 1; }
-.tile.off b { color: var(--ink-light); }
-
-/* Card height follows its content, so long entries never scroll inside the card */
-.scene { height: auto; min-height: clamp(380px, 62vh, 500px); display: grid; }
-.card { height: auto; display: grid; }
-.face { position: relative; inset: auto; grid-area: 1 / 1; overflow: visible; }
-.btn { white-space: normal; }
-
-/* Keyboard focus that reads on both the red field and the paper */
-button:focus-visible, select:focus-visible, .scene:focus-visible {
-  outline: 3px solid var(--paper);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 6px var(--ink);
-}
-.scene:focus-visible .face { outline-color: var(--accent); }
-
-@media (hover: none) {
-  .tile:not(.off):hover { transform: none; box-shadow: var(--shadow); background: var(--paper); }
+.kbd-hints {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cp-muted);
+  flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-  body { font-size: 18px; }
-  h1 { font-size: 1.8rem; }
-  .header-tag { font-size: 1.2rem; }
-  .grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 12px; }
-  .tile b { font-size: 1.4rem; }
-  button, .back { min-height: 44px; }
-  .top { gap: 10px; margin-bottom: 18px; }
-  .tabs { width: 100%; margin-left: 0; }
-  .tabs button { flex: 1; }
-  .act { gap: 12px; }
-  .face { padding: 22px 18px; outline-offset: -9px; }
-  .pron { font-size: 1.2rem; }
-  .bnm { font-size: 1.7rem; }
-  .row { font-size: 1.05rem; }
-  .box { padding: 26px 18px; }
-  .qw { font-size: 1.5rem; }
-  .opt { font-size: 1.05rem; padding: 14px 16px; }
+.kbd {
+  border: 1px solid var(--cp-yellow);
+  padding: 2px 6px;
+  color: var(--cp-yellow);
+  background: #000;
+  font-weight: bold;
+}
+
+/* Media Queries for Navigation & Mobile Layout */
+@media (max-width: 768px) {
+  .mobile-toggle { display: block; }
+  
+  .cp-nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #000;
+    border-bottom: 2px solid var(--cp-yellow);
+    padding: 16px;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.9);
+  }
+  
+  .cp-nav-links.open { display: flex; }
+  .cp-nav-links button { width: 100%; text-align: center; }
+  .cp-laurels { display: none; }
+  .top { flex-direction: column; align-items: stretch; }
+  .tabs { width: 100%; }
+  .tabs button { flex: 1; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .kbd-hints { display: none; }
+}
+
+/* ---- Polish pass: contrast, focus, touch, motion ---- */
+:root { --cp-red-fill: #d1002f; }
+.cyber-btn.red, .chip.n { background: var(--cp-red-fill); }
+.opt.bad { background: var(--cp-red-fill) !important; border-color: var(--cp-red-fill) !important; }
+.cp-logo span { text-shadow: none; }
+.chip { font-size: 0.8rem; }
+.cp-nav-btn, .cp-buy-btn { min-height: 44px; }
+.stat-bar .cyber-btn { font-size: 0.85rem !important; min-height: 44px; padding: 6px 14px !important; }
+::selection { background: var(--cp-yellow); color: var(--cp-black); }
+h1, h2, .qw { text-wrap: balance; }
+
+/* Focus ring drawn inside the box so the angled clip-path cannot cut it */
+button:focus-visible, select:focus-visible, .scene:focus-visible, .opt:focus-visible {
+  outline: 2px solid #000 !important;
+  outline-offset: -5px !important;
+  box-shadow: inset 0 0 0 4px #fff !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card, .bar i, .tile { transition: none; }
-  .tile:not(.off):hover, .tile:not(.off):active { transform: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 </style>
 </head>
 <body>
+
+<!-- Top Navigation Bar -->
+<header class="cp-navbar">
+  <div class="cp-logo-group">
+    <div class="cp-logo">CYBERPUNK <span>GRE MATRIX SYSTEM 2077</span></div>
+  </div>
+  <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation menu">MENU &#9776;</button>
+  <nav class="cp-nav-links" id="navLinks">
+    <button class="cp-nav-btn active" data-a="home">GROUPS</button>
+    <button class="cp-nav-btn" data-a="m-cards">FLASHCARDS</button>
+    <button class="cp-nav-btn" data-a="m-test">TESTING</button>
+    <button class="cp-buy-btn" data-a="home">INITIALIZE</button>
+  </nav>
+</header>
+
 <main id="app"></main>
+
 <script>
 (function(){
 var K="gre-38-groups-v1";
@@ -1303,11 +1577,11 @@ ramification|ram-uh-fih-KAY-shun|repercussion, implication, outcome|cause, origi
 serene|suh-REEN|tranquil, placid, composed|turbulent, agitated, stormy|+|প্রশান্ত, নির্মল|The serene lake at dawn was a breathtaking sight.
 supplant|suh-PLANT|supersede, displace, oust|retain, preserve, maintain|0|প্রতিস্থাপন করা, উৎখাত করা|The new technology quickly supplanted the old methods.
 tacit|TAS-it|implicit, implied, unspoken|explicit, stated, expressed|0|অনুমিত, বোঝা যায় এমন|There was a tacit agreement between them to keep the matter secret.
-transcend|tran-SEND|surpass, outstrip, exceed|fall short, sink, lag|+|অতিক্রম করা, ছাড়িয়ে যাওয়া|The artist's work transcended the limitations of her medium.
+transcend|tran-SEND|surpass, outstrip, exceed|fall short, sink, lag|+|অক্রম করা, ছাড়িয়ে যাওয়া|The artist's work transcended the limitations of her medium.
 treatise|TREE-tis|dissertation, monograph, exposition|note, jotting, summary|0|গ্রন্থ, প্রবন্ধ|He wrote a lengthy treatise on the history of philosophy.`;
 var R27=`antagonize|an-TAG-uh-nyz|provoke, irritate, harass|appease, pacify, befriend|-|বিরক্ত করা, উত্যক্ত করা|The child loved to antagonize his younger sister.
 barren|BAR-un|sterile, unproductive, desolate|fertile, fruitful, productive|-|অনুর্বর, শুষ্ক|The desert landscape was stark and barren.
-bombastic|bom-BAS-tik|pompous, pretentious, inflated|plain, modest, understated|-|আড়ম্বরপূর্ণ, জাঁকালো|The speaker's bombastic style quickly bored the audience.
+bombastic|bom-BAS-tik|pompous, pretentious, inflated|plain, modest, understated|-|আড়ম্বরপূর্ণ, জাঁকাল|The speaker's bombastic style quickly bored the audience.
 cajole|kuh-JOHL|persuade, coax, wheedle|coerce, force, compel|0|তুষ্ট করা, খোশামোদ করা|She managed to cajole her reluctant friend into going to the party.
 chary|CHAIR-ee|cautious, wary, hesitant|reckless, careless, bold|0|সতর্ক, সাবধান|Investors were chary about putting money into the volatile market.
 curmudgeon|kur-MUJ-un|grouch, grump, crank|optimist, cheerful person, charmer|-|বদমেজাজি লোক|The old man had a reputation as a curmudgeon.
@@ -1334,7 +1608,7 @@ turpitude|TUR-pih-tood|depravity, wickedness, immorality|virtue, goodness, decen
 unalloyed|un-uh-LOYD|pure, absolute, unqualified|mixed, diluted, tempered|+|খাঁটি|The joy she felt at her graduation was unalloyed.
 undercut|UN-dur-kut|undermine, weaken, sabotage|support, bolster, strengthen|-|দুর্বল করা|The new store undercut its competitors' prices to attract customers.
 wheedle|WEE-dl|flatter, coax, persuade|demand, force, bully|-|চাটুবাক্য করা|The child tried to wheedle an extra piece of candy from his mother.
-xenophobic|zee-nuh-FOH-bik|prejudiced, intolerant, insular|tolerant, welcoming, cosmopolitan|-|বিদেশী বিদ্বেষী|The rise in xenophobic sentiment worried human rights activists.`;
+xenophobic|zee-nuh-FOH-bik|prejudiced, intolerant, insular|tolerant, welcoming, cosmopolitan|-|विदेशী বিদ্বেষী|The rise in xenophobic sentiment worried human rights activists.`;
 var R28=`abeyance|uh-BAY-uns|suspension, dormancy, deferral|activity, continuation, action|0|স্থগিতাবস্থা|The plans for the new library were put in abeyance due to budget cuts.
 abstract|AB-strakt|theoretical, conceptual, nonrepresentational|concrete, tangible, real|0|বিমূর্ত|Her paintings were abstract explorations of color and form.
 affront|uh-FRUNT|insult, offense, indignity|compliment, honor, tribute|-|অপমান|The rude remark was considered a personal affront.
@@ -1469,7 +1743,7 @@ indictment|in-DYT-munt|accusation, charge, arraignment|acquittal, exoneration, p
 indignant|in-DIG-nunt|resentful, aggrieved, infuriated|pleased, content, unbothered|-|ক্ষুব্ধ, ক্রুদ্ধ|The workers were indignant at the company's decision to cut their wages.
 ineluctable|in-ih-LUK-tuh-bul|unavoidable, inescapable, inevitable|avoidable, escapable, preventable|0|অনিবার্য|Despite her best efforts, the ineluctable march of time brought about many changes.
 inquisitive|in-KWIZ-ih-tiv|curious, inquiring, probing|indifferent, incurious, uninterested|+|জ্ঞানপিপাসু, কৌতূহলী|The inquisitive child asked a never-ending stream of questions.
-latitude|LAT-ih-tood|freedom, scope, leeway|restriction, limitation, constraint|+|স্বাধীনতা, ক্ষমতা|The teacher gave her students wide latitude in choosing their research topics.
+latitude|LAT-ih-tood|freedom, scope, leeway|restriction, limitation, constraint|+|freedom, scope, leeway|The teacher gave her students wide latitude in choosing their research topics.
 levity|LEV-ih-tee|lightheartedness, frivolity, flippancy|seriousness, gravity, solemnity|-|হালকাভাবে, চপলতা|His levity during the funeral service was considered inappropriate.
 malevolent|muh-LEV-uh-lunt|malicious, spiteful, malign|benevolent, kind, caring|-|দূষিত, হিংস্র|The villain's malevolent plot threatened the safety of the entire city.
 mediate|MEE-dee-ayt|arbitrate, intervene, negotiate|provoke, inflame, side with|+|মধ্যস্থতা করা, সমঝোতা করানো|The diplomat was called upon to mediate the peace talks between the warring nations.
@@ -1612,7 +1886,7 @@ champion|CHAM-pee-un|advocate, defender, supporter|oppose, attack, undermine|+|�
 compound|KOM-pownd|intensify, aggravate, exacerbate|alleviate, relieve, ease|-|আরও খারাপ করা|The heavy rain compounded the traffic problems.
 deter|dih-TUR|discourage, inhibit, prevent|encourage, prompt, spur|-|নিরুৎসাহিত করা|The high prices deterred many potential buyers.
 dexterous|DEK-stur-us|skillful, adroit, proficient|clumsy, awkward, inept|+|দক্ষ|He was a dexterous craftsman, able to create intricate wood carvings.
-dictum|DIK-tum|pronouncement, decree, precept|suggestion, rumor, hearsay|0|আনুষ্ঠানিকঘোষণা|The judge's dictum carried the weight of law.
+dictum|DIK-tum|pronouncement, decree, precept|suggestion, rumor, hearsay|0|আনুষ্ঠানিক ঘোষণা|The judge's dictum carried the weight of law.
 dutiful|DOO-tih-ful|conscientious, responsible, obedient|neglectful, irresponsible, disobedient|+|কর্তব্যপরায়ণ|She was a dutiful daughter, always caring for her aging parents.
 empathetic|em-puh-THET-ik|understanding, compassionate, sensitive|callous, unsympathetic, indifferent|+|সহানুভূতিশীল|An empathetic therapist can help their clients work through difficult emotions.
 ensue|en-SOO|result, follow, arise|precede, lead up to, come before|0|ফলস্বরূপ ঘটা|Chaos ensued after the announcement of the controversial policy.
@@ -1729,135 +2003,249 @@ polarize|The issue polarized the community, leading to heated debates.
 prodigal|The prodigal son squandered his inheritance on frivolous luxuries.
 verbose|The verbose report could have been condensed into a few pages.`;
 (function(){var m={};EX.split("\n").forEach(function(l){var i=l.indexOf("|");m[l.slice(0,i)]=l.slice(i+1)});Object.keys(G).forEach(function(g){G[g].forEach(function(w){w.g=+g;if(+g<4)w.e=m[w.t]})})})();
+
 var S={known:{},best:{}},view="home",gid=0,mode="cards",queue=[],built=false,fl=false,T=null,tType="m";
+var LBL={b:"Bangla meaning",s:"synonyms",a:"antonyms"};
+function blank(w){return(w.e||"").replace(new RegExp("\\b"+w.t.slice(0,Math.max(3,w.t.length-3))+"\\w*","i"),"_____")}
 var $app=document.getElementById("app");
+
 function load(){try{var r=localStorage.getItem(K);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}}
 function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
 function W(g){if(g===0){var a=[];for(var i=1;i<=38;i++)a=a.concat(G[i]||[]);return a}return G[g]||[]}
 function kn(g){return W(g).filter(function(w){return (S.known[w.g]||{})[w.t]}).length}
 function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
-function chip(c){var m={"+":["p","POS"],"-":["n","NEG"],"0":["z","NEU"]}[c]||["z","NEU"];return'<span class="chip '+m[0]+'">['+m[1]+']</span>'}
-
-/* Retro Web Audio Synthesizer Effects */
-var audioCtx=null;
-function playSound(type){
-  try{
-    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-    var osc=audioCtx.createOscillator(),g=audioCtx.createGain();
-    osc.connect(g);g.connect(audioCtx.destination);
-    var now=audioCtx.currentTime;
-    if(type==="click"){
-      osc.type="square";osc.frequency.setValueAtTime(440,now);
-      g.gain.setValueAtTime(0.05,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.05);
-      osc.start(now);osc.stop(now+0.05);
-    }else if(type==="flip"){
-      osc.type="triangle";osc.frequency.setValueAtTime(220,now);osc.frequency.exponentialRampToValueAtTime(880,now+0.08);
-      g.gain.setValueAtTime(0.08,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.08);
-      osc.start(now);osc.stop(now+0.08);
-    }else if(type==="ok"){
-      osc.type="square";osc.frequency.setValueAtTime(523.25,now);osc.frequency.setValueAtTime(659.25,now+0.08);
-      g.gain.setValueAtTime(0.08,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.16);
-      osc.start(now);osc.stop(now+0.16);
-    }else if(type==="no"){
-      osc.type="sawtooth";osc.frequency.setValueAtTime(200,now);osc.frequency.setValueAtTime(120,now+0.08);
-      g.gain.setValueAtTime(0.1,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.2);
-      osc.start(now);osc.stop(now+0.2);
-    }
-  }catch(e){}
-}
+function chip(c){var m={"+":["p","Positive"],"-":["n","Negative"],"0":["z","Neutral"]}[c]||["z","Neutral"];return'<span class="chip '+m[0]+'">'+m[1]+'</span>'}
 
 function render(){
+  // Update nav buttons active state
+  var btns=document.querySelectorAll('.cp-nav-btn');
+  btns.forEach(function(b){
+    var act=b.dataset.a;
+    if((view==="home" && act==="home")||(view==="group" && mode==="cards" && act==="m-cards")||(view==="group" && mode==="test" && act==="m-test")){
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+
   if(view==="home")return home();
-  var n=W(gid).length,h='<div class="top"><button class="back" data-a="home">◄ GROUPS</button><h1 style="margin:0;font-size:1.1rem">'+(gid?'GROUP '+gid:'MIXED WORDS')+'</h1><div class="tabs" role="tablist"><button role="tab" data-a="m-cards" aria-selected="'+(mode==="cards")+'">CARDS</button><button role="tab" data-a="m-test" aria-selected="'+(mode==="test")+'">TEST</button></div></div>';
-  $app.innerHTML=h+'<div id="body"></div>';
+  var n=W(gid).length,h='<div class="top"><button class="cyber-btn outline" data-a="home">&lt; GROUPS</button><h2 class="top-title">GROUP '+(gid<10?'0'+gid:gid)+'</h2><div class="tabs" role="tablist"><button role="tab" data-a="m-cards" aria-selected="'+(mode==="cards")+'">FLASHCARDS</button><button role="tab" data-a="m-test" aria-selected="'+(mode==="test")+'">TEST MODULE</button></div></div>';
+  $app.innerHTML=h+'<div class="content-body" id="body"></div>';
   mode==="cards"?cards():test();
+  bindTouchEvents();
 }
+
 function home(){
-  var h='<span class="header-tag">What Makes A GRE Design</span><h1>★ RETRO VOCABULARY ★</h1><div class="stars">★★★</div>'+(function(){var t=0,k=0;for(var g=1;g<=38;g++){t+=W(g).length;k+=kn(g)}return '<div class="hero">PROGRESS: <b>'+k+'</b> / '+t+' WORDS MASTERED<div class="bar"><i style="width:'+Math.round(k/t*100)+'%"></i></div></div>'})()+'<div class="grid">';
-  for(var g=1;g<=38;g++){var n=W(g).length;h+='<button class="tile'+(n?'':' off')+'" '+(n?'data-g="'+g+'"':'disabled')+'><b>G-'+g+'</b><span>'+(n?kn(g)+'/'+n+' KNOWN':'LOCKED')+'</span><em class="pg" style="width:'+(n?Math.round(kn(g)/n*100):0)+'%"></em></button>'}
-  $app.innerHTML=h+'</div>';
+  var h='<div class="cp-hero-banner">'
+       +'<div class="cp-laurels">'
+       +'<div class="cp-laurel-item">"HIGH VOLTAGE VOX"<span>VOCAB MATRIX</span></div>'
+       +'<div class="cp-laurel-item">"A STELLAR SYSTEM"<span>GRE VERBAL</span></div>'
+       +'<div class="cp-laurel-item">"HARD REBOOT"<span>WORD ENGINE</span></div>'
+       +'</div>'
+       +'<div class="glitch-title">GET THE ULTIMATE GRE 2077 EXPERIENCE</div>'
+       +'<div class="sub-header">/// SYSTEM_STATUS: ONLINE /// SELECT DATA MODULE (1-38)</div>'
+       +'</div>'
+       +'<div class="grid-container">'
+       +'<div class="tech-tag">// GRE_DATABASE_RESOURCES // ACTIVE_NODES</div>'
+       +'<div class="group-grid">';
+  for(var g=1;g<=38;g++){
+    var n=W(g).length;
+    var ratio=n?Math.round(kn(g)/n*100):0;
+    h+='<button class="grid-card'+(n?'':' off')+'" '+(n?'data-g="'+g+'"':'disabled')+'>'
+      +'<div class="card-top">'
+      +'<span class="item-code">SEC_0'+(g<10?'0'+g:g)+'</span>'
+      +'<span>'+(n?kn(g)+'/'+n:'LOCKED')+'</span>'
+      +'</div>'
+      +'<div><b>GROUP '+(g<10?'0'+g:g)+'</b></div>'
+      +'<div class="pg-wrap"><div class="pg" style="width:'+ratio+'%"></div></div>'
+      +'</button>';
+  }
+  $app.innerHTML=h+'</div></div>';
 }
+
 function build(){queue=shuf(W(gid).filter(function(w){return!(S.known[w.g]||{})[w.t]}));built=true;fl=false}
+
 function cards(){
   if(!built)build();
-  var n=W(gid).length,k=kn(gid),b=document.getElementById("body"),h='<div class="stat"><span>KNOWN: '+k+'/'+n+'</span> <span>LEFT: '+queue.length+'</span> <button class="btn pr" data-a="shuffle" style="padding:6px 12px;font-size:0.65rem">SHUFFLE</button></div><div class="bar"><i style="width:'+Math.round(k/n*100)+'%"></i></div>';
-  if(!queue.length){b.innerHTML=h+'<div class="box"><h2>ROUND COMPLETE!</h2><p class="lead">EXCELLENT! ALL WORDS IN THIS GROUP MARKED AS KNOWN.</p><div class="act"><button class="btn" data-a="restart">RESET PROGRESS</button><button class="btn pr" data-a="m-test">TAKE TEST</button></div></div>';return}
+  var n=W(gid).length,k=kn(gid),b=document.getElementById("body");
+  var ratio=Math.round(k/n*100);
+  var h='<div class="stat-bar"><span>SYNCHRONIZED: '+k+'/'+n+' UNITS ('+queue.length+' REMAINING)</span><button class="cyber-btn cyan" data-a="shuffle" style="padding:4px 14px;font-size:0.75rem;min-height:32px;">SHUFFLE</button></div><div class="bar-container"><i style="width:'+ratio+'%"></i></div>';
+  
+  if(!queue.length){
+    b.innerHTML=h+'<div class="cyber-box"><h2>// PROTOCOL COMPLETE</h2><p style="color:var(--cp-muted);margin-bottom:20px;">All data units in this module have been synchronized.</p><div class="act"><button class="cyber-btn outline" data-a="restart">REBOOT MODULE</button><button class="cyber-btn" data-a="m-test">INITIALIZE TEST</button></div></div>';
+    return;
+  }
+  
   var w=queue[0];
-  h+='<div class="scene" id="scene" tabindex="0" role="button" aria-label="Flip card" data-a="flip"><div class="card'+(fl?' fl':'')+'" id="card"><div class="face front"><div class="term">'+w.t+'</div><div class="hint">[ PRESS SPACE / TAP TO FLIP ]</div></div>'
-   +'<div class="face back-f"><div class="pron">/'+w.p+'/</div>'+chip(w.c)+'<div class="bnm bn">'+w.b+'</div><div class="row"><small>Synonyms</small>'+w.s+'</div><div class="row"><small>Antonyms</small>'+w.a+'</div>'+(w.e?'<div class="row"><small>Example</small><i>'+w.e+'</i></div>':'')+'</div></div></div>'
-   +'<div class="act"><button class="btn no" data-a="again">◄ STILL LEARNING</button><button class="btn ok" data-a="know">I KNOW IT ►</button></div>';
+  h+='<div class="scene" id="scene" tabindex="0" role="button" aria-label="Flip card" data-a="flip">'
+   +'<div class="card'+(fl?' fl':'')+'" id="card">'
+   +'<div class="face front"><div class="term">'+w.t+'</div><div class="hint">CLICK / TAP TO DECRYPT</div></div>'
+   +'<div class="face back-f"><div class="pron">/'+w.p+'/</div>'+chip(w.c)+'<div class="bnm bn">'+w.b+'</div><div class="row syn"><small>Synonyms</small>'+w.s+'</div><div class="row ant"><small>Antonyms</small>'+w.a+'</div>'+(w.e?'<div class="row ex"><small>Context</small><i>"'+w.e+'"</i></div>':'')+'</div>'
+   +'</div></div>'
+   +'<div class="act"><button class="cyber-btn red" data-a="again">STILL LEARNING [&larr;]</button><button class="cyber-btn" data-a="know">I KNOW IT [&rarr;]</button></div>'
+   +'<div class="kbd-hints"><span><span class="kbd">SPACE</span> Flip Card</span><span><span class="kbd">&larr;</span> Learning</span><span><span class="kbd">&rarr;</span> Known</span><span><span class="kbd">SWIPE</span> Mobile Nav</span></div>';
   b.innerHTML=h;
 }
-var LBL={b:"Bangla meaning",s:"synonyms",a:"antonyms"};
-function blank(w){return(w.e||"").replace(new RegExp("\\b"+w.t.slice(0,Math.max(3,w.t.length-3))+"\\w*","i"),"_____")}
+
 function test(){
   var b=document.getElementById("body"),n=W(gid).length;
-  if(n<5){b.innerHTML='<div class="box"><p>THIS GROUP NEEDS AT LEAST 5 WORDS FOR A TEST.</p></div>';return}
+  if(n<5){b.innerHTML='<div class="cyber-box"><p>INSUFFICIENT DATA: Group requires at least 5 nodes for evaluation.</p></div>';return}
   if(!T){
     var best=S.best[gid];
-    b.innerHTML='<div class="box"><h2>GROUP '+gid+' TEST</h2><p class="lead">'+Math.min(20,n)+' QUESTIONS, 5 CHOICES EACH.'+(best!=null?' HIGH SCORE: '+best+'%.':'')+'</p><label>MODE:<br><select id="tt"><option value="b"'+(tType==="b"?" selected":"")+'>Bangla Meaning</option><option value="s"'+(tType==="s"?" selected":"")+'>Synonyms</option><option value="a"'+(tType==="a"?" selected":"")+'>Antonyms</option><option value="e"'+(tType==="e"?" selected":"")+'>Fill in the Blank</option><option value="m"'+(tType==="m"?" selected":"")+'>Mixed (Arcade Hard)</option></select></label><br><button class="btn pr" style="width:100%;margin-top:10px" data-a="start">START QUIZ</button></div>';
+    b.innerHTML='<div class="cyber-box"><h2>// DIAGNOSTIC EVALUATION</h2><p style="color:var(--cp-muted);margin-bottom:12px;">'+Math.min(20,n)+' Query Modules | 5 Vector Options</p>'
+               +(best!=null?'<div style="font-family:var(--font-mono);color:var(--cp-cyan);margin-bottom:16px;">PEAK PERFORMANCE RECORD: '+best+'%</div>':'')
+               +'<label class="mono" style="color:var(--cp-yellow);display:block;">EVALUATION VECTOR:<br><select id="tt"><option value="b"'+(tType==="b"?" selected":"")+'>Bangla meaning</option><option value="s"'+(tType==="s"?" selected":"")+'>Synonyms</option><option value="a"'+(tType==="a"?" selected":"")+'>Antonyms</option><option value="e"'+(tType==="e"?" selected":"")+'>Fill in the blank</option><option value="m"'+(tType==="m"?" selected":"")+'>Mixed (Hard Mode)</option></select></label><button class="cyber-btn" style="width:100%" data-a="start">INITIALIZE TEST</button></div>';
     return;
   }
   if(T.i>=T.qs.length){
     var pct=Math.round(T.sc/T.qs.length*100);
     if(S.best[gid]==null||pct>S.best[gid]){S.best[gid]=pct;save()}
-    var h='<div class="box"><h2>RESULT: '+T.sc+' / '+T.qs.length+' ('+pct+'%)</h2>';
-    if(T.miss.length){h+='<p class="lead">REVIEW MISSED WORDS:</p><ul class="miss">'+T.miss.map(function(w){return'<li><b>'+w.t+'</b>: <span class="bn">'+w.b+'</span><br><small>'+w.s+'</small></li>'}).join("")+'</ul>'}else h+='<p class="lead">★ PERFECT SCORE! ★</p>';
-    b.innerHTML=h+'<div class="act"><button class="btn" data-a="m-cards">BACK TO CARDS</button><button class="btn pr" data-a="retry">RETRY TEST</button></div></div>';return;
+    var h='<div class="cyber-box"><h2>// TEST RESULTS</h2><div class="qw" style="color:'+(pct>=80?'var(--cp-yellow)':'var(--cp-red)')+'">'+T.sc+' / '+T.qs.length+' ACCURATE ('+pct+'%)</div>';
+    if(T.miss.length){
+      h+='<p class="mono" style="color:var(--cp-red);text-align:left;">CORRUPTED NODES DETECTED:</p><ul class="miss">'+T.miss.map(function(w){return'<li><b>'+w.t+'</b>: <span class="bn" style="color:var(--cp-yellow)">'+w.b+'</span><br><small style="color:var(--cp-muted)">'+w.s+'</small></li>'}).join("")+'</ul>';
+    } else {
+      h+='<p class="mono" style="color:var(--cp-yellow);">SYSTEM INTEGRITY PERFECT. ALL VECTORS ACCURATE.</p>';
+    }
+    b.innerHTML=h+'<div class="act" style="margin-top:20px;"><button class="cyber-btn outline" data-a="m-cards">RETURN TO CARDS</button><button class="cyber-btn" data-a="retry">RE-TEST</button></div></div>';
+    return;
   }
-  var q=T.qs[T.i],f=q.f,h='<div class="stat"><span>QUESTION '+(T.i+1)+'/'+T.qs.length+'</span> <span>SCORE: '+T.sc+'</span></div><div class="bar"><i style="width:'+Math.round(T.i/T.qs.length*100)+'%"></i></div>'+(f==="e"?'<p class="q">CHOOSE THE WORD THAT FITS THE BLANK:</p><p class="qw" style="font-size:1.1rem;line-height:1.4">'+blank(q.w)+'</p>':'<p class="q">SELECT THE '+LBL[f].toUpperCase()+' OF:</p><p class="qw">'+q.w.t+'</p>');
+  
+  var q=T.qs[T.i],f=q.f;
+  var ratio=Math.round(T.i/T.qs.length*100);
+  var h='<div class="stat-bar"><span>QUERY NODE '+(T.i+1)+' / '+T.qs.length+'</span><span>SCORE: '+T.sc+'</span></div><div class="bar-container"><i style="width:'+ratio+'%"></i></div>'
+       +(f==="e"?'<p class="q">PROVIDE FITTING CONTEXTUAL NODE:</p><p class="qw" style="font-size:clamp(1.2rem, 4vw, 1.6rem);line-height:1.2">"'+blank(q.w)+'"</p>':'<p class="q">IDENTIFY TARGET '+LBL[f].toUpperCase()+':</p><p class="qw">'+q.w.t+'</p>');
+  
   q.o.forEach(function(o,i){
     var c="";if(T.pick!=null){if(i===q.ans)c=" good";else if(i===T.pick)c=" bad"}
-    h+='<button class="opt'+(f==="b"?" bn":"")+c+'" data-a="pick" data-i="'+i+'"'+(T.pick!=null?" disabled":"")+'>'+(i+1)+'. '+o+'</button>';
+    h+='<button class="opt'+(f==="b"?" bn":"")+c+'" data-a="pick" data-i="'+i+'"'+(T.pick!=null?" disabled":"")+'>'+o+'</button>';
   });
-  if(T.pick!=null)h+='<button class="btn pr" style="width:100%;margin-top:10px" data-a="next">'+(T.i+1<T.qs.length?"NEXT QUESTION ►":"SEE RESULTS ►")+'</button>';
+  
+  if(T.pick!=null) h+='<button class="cyber-btn" style="width:100%;margin-top:12px" data-a="next">'+(T.i+1<T.qs.length?"NEXT QUERY &rarr;":"EXECUTE ANALYTICS")+'</button>';
   b.innerHTML=h;
 }
+
 function startTest(){
   var ws=W(gid),qs=shuf(ws).slice(0,20).map(function(w){
     var f=tType==="m"?["b","s","a","e"][Math.floor(Math.random()*4)]:tType;
     if(f==="e"&&!w.e)f="b";
     var key=f==="e"?"t":f;
-    var filtered = ws.filter(function(x){return x && x[key] !== w[key] && x[key]});
-    if(filtered.length < 4) {
-      filtered = W(0).filter(function(x){return x && x[key] !== w[key] && x[key]});
-    }
-    var d=shuf(filtered).slice(0,4).map(function(x){return x[key]});
-    var o=shuf(d.concat([w[key]]));
+    var d=shuf(ws.filter(function(x){return x[key]!==w[key]})).sort(function(x,y){return (y.c===w.c)-(x.c===w.c)}).slice(0,4).map(function(x){return x[key]});if(f==="s")d[0]=w.a;else if(f==="a")d[0]=w.s;var o=shuf(d.concat([w[key]]));
     return{w:w,f:f,o:o,ans:o.indexOf(w[key])};
   });
   T={qs:qs,i:0,sc:0,pick:null,miss:[],type:tType};
 }
+
 function mark(w,add){var g=w.g;S.known[g]=S.known[g]||{};if(add)S.known[g][w.t]=true;save()}
+
+/* Mobile Menu Handler */
+document.getElementById('menuToggle').addEventListener('click', function(e){
+  e.stopPropagation();
+  var nav=document.getElementById('navLinks');
+  nav.classList.toggle('open');
+});
+
+document.addEventListener('click', function(e){
+  var nav=document.getElementById('navLinks');
+  if(nav && nav.classList.contains('open') && !e.target.closest('#navLinks') && !e.target.closest('#menuToggle')){
+    nav.classList.remove('open');
+  }
+});
+
+/* Touch / Swipe Handling for Flashcards */
+var touchStartX = 0;
+var touchStartY = 0;
+
+function bindTouchEvents(){
+  var scene=document.getElementById('scene');
+  if(!scene) return;
+  scene.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, {passive: true});
+  
+  scene.addEventListener('touchend', function(e){
+    var touchEndX = e.changedTouches[0].screenX;
+    var touchEndY = e.changedTouches[0].screenY;
+    handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+  }, {passive: true});
+}
+
+function handleSwipe(startX, startY, endX, endY) {
+  var diffX = endX - startX;
+  var diffY = endY - startY;
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+    if (diffX < 0) {
+      // Swipe Left -> Next / Known
+      mark(queue[0], true);
+      queue.shift();
+      fl = false;
+      cards();
+      bindTouchEvents();
+    } else {
+      // Swipe Right -> Still Learning
+      var w = queue.shift();
+      queue.splice(Math.min(3, queue.length), 0, w);
+      fl = false;
+      cards();
+      bindTouchEvents();
+    }
+  }
+}
+
 document.addEventListener("click",function(e){
   var el=e.target.closest("[data-a],[data-g]");if(!el)return;
-  playSound("click");
+  var nav=document.getElementById('navLinks');
+  if(nav) nav.classList.remove('open');
+
   if(el.dataset.g){gid=+el.dataset.g;view="group";mode="cards";built=false;T=null;return render()}
   var a=el.dataset.a;
   if(a==="home"){view="home";T=null;return render()}
   if(a==="m-cards"){mode="cards";T=null;built=false;return render()}
   if(a==="m-test"){mode="test";T=null;return render()}
-  if(a==="flip"){playSound("flip");fl=!fl;var c=document.getElementById("card");if(c)c.classList.toggle("fl",fl);return}
-  if(a==="know"){playSound("ok");mark(queue[0],true);queue.shift();fl=false;return cards()}
-  if(a==="again"){playSound("no");var w=queue.shift();queue.splice(Math.min(3,queue.length),0,w);fl=false;return cards()}
-  if(a==="shuffle"){queue=shuf(queue);fl=false;return cards()}
-  if(a==="restart"){W(gid).forEach(function(w){if(S.known[w.g])delete S.known[w.g][w.t]});save();built=false;return cards()}
+  if(a==="flip"){
+    fl=!fl;
+    var c=document.getElementById("card");
+    if(c)c.classList.toggle("fl",fl);
+    return;
+  }
+  if(a==="know"){mark(queue[0],true);queue.shift();fl=false;cards();bindTouchEvents();return}
+  if(a==="again"){var w=queue.shift();queue.splice(Math.min(3,queue.length),0,w);fl=false;cards();bindTouchEvents();return}
+  if(a==="shuffle"){queue=shuf(queue);fl=false;cards();bindTouchEvents();return}
+  if(a==="restart"){W(gid).forEach(function(w){if(S.known[w.g])delete S.known[w.g][w.t]});save();built=false;cards();bindTouchEvents();return}
   if(a==="start"){var s=document.getElementById("tt");if(s)tType=s.value;startTest();return test()}
   if(a==="retry"){T=null;return test()}
-  if(a==="pick"&&T&&T.pick==null){
-    var q=T.qs[T.i];T.pick=+el.dataset.i;
-    if(T.pick===q.ans){playSound("ok");T.sc++;}else{playSound("no");T.miss.push(q.w);}
-    return test();
-  }
+  if(a==="pick"&&T&&T.pick==null){var q=T.qs[T.i];T.pick=+el.dataset.i;if(T.pick===q.ans)T.sc++;else T.miss.push(q.w);return test()}
   if(a==="next"){T.i++;T.pick=null;return test()}
 });
+
 document.addEventListener("keydown",function(e){
   if(view!=="group"||mode!=="cards"||!queue.length)return;
-  var tg=e.target.tagName;if(tg==="SELECT"||tg==="INPUT")return;
-  if(e.key===" "){e.preventDefault();playSound("flip");fl=!fl;var c=document.getElementById("card");if(c)c.classList.toggle("fl",fl)}
-  else if(e.key==="ArrowRight"){playSound("ok");mark(queue[0],true);queue.shift();fl=false;cards()}
-  else if(e.key==="ArrowLeft"){playSound("no");var w=queue.shift();queue.splice(Math.min(3,queue.length),0,w);fl=false;cards()}
+  var tg=e.target.tagName;if(tg==="SELECT"||tg==="INPUT"||tg==="BUTTON")return;
+  
+  if(e.key===" " || e.code==="Space"){
+    e.preventDefault();
+    fl=!fl;
+    var c=document.getElementById("card");
+    if(c)c.classList.toggle("fl",fl);
+  }
+  else if(e.key==="ArrowRight"){
+    e.preventDefault();
+    mark(queue[0],true);
+    queue.shift();
+    fl=false;
+    cards();
+    bindTouchEvents();
+  }
+  else if(e.key==="ArrowLeft"){
+    e.preventDefault();
+    var w=queue.shift();
+    queue.splice(Math.min(3,queue.length),0,w);
+    fl=false;
+    cards();
+    bindTouchEvents();
+  }
 });
+
 load();render();
 })();
 </script>

@@ -7,7 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-color: #d6503b;
+  --bg-color: #b23b28;
+  --dot: #9a3020;
   --paper: #f3edd7;
   --paper-dark: #e5dbba;
   --ink: #2b2625;
@@ -15,9 +16,9 @@
   --accent: #d6503b;
   --accent-dark: #b23b28;
   --gold: #d99a38;
-  --teal: #3b8b88;
-  --ok: #347a52;
-  --no: #b5382b;
+  --teal: #2c6f6c;
+  --ok: #2a6644;
+  --no: #9e2e22;
   --shadow: 3px 3px 0px rgba(43, 38, 37, 0.85);
   --shadow-lg: 5px 5px 0px rgba(43, 38, 37, 0.85);
 }
@@ -32,12 +33,13 @@ body {
   font-size: 20px;
   line-height: 1.4;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
   /* Vintage Linen / Texture Pattern Simulation */
   background-image: 
-    radial-gradient(var(--accent-dark) 15%, transparent 16%),
-    radial-gradient(var(--accent-dark) 15%, transparent 16%);
+    radial-gradient(var(--dot) 15%, transparent 16%),
+    radial-gradient(var(--dot) 15%, transparent 16%);
   background-size: 16px 16px;
   background-position: 0 0, 8px 8px;
 }
@@ -236,7 +238,7 @@ h1 {
 }
 
 .tabs button[aria-selected="true"] {
-  background: var(--accent);
+  background: var(--accent-dark);
   color: var(--paper);
 }
 
@@ -383,7 +385,7 @@ h1 {
 .btn.ok { background: #d3ebd8; color: var(--ok); border-color: var(--ink); }
 .btn.ok:hover { background: var(--ok); color: var(--paper); }
 .btn.pr { background: var(--paper); color: var(--ink); }
-.btn.pr:hover { background: var(--accent); color: var(--paper); }
+.btn.pr:hover { background: var(--accent-dark); color: var(--paper); }
 
 .box {
   background: var(--paper);
@@ -479,12 +481,71 @@ select {
   border-bottom: 2px dashed var(--ink);
 }
 
+/* ---- Polish pass: contrast, type, mobile, focus ---- */
+::selection { background: var(--ink); color: var(--paper); }
+
+main {
+  padding: 30px max(18px, env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+}
+
+h1, .box h2, .q, .qw { text-wrap: balance; }
+.box p { max-width: 60ch; margin-left: auto; margin-right: auto; }
+.stat, .hero, .tile span, .box h2 { font-variant-numeric: tabular-nums; }
+
+/* The inner dashed frame was paper on paper, so it never showed */
+.hero { outline-color: var(--accent); }
+
+/* Small heading and small button fixes */
+.top h1 { text-shadow: 2px 2px 0 var(--ink); letter-spacing: 1.5px; }
+.stat .btn { font-size: 0.8rem !important; }
+.bar + .q { margin-top: 20px; }
+.bar + .scene, .bar + #body { margin-top: 20px; }
+
+/* Locked groups stay readable: change the surface, not the opacity */
+.tile.off { opacity: 1; }
+.tile.off b { color: var(--ink-light); }
+
+/* Card height follows its content, so long entries never scroll inside the card */
+.scene { height: auto; min-height: clamp(380px, 62vh, 500px); display: grid; }
+.card { height: auto; display: grid; }
+.face { position: relative; inset: auto; grid-area: 1 / 1; overflow: visible; }
+.btn { white-space: normal; }
+
+/* Keyboard focus that reads on both the red field and the paper */
+button:focus-visible, select:focus-visible, .scene:focus-visible {
+  outline: 3px solid var(--paper);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px var(--ink);
+}
+.scene:focus-visible .face { outline-color: var(--accent); }
+
+@media (hover: none) {
+  .tile:not(.off):hover { transform: none; box-shadow: var(--shadow); background: var(--paper); }
+}
+
 @media (max-width: 600px) {
+  body { font-size: 18px; }
   h1 { font-size: 1.8rem; }
   .header-tag { font-size: 1.2rem; }
-  .scene { height: 440px; }
-  .grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 12px; }
   .tile b { font-size: 1.4rem; }
+  button, .back { min-height: 44px; }
+  .top { gap: 10px; margin-bottom: 18px; }
+  .tabs { width: 100%; margin-left: 0; }
+  .tabs button { flex: 1; }
+  .act { gap: 12px; }
+  .face { padding: 22px 18px; outline-offset: -9px; }
+  .pron { font-size: 1.2rem; }
+  .bnm { font-size: 1.7rem; }
+  .row { font-size: 1.05rem; }
+  .box { padding: 26px 18px; }
+  .qw { font-size: 1.5rem; }
+  .opt { font-size: 1.05rem; padding: 14px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .bar i, .tile { transition: none; }
+  .tile:not(.off):hover, .tile:not(.off):active { transform: none; }
 }
 </style>
 </head>
